@@ -1,0 +1,3 @@
+C:/Users/carla/Desktop/AHK/Arvie Knob Macro/build/CMakeFiles/knoblaunch.dir
+C:/Users/carla/Desktop/AHK/Arvie Knob Macro/build/CMakeFiles/edit_cache.dir
+C:/Users/carla/Desktop/AHK/Arvie Knob Macro/build/CMakeFiles/rebuild_cache.dir
