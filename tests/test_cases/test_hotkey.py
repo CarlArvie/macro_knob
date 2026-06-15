@@ -2,7 +2,7 @@ import unittest
 import os
 import time
 import ctypes
-from test_cases.test_base import KnobLaunchTestBase, User32, VK_VOLUME_MUTE, VK_F13, POINT
+from test_cases.test_base import KnobLaunchTestBase, User32, VK_VOLUME_MUTE, VK_F13, POINT, GUI_AVAILABLE
 
 # Determine if the daemon executable is available
 WORKSPACE_DIR = r"c:\Users\carla\Desktop\AHK\Arvie Knob Macro"
@@ -14,20 +14,6 @@ if not os.path.exists(DAEMON_EXE):
 
 DAEMON_EXISTS = os.path.exists(DAEMON_EXE)
 
-# Check if GUI interactions are supported in the current session
-def check_gui_available():
-    pt = POINT()
-    if not User32.GetCursorPos(ctypes.byref(pt)):
-        return False
-    ret = User32.SetCursorPos(pt.x, pt.y)
-    if ret == 0:
-        err = ctypes.windll.kernel32.GetLastError()
-        if err == 5:  # ERROR_ACCESS_DENIED
-            return False
-    return True
-
-GUI_AVAILABLE = check_gui_available()
-
 # Constants
 VK_F24 = 0x87
 WM_COMMAND = 0x0111
@@ -35,6 +21,7 @@ ID_TRAY_DISABLE = 40001 # Mock command ID for tray menu toggle
 ID_TRAY_ENABLE = 40002
 
 @unittest.skipIf(not DAEMON_EXISTS, "knoblaunch.exe not found. Build the project first.")
+@unittest.skipIf(not GUI_AVAILABLE, "Interactive GUI session not available")
 class TestHotkey(KnobLaunchTestBase):
 
     def test_t1_f1_1_default_hotkey_hold(self):

@@ -4,6 +4,7 @@
 #include <string>
 #include "config_store.h"
 #include "radial_menu.h"
+#include "input_hook.h"
 
 // Global ConfigStore instance
 ConfigStore g_configStore;
@@ -12,6 +13,8 @@ ConfigStore g_configStore;
 #define ID_OPEN_CONFIG 1001
 #define ID_TRAY_RELOAD 40003
 #define ID_TRAY_EXIT 40004
+#define ID_TRAY_DISABLE 40001
+#define ID_TRAY_ENABLE 40002
 
 void ShowTrayBalloon(HWND hWnd, const std::wstring& title, const std::wstring& message) {
     NOTIFYICONDATAW nid = {};
@@ -25,6 +28,8 @@ void ShowTrayBalloon(HWND hWnd, const std::wstring& title, const std::wstring& m
     Shell_NotifyIconW(NIM_MODIFY, &nid);
 }
 
+extern void DebugLog(const std::string& msg);
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
     switch (message) {
     case WM_TRAYICON:
@@ -36,6 +41,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
                 AppendMenuW(hMenu, MF_STRING, ID_OPEN_CONFIG, L"Open Config");
                 AppendMenuW(hMenu, MF_STRING, ID_TRAY_RELOAD, L"Reload Config");
                 AppendMenuW(hMenu, MF_SEPARATOR, 0, NULL);
+                if (IsInputHookEnabled()) {
+                    AppendMenuW(hMenu, MF_STRING, ID_TRAY_DISABLE, L"Disable");
+                } else {
+                    AppendMenuW(hMenu, MF_STRING, ID_TRAY_ENABLE, L"Enable");
+                }
+                AppendMenuW(hMenu, MF_SEPARATOR, 0, NULL);
                 AppendMenuW(hMenu, MF_STRING, ID_TRAY_EXIT, L"Exit");
                 
                 SetForegroundWindow(hWnd);
@@ -44,6 +55,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
                 DestroyMenu(hMenu);
             }
         }
+        break;
+    case WM_HOLD_TIMER:
+        HandleHoldTimer(wParam);
         break;
     case WM_COMMAND:
         switch (LOWORD(wParam)) {
@@ -54,10 +68,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
         }
         case ID_TRAY_RELOAD:
             if (g_configStore.Load()) {
+                UpdateHookConfig();
                 ShowTrayBalloon(hWnd, L"KnobLaunch", L"Configuration reloaded successfully.");
             } else {
                 ShowTrayBalloon(hWnd, L"KnobLaunch", L"Failed to reload configuration.");
             }
+            break;
+        case ID_TRAY_DISABLE:
+            EnableInputHook(false);
+            ShowTrayBalloon(hWnd, L"KnobLaunch", L"Hotkey input hook disabled.");
+            break;
+        case ID_TRAY_ENABLE:
+            EnableInputHook(true);
+            ShowTrayBalloon(hWnd, L"KnobLaunch", L"Hotkey input hook enabled.");
             break;
         case ID_TRAY_EXIT:
             DestroyWindow(hWnd);
@@ -65,6 +88,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
         }
         break;
     case WM_DESTROY: {
+        StopInputHook();
         NOTIFYICONDATAW nid = {};
         nid.cbSize = sizeof(nid);
         nid.hWnd = hWnd;
@@ -86,6 +110,24 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     (void)hPrevInstance;
     (void)lpCmdLine;
     (void)nCmdShow;
+
+    // Set process priority class to above normal for responsive hook processing
+    SetPriorityClass(GetCurrentProcess(), ABOVE_NORMAL_PRIORITY_CLASS);
+    // Removed THREAD_PRIORITY_TIME_CRITICAL to prevent system-wide freezes
+
+    // Load winmm for high precision timers
+    HMODULE hWinmm = LoadLibraryA("winmm.dll");
+    typedef UINT(WINAPI* PfnTimeBeginPeriod)(UINT);
+    typedef UINT(WINAPI* PfnTimeEndPeriod)(UINT);
+    PfnTimeBeginPeriod pTimeBeginPeriod = nullptr;
+    PfnTimeEndPeriod pTimeEndPeriod = nullptr;
+    if (hWinmm) {
+        pTimeBeginPeriod = (PfnTimeBeginPeriod)GetProcAddress(hWinmm, "timeBeginPeriod");
+        pTimeEndPeriod = (PfnTimeEndPeriod)GetProcAddress(hWinmm, "timeEndPeriod");
+        if (pTimeBeginPeriod) {
+            pTimeBeginPeriod(1);
+        }
+    }
 
     // Initialize GDI+
     Gdiplus::GdiplusStartupInput gdiplusStartupInput;
@@ -125,6 +167,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return 1;
     }
 
+    // Start input hook
+    StartInputHook(hWnd);
+
     // Setup tray icon
     NOTIFYICONDATAW nid = {};
     nid.cbSize = sizeof(nid);
@@ -145,6 +190,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // Shutdown GDI+
     Gdiplus::GdiplusShutdown(gdiplusToken);
+
+    if (pTimeEndPeriod) {
+        pTimeEndPeriod(1);
+    }
+    if (hWinmm) {
+        FreeLibrary(hWinmm);
+    }
 
     return (int)msg.wParam;
 }

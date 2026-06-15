@@ -4,7 +4,7 @@ import os
 import time
 import ctypes
 import subprocess
-from test_cases.test_base import KnobLaunchTestBase, User32, VK_VOLUME_MUTE
+from test_cases.test_base import KnobLaunchTestBase, User32, VK_VOLUME_MUTE, GUI_AVAILABLE
 
 WORKSPACE_DIR = r"c:\Users\carla\Desktop\AHK\Arvie Knob Macro"
 DAEMON_EXE = os.path.join(WORKSPACE_DIR, "knoblaunch.exe")
@@ -19,6 +19,7 @@ AHK_EXE = os.path.join(WORKSPACE_DIR, "bin", "AutoHotkey64.exe")
 AHK_EXISTS = os.path.exists(AHK_EXE)
 
 @unittest.skipIf(not DAEMON_EXISTS, "knoblaunch.exe not found. Build the project first.")
+@unittest.skipIf(not GUI_AVAILABLE, "Interactive GUI session not available")
 class TestMacro(KnobLaunchTestBase):
 
     def setUp(self):

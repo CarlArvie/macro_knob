@@ -1,0 +1,1440 @@
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+[2026-06-13 21:42:36] [PID:17080] WndProc: message=36 wParam=0
+[2026-06-13 21:42:36] [PID:17080] WndProc: message=129 wParam=0
+[2026-06-13 21:42:36] [PID:17080] WndProc: message=131 wParam=0
+[2026-06-13 21:42:36] [PID:17080] WndProc: message=1 wParam=0
+[2026-06-13 21:42:36] [PID:17080] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:36] [PID:17080] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:42:36] [PID:17080] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:36] [PID:17080] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:36] [PID:17080] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:36] [PID:17080] wWinMain: Entering message loop
+[2026-06-13 21:42:36] [PID:17080] WndProc: message=799 wParam=1
+[2026-06-13 21:42:37] [PID:17080] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:42:37] [PID:17080] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:42:37] [PID:17080] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:42:37] [PID:17080] WndProc: message=275 wParam=1
+[2026-06-13 21:42:37] [PID:17080] HandleHoldTimer called.
+[2026-06-13 21:42:37] [PID:17080] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:42:37] [PID:17080] CreateRadialMenu: CursorPos = 906, 278
+[2026-06-13 21:42:37] [PID:17080] WndProc: message=70 wParam=0
+[2026-06-13 21:42:37] [PID:17080] WndProc: message=28 wParam=1
+[2026-06-13 21:42:37] [PID:17080] CreateRadialMenu: CreateWindowExW succeeded. HWND = 4328542
+[2026-06-13 21:42:37] [PID:17080] CreateRadialMenu: Warping cursor to center: 906, 278
+[2026-06-13 21:42:37] [PID:17080] HandleHoldTimer: Radial menu created. HWND=4328542
+[2026-06-13 21:42:37] [PID:17080] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:42:37] [PID:17080] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:42:37] [PID:17080] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:42:37] [PID:17080] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:42:37] [PID:17080] LowLevelKeyboardProc: Mouse distance=4.000000
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+[2026-06-13 21:42:37] [PID:1792] WndProc: message=36 wParam=0
+[2026-06-13 21:42:37] [PID:1792] WndProc: message=129 wParam=0
+[2026-06-13 21:42:37] [PID:1792] WndProc: message=131 wParam=0
+[2026-06-13 21:42:37] [PID:1792] WndProc: message=1 wParam=0
+[2026-06-13 21:42:37] [PID:1792] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:37] [PID:1792] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:42:37] [PID:1792] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:37] [PID:1792] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:37] [PID:1792] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:37] [PID:1792] wWinMain: Entering message loop
+[2026-06-13 21:42:37] [PID:1792] WndProc: message=799 wParam=1
+[2026-06-13 21:42:38] [PID:1792] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:42:38] [PID:1792] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:42:38] [PID:1792] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:42:38] [PID:1792] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:42:38] [PID:1792] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:42:38] [PID:1792] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:42:38] [PID:1792] LowLevelKeyboardProc: Menu not visible, sending simulated tap.
+[2026-06-13 21:42:38] [PID:1792] LowLevelKeyboardProc: vkCode=173 flags=17 extra=3735929054
+[2026-06-13 21:42:38] [PID:1792] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:42:38] [PID:1792] LowLevelKeyboardProc: vkCode=173 flags=145 extra=3735929054
+[2026-06-13 21:42:38] [PID:1792] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+[2026-06-13 21:42:38] [PID:15180] WndProc: message=36 wParam=0
+[2026-06-13 21:42:38] [PID:15180] WndProc: message=129 wParam=0
+[2026-06-13 21:42:38] [PID:15180] WndProc: message=131 wParam=0
+[2026-06-13 21:42:38] [PID:15180] WndProc: message=1 wParam=0
+[2026-06-13 21:42:38] [PID:15180] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:38] [PID:15180] StartInputHook: Hooking targetVk=135 threshold=150
+[2026-06-13 21:42:38] [PID:15180] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:38] [PID:15180] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:38] [PID:15180] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:38] [PID:15180] wWinMain: Entering message loop
+[2026-06-13 21:42:38] [PID:15180] WndProc: message=799 wParam=1
+[2026-06-13 21:42:39] [PID:15180] LowLevelKeyboardProc: vkCode=135 flags=16 extra=0
+[2026-06-13 21:42:39] [PID:15180] LowLevelKeyboardProc: target hotkey matched. vkCode=135 isDown=1 isUp=0
+[2026-06-13 21:42:39] [PID:15180] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:42:39] [PID:15180] WndProc: message=275 wParam=1
+[2026-06-13 21:42:39] [PID:15180] HandleHoldTimer called.
+[2026-06-13 21:42:39] [PID:15180] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:42:39] [PID:15180] CreateRadialMenu: CursorPos = 619, 822
+[2026-06-13 21:42:39] [PID:15180] WndProc: message=70 wParam=0
+[2026-06-13 21:42:39] [PID:15180] WndProc: message=28 wParam=1
+[2026-06-13 21:42:39] [PID:15180] WndProc: message=71 wParam=0
+[2026-06-13 21:42:39] [PID:15180] WndProc: message=127 wParam=2
+[2026-06-13 21:42:39] [PID:15180] WndProc: message=127 wParam=0
+[2026-06-13 21:42:39] [PID:15180] WndProc: message=127 wParam=1
+[2026-06-13 21:42:39] [PID:15180] CreateRadialMenu: CreateWindowExW succeeded. HWND = 658536
+[2026-06-13 21:42:39] [PID:15180] CreateRadialMenu: Warping cursor to center: 619, 822
+[2026-06-13 21:42:39] [PID:15180] HandleHoldTimer: Radial menu created. HWND=658536
+[2026-06-13 21:42:39] [PID:15180] LowLevelKeyboardProc: vkCode=91 flags=1 extra=0
+[2026-06-13 21:42:39] [PID:15180] LowLevelKeyboardProc: vkCode=135 flags=144 extra=0
+[2026-06-13 21:42:39] [PID:15180] LowLevelKeyboardProc: target hotkey matched. vkCode=135 isDown=0 isUp=1
+[2026-06-13 21:42:39] [PID:15180] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:42:39] [PID:15180] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:42:39] [PID:15180] LowLevelKeyboardProc: Mouse distance=29.017236
+[2026-06-13 21:42:39] [PID:15180] LowLevelKeyboardProc: vkCode=91 flags=129 extra=0
+[2026-06-13 21:42:39] [PID:15180] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:42:39] [PID:15180] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+[2026-06-13 21:42:39] [PID:9576] WndProc: message=36 wParam=0
+[2026-06-13 21:42:39] [PID:9576] WndProc: message=129 wParam=0
+[2026-06-13 21:42:39] [PID:9576] WndProc: message=131 wParam=0
+[2026-06-13 21:42:39] [PID:9576] WndProc: message=1 wParam=0
+[2026-06-13 21:42:39] [PID:9576] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:39] [PID:9576] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:42:39] [PID:9576] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:39] [PID:9576] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:39] [PID:9576] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:39] [PID:9576] wWinMain: Entering message loop
+[2026-06-13 21:42:39] [PID:9576] WndProc: message=799 wParam=1
+[2026-06-13 21:42:39] [PID:9576] LowLevelKeyboardProc: vkCode=91 flags=1 extra=0
+[2026-06-13 21:42:39] [PID:9576] LowLevelKeyboardProc: vkCode=91 flags=129 extra=0
+[2026-06-13 21:42:40] [PID:9576] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:42:40] [PID:9576] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:42:40] [PID:9576] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:42:40] [PID:9576] WndProc: message=275 wParam=1
+[2026-06-13 21:42:40] [PID:9576] HandleHoldTimer called.
+[2026-06-13 21:42:40] [PID:9576] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:42:40] [PID:9576] CreateRadialMenu: CursorPos = 644, 607
+[2026-06-13 21:42:40] [PID:9576] WndProc: message=70 wParam=0
+[2026-06-13 21:42:40] [PID:9576] WndProc: message=28 wParam=1
+[2026-06-13 21:42:40] [PID:9576] WndProc: message=71 wParam=0
+[2026-06-13 21:42:40] [PID:9576] WndProc: message=127 wParam=2
+[2026-06-13 21:42:40] [PID:9576] WndProc: message=127 wParam=0
+[2026-06-13 21:42:40] [PID:9576] WndProc: message=127 wParam=1
+[2026-06-13 21:42:40] [PID:9576] CreateRadialMenu: CreateWindowExW succeeded. HWND = 1444964
+[2026-06-13 21:42:40] [PID:9576] CreateRadialMenu: Warping cursor to center: 644, 607
+[2026-06-13 21:42:40] [PID:9576] HandleHoldTimer: Radial menu created. HWND=1444964
+[2026-06-13 21:42:40] [PID:9576] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:42:40] [PID:9576] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:42:40] [PID:9576] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:42:40] [PID:9576] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:42:40] [PID:9576] LowLevelKeyboardProc: Mouse distance=3.162278
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+[2026-06-13 21:42:40] [PID:10000] WndProc: message=36 wParam=0
+[2026-06-13 21:42:40] [PID:10000] WndProc: message=129 wParam=0
+[2026-06-13 21:42:40] [PID:10000] WndProc: message=131 wParam=0
+[2026-06-13 21:42:40] [PID:10000] WndProc: message=1 wParam=0
+[2026-06-13 21:42:40] [PID:10000] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:40] [PID:10000] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:42:40] [PID:10000] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:40] [PID:10000] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:40] [PID:10000] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:40] [PID:10000] wWinMain: Entering message loop
+[2026-06-13 21:42:40] [PID:10000] WndProc: message=799 wParam=1
+[2026-06-13 21:42:41] [PID:10000] LowLevelKeyboardProc: vkCode=27 flags=0 extra=0
+[2026-06-13 21:42:41] [PID:10000] LowLevelKeyboardProc: vkCode=27 flags=128 extra=0
+[2026-06-13 21:42:41] [PID:10000] WndProc: message=273 wParam=40001
+[2026-06-13 21:42:41] [PID:10000] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:42:41] [PID:10000] LowLevelKeyboardProc: vkCode=162 flags=128 extra=0
+[2026-06-13 21:42:41] [PID:10000] LowLevelKeyboardProc: vkCode=160 flags=128 extra=0
+[2026-06-13 21:42:41] [PID:10000] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:42:41] [PID:10000] WndProc: message=273 wParam=40002
+[2026-06-13 21:42:41] [PID:10000] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:42:41] [PID:10000] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:42:41] [PID:10000] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:42:41] [PID:10000] WndProc: message=275 wParam=1
+[2026-06-13 21:42:41] [PID:10000] HandleHoldTimer called.
+[2026-06-13 21:42:41] [PID:10000] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:42:41] [PID:10000] CreateRadialMenu: CursorPos = 640, 587
+[2026-06-13 21:42:41] [PID:10000] WndProc: message=70 wParam=0
+[2026-06-13 21:42:41] [PID:10000] WndProc: message=28 wParam=1
+[2026-06-13 21:42:41] [PID:10000] WndProc: message=71 wParam=0
+[2026-06-13 21:42:41] [PID:10000] WndProc: message=127 wParam=2
+[2026-06-13 21:42:41] [PID:10000] WndProc: message=127 wParam=0
+[2026-06-13 21:42:41] [PID:10000] WndProc: message=127 wParam=1
+[2026-06-13 21:42:41] [PID:10000] CreateRadialMenu: CreateWindowExW succeeded. HWND = 197408
+[2026-06-13 21:42:41] [PID:10000] CreateRadialMenu: Warping cursor to center: 640, 587
+[2026-06-13 21:42:41] [PID:10000] HandleHoldTimer: Radial menu created. HWND=197408
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+[2026-06-13 21:42:41] [PID:4088] WndProc: message=36 wParam=0
+[2026-06-13 21:42:41] [PID:4088] WndProc: message=129 wParam=0
+[2026-06-13 21:42:41] [PID:4088] WndProc: message=131 wParam=0
+[2026-06-13 21:42:41] [PID:4088] WndProc: message=1 wParam=0
+[2026-06-13 21:42:41] [PID:4088] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:41] [PID:4088] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:42:41] [PID:4088] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:41] [PID:4088] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:41] [PID:4088] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:41] [PID:4088] wWinMain: Entering message loop
+[2026-06-13 21:42:41] [PID:4088] WndProc: message=799 wParam=1
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+[2026-06-13 21:42:42] [PID:14244] WndProc: message=36 wParam=0
+[2026-06-13 21:42:42] [PID:14244] WndProc: message=129 wParam=0
+[2026-06-13 21:42:42] [PID:14244] WndProc: message=131 wParam=0
+[2026-06-13 21:42:42] [PID:14244] WndProc: message=1 wParam=0
+[2026-06-13 21:42:42] [PID:14244] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:42] [PID:14244] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:42:42] [PID:14244] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:42] [PID:14244] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:42] [PID:14244] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:42] [PID:14244] wWinMain: Entering message loop
+[2026-06-13 21:42:42] [PID:14244] WndProc: message=799 wParam=1
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+[2026-06-13 21:42:43] [PID:5820] WndProc: message=36 wParam=0
+[2026-06-13 21:42:43] [PID:5820] WndProc: message=129 wParam=0
+[2026-06-13 21:42:43] [PID:5820] WndProc: message=131 wParam=0
+[2026-06-13 21:42:43] [PID:5820] WndProc: message=1 wParam=0
+[2026-06-13 21:42:43] [PID:5820] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:43] [PID:5820] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:42:43] [PID:5820] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:43] [PID:5820] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:43] [PID:5820] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:43] [PID:5820] wWinMain: Entering message loop
+[2026-06-13 21:42:43] [PID:5820] WndProc: message=799 wParam=1
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+[2026-06-13 21:42:44] [PID:10172] WndProc: message=36 wParam=0
+[2026-06-13 21:42:44] [PID:10172] WndProc: message=129 wParam=0
+[2026-06-13 21:42:44] [PID:10172] WndProc: message=131 wParam=0
+[2026-06-13 21:42:44] [PID:10172] WndProc: message=1 wParam=0
+[2026-06-13 21:42:44] [PID:10172] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:44] [PID:10172] StartInputHook: Hooking targetVk=173 threshold=10
+[2026-06-13 21:42:44] [PID:10172] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:44] [PID:10172] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:44] [PID:10172] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:44] [PID:10172] wWinMain: Entering message loop
+[2026-06-13 21:42:44] [PID:10172] WndProc: message=799 wParam=1
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+[2026-06-13 21:42:45] [PID:10864] WndProc: message=36 wParam=0
+[2026-06-13 21:42:45] [PID:10864] WndProc: message=129 wParam=0
+[2026-06-13 21:42:45] [PID:10864] WndProc: message=131 wParam=0
+[2026-06-13 21:42:45] [PID:10864] WndProc: message=1 wParam=0
+[2026-06-13 21:42:45] [PID:10864] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:45] [PID:10864] StartInputHook: Hooking targetVk=173 threshold=3000
+[2026-06-13 21:42:45] [PID:10864] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:45] [PID:10864] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:45] [PID:10864] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:45] [PID:10864] wWinMain: Entering message loop
+[2026-06-13 21:42:45] [PID:10864] WndProc: message=799 wParam=1
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+[2026-06-13 21:42:48] [PID:5728] WndProc: message=36 wParam=0
+[2026-06-13 21:42:48] [PID:5728] WndProc: message=129 wParam=0
+[2026-06-13 21:42:48] [PID:5728] WndProc: message=131 wParam=0
+[2026-06-13 21:42:48] [PID:5728] WndProc: message=1 wParam=0
+[2026-06-13 21:42:48] [PID:5728] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:48] [PID:5728] StartInputHook: Hooking targetVk=135 threshold=500
+[2026-06-13 21:42:48] [PID:5728] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:48] [PID:5728] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:48] [PID:5728] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:48] [PID:5728] wWinMain: Entering message loop
+[2026-06-13 21:42:48] [PID:5728] WndProc: message=799 wParam=1
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+[2026-06-13 21:42:50] [PID:14180] WndProc: message=36 wParam=0
+[2026-06-13 21:42:50] [PID:14180] WndProc: message=129 wParam=0
+[2026-06-13 21:42:50] [PID:14180] WndProc: message=131 wParam=0
+[2026-06-13 21:42:50] [PID:14180] WndProc: message=1 wParam=0
+[2026-06-13 21:42:50] [PID:14180] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:50] [PID:14180] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:42:50] [PID:14180] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:50] [PID:14180] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:50] [PID:14180] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:50] [PID:14180] wWinMain: Entering message loop
+[2026-06-13 21:42:50] [PID:14180] WndProc: message=799 wParam=1
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+[2026-06-13 21:42:50] [PID:10200] WndProc: message=36 wParam=0
+[2026-06-13 21:42:50] [PID:10200] WndProc: message=129 wParam=0
+[2026-06-13 21:42:50] [PID:10200] WndProc: message=131 wParam=0
+[2026-06-13 21:42:50] [PID:10200] WndProc: message=1 wParam=0
+[2026-06-13 21:42:50] [PID:10200] StartInputHook: Thread desktop name = agy-VEFVDG2TANGPCSLJEAHJL2KQT7
+[2026-06-13 21:42:50] [PID:10200] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:42:50] [PID:10200] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:42:50] [PID:10200] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:42:50] [PID:10200] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:42:50] [PID:10200] wWinMain: Entering message loop
+[2026-06-13 21:42:50] [PID:10200] WndProc: message=799 wParam=1
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+[2026-06-13 21:43:16] [PID:6720] WndProc: message=36 wParam=0
+[2026-06-13 21:43:16] [PID:6720] WndProc: message=129 wParam=0
+[2026-06-13 21:43:16] [PID:6720] WndProc: message=131 wParam=0
+[2026-06-13 21:43:16] [PID:6720] WndProc: message=1 wParam=0
+[2026-06-13 21:43:16] [PID:6720] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:16] [PID:6720] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:43:16] [PID:6720] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:16] [PID:6720] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:16] [PID:6720] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:16] [PID:6720] wWinMain: Entering message loop
+[2026-06-13 21:43:16] [PID:6720] WndProc: message=799 wParam=1
+[2026-06-13 21:43:16] [PID:6720] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:16] [PID:6720] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:16] [PID:6720] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:16] [PID:6720] WndProc: message=275 wParam=1
+[2026-06-13 21:43:16] [PID:6720] HandleHoldTimer called.
+[2026-06-13 21:43:16] [PID:6720] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:43:16] [PID:6720] CreateRadialMenu: CursorPos = 598, 573
+[2026-06-13 21:43:16] [PID:6720] WndProc: message=70 wParam=0
+[2026-06-13 21:43:16] [PID:6720] WndProc: message=28 wParam=1
+[2026-06-13 21:43:16] [PID:6720] CreateRadialMenu: CreateWindowExW succeeded. HWND = 330970
+[2026-06-13 21:43:16] [PID:6720] CreateRadialMenu: Warping cursor to center: 598, 573
+[2026-06-13 21:43:16] [PID:6720] HandleHoldTimer: Radial menu created. HWND=330970
+[2026-06-13 21:43:17] [PID:6720] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:17] [PID:6720] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:17] [PID:6720] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:17] [PID:6720] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:43:17] [PID:6720] LowLevelKeyboardProc: Mouse distance=0.000000
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+[2026-06-13 21:43:17] [PID:6984] WndProc: message=36 wParam=0
+[2026-06-13 21:43:17] [PID:6984] WndProc: message=129 wParam=0
+[2026-06-13 21:43:17] [PID:6984] WndProc: message=131 wParam=0
+[2026-06-13 21:43:17] [PID:6984] WndProc: message=1 wParam=0
+[2026-06-13 21:43:17] [PID:6984] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:17] [PID:6984] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:43:17] [PID:6984] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:17] [PID:6984] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:17] [PID:6984] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:17] [PID:6984] wWinMain: Entering message loop
+[2026-06-13 21:43:17] [PID:6984] WndProc: message=799 wParam=1
+[2026-06-13 21:43:17] [PID:6984] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:17] [PID:6984] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:17] [PID:6984] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:17] [PID:6984] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:17] [PID:6984] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:17] [PID:6984] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:17] [PID:6984] LowLevelKeyboardProc: Menu not visible, sending simulated tap.
+[2026-06-13 21:43:17] [PID:6984] LowLevelKeyboardProc: vkCode=173 flags=17 extra=3735929054
+[2026-06-13 21:43:17] [PID:6984] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:17] [PID:6984] LowLevelKeyboardProc: vkCode=173 flags=145 extra=3735929054
+[2026-06-13 21:43:17] [PID:6984] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+[2026-06-13 21:43:18] [PID:17908] WndProc: message=36 wParam=0
+[2026-06-13 21:43:18] [PID:17908] WndProc: message=129 wParam=0
+[2026-06-13 21:43:18] [PID:17908] WndProc: message=131 wParam=0
+[2026-06-13 21:43:18] [PID:17908] WndProc: message=1 wParam=0
+[2026-06-13 21:43:18] [PID:17908] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:18] [PID:17908] StartInputHook: Hooking targetVk=135 threshold=150
+[2026-06-13 21:43:18] [PID:17908] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:18] [PID:17908] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:18] [PID:17908] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:18] [PID:17908] wWinMain: Entering message loop
+[2026-06-13 21:43:18] [PID:17908] WndProc: message=799 wParam=1
+[2026-06-13 21:43:18] [PID:17908] LowLevelKeyboardProc: vkCode=135 flags=16 extra=0
+[2026-06-13 21:43:18] [PID:17908] LowLevelKeyboardProc: target hotkey matched. vkCode=135 isDown=1 isUp=0
+[2026-06-13 21:43:18] [PID:17908] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:18] [PID:17908] WndProc: message=275 wParam=1
+[2026-06-13 21:43:18] [PID:17908] HandleHoldTimer called.
+[2026-06-13 21:43:18] [PID:17908] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:43:18] [PID:17908] CreateRadialMenu: CursorPos = 598, 573
+[2026-06-13 21:43:18] [PID:17908] WndProc: message=70 wParam=0
+[2026-06-13 21:43:18] [PID:17908] WndProc: message=28 wParam=1
+[2026-06-13 21:43:18] [PID:17908] CreateRadialMenu: CreateWindowExW succeeded. HWND = 330964
+[2026-06-13 21:43:18] [PID:17908] CreateRadialMenu: Warping cursor to center: 598, 573
+[2026-06-13 21:43:18] [PID:17908] HandleHoldTimer: Radial menu created. HWND=330964
+[2026-06-13 21:43:18] [PID:17908] LowLevelKeyboardProc: vkCode=135 flags=144 extra=0
+[2026-06-13 21:43:18] [PID:17908] LowLevelKeyboardProc: target hotkey matched. vkCode=135 isDown=0 isUp=1
+[2026-06-13 21:43:18] [PID:17908] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:18] [PID:17908] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:43:18] [PID:17908] LowLevelKeyboardProc: Mouse distance=0.000000
+[2026-06-13 21:43:18] [PID:17908] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:19] [PID:17908] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+[2026-06-13 21:43:19] [PID:15248] WndProc: message=36 wParam=0
+[2026-06-13 21:43:19] [PID:15248] WndProc: message=129 wParam=0
+[2026-06-13 21:43:19] [PID:15248] WndProc: message=131 wParam=0
+[2026-06-13 21:43:19] [PID:15248] WndProc: message=1 wParam=0
+[2026-06-13 21:43:19] [PID:15248] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:19] [PID:15248] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:43:19] [PID:15248] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:19] [PID:15248] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:19] [PID:15248] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:19] [PID:15248] wWinMain: Entering message loop
+[2026-06-13 21:43:19] [PID:15248] WndProc: message=799 wParam=1
+[2026-06-13 21:43:19] [PID:15248] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:19] [PID:15248] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:19] [PID:15248] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:19] [PID:15248] WndProc: message=275 wParam=1
+[2026-06-13 21:43:19] [PID:15248] HandleHoldTimer called.
+[2026-06-13 21:43:19] [PID:15248] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:43:19] [PID:15248] CreateRadialMenu: CursorPos = 598, 573
+[2026-06-13 21:43:19] [PID:15248] WndProc: message=70 wParam=0
+[2026-06-13 21:43:19] [PID:15248] WndProc: message=28 wParam=1
+[2026-06-13 21:43:19] [PID:15248] CreateRadialMenu: CreateWindowExW succeeded. HWND = 592626
+[2026-06-13 21:43:19] [PID:15248] CreateRadialMenu: Warping cursor to center: 598, 573
+[2026-06-13 21:43:19] [PID:15248] HandleHoldTimer: Radial menu created. HWND=592626
+[2026-06-13 21:43:19] [PID:15248] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:19] [PID:15248] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:19] [PID:15248] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:19] [PID:15248] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:43:19] [PID:15248] LowLevelKeyboardProc: Mouse distance=0.000000
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+[2026-06-13 21:43:20] [PID:6128] WndProc: message=36 wParam=0
+[2026-06-13 21:43:20] [PID:6128] WndProc: message=129 wParam=0
+[2026-06-13 21:43:20] [PID:6128] WndProc: message=131 wParam=0
+[2026-06-13 21:43:20] [PID:6128] WndProc: message=1 wParam=0
+[2026-06-13 21:43:20] [PID:6128] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:20] [PID:6128] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:43:20] [PID:6128] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:20] [PID:6128] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:20] [PID:6128] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:20] [PID:6128] wWinMain: Entering message loop
+[2026-06-13 21:43:20] [PID:6128] WndProc: message=799 wParam=1
+[2026-06-13 21:43:20] [PID:6128] WndProc: message=273 wParam=40001
+[2026-06-13 21:43:20] [PID:6128] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:20] [PID:6128] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:20] [PID:6128] WndProc: message=273 wParam=40002
+[2026-06-13 21:43:21] [PID:6128] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:21] [PID:6128] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:21] [PID:6128] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:21] [PID:6128] WndProc: message=275 wParam=1
+[2026-06-13 21:43:21] [PID:6128] HandleHoldTimer called.
+[2026-06-13 21:43:21] [PID:6128] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:43:21] [PID:6128] CreateRadialMenu: CursorPos = 598, 573
+[2026-06-13 21:43:21] [PID:6128] WndProc: message=70 wParam=0
+[2026-06-13 21:43:21] [PID:6128] WndProc: message=28 wParam=1
+[2026-06-13 21:43:21] [PID:6128] CreateRadialMenu: CreateWindowExW succeeded. HWND = 1051754
+[2026-06-13 21:43:21] [PID:6128] CreateRadialMenu: Warping cursor to center: 598, 573
+[2026-06-13 21:43:21] [PID:6128] HandleHoldTimer: Radial menu created. HWND=1051754
+[2026-06-13 21:43:21] [PID:6128] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:21] [PID:6128] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:21] [PID:6128] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:21] [PID:6128] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:43:21] [PID:6128] LowLevelKeyboardProc: Mouse distance=0.000000
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+[2026-06-13 21:43:21] [PID:10552] WndProc: message=36 wParam=0
+[2026-06-13 21:43:21] [PID:10552] WndProc: message=129 wParam=0
+[2026-06-13 21:43:21] [PID:10552] WndProc: message=131 wParam=0
+[2026-06-13 21:43:21] [PID:10552] WndProc: message=1 wParam=0
+[2026-06-13 21:43:21] [PID:10552] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:21] [PID:10552] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:43:21] [PID:10552] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:21] [PID:10552] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:21] [PID:10552] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:21] [PID:10552] wWinMain: Entering message loop
+[2026-06-13 21:43:21] [PID:10552] WndProc: message=799 wParam=1
+[2026-06-13 21:43:21] [PID:10552] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:21] [PID:10552] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:21] [PID:10552] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:21] [PID:10552] WndProc: message=275 wParam=1
+[2026-06-13 21:43:21] [PID:10552] HandleHoldTimer called.
+[2026-06-13 21:43:21] [PID:10552] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:43:21] [PID:10552] CreateRadialMenu: CursorPos = 598, 573
+[2026-06-13 21:43:21] [PID:10552] WndProc: message=70 wParam=0
+[2026-06-13 21:43:21] [PID:10552] WndProc: message=28 wParam=1
+[2026-06-13 21:43:21] [PID:10552] CreateRadialMenu: CreateWindowExW succeeded. HWND = 724186
+[2026-06-13 21:43:21] [PID:10552] CreateRadialMenu: Warping cursor to center: 598, 573
+[2026-06-13 21:43:21] [PID:10552] HandleHoldTimer: Radial menu created. HWND=724186
+[2026-06-13 21:43:22] [PID:10552] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:22] [PID:10552] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:22] [PID:10552] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:22] [PID:10552] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:43:22] [PID:10552] LowLevelKeyboardProc: Mouse distance=0.000000
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+[2026-06-13 21:43:22] [PID:16632] WndProc: message=36 wParam=0
+[2026-06-13 21:43:22] [PID:16632] WndProc: message=129 wParam=0
+[2026-06-13 21:43:22] [PID:16632] WndProc: message=131 wParam=0
+[2026-06-13 21:43:22] [PID:16632] WndProc: message=1 wParam=0
+[2026-06-13 21:43:22] [PID:16632] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:22] [PID:16632] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:43:22] [PID:16632] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:22] [PID:16632] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:22] [PID:16632] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:22] [PID:16632] wWinMain: Entering message loop
+[2026-06-13 21:43:22] [PID:16632] WndProc: message=799 wParam=1
+[2026-06-13 21:43:22] [PID:16632] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:22] [PID:16632] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:22] [PID:16632] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:22] [PID:16632] WndProc: message=275 wParam=1
+[2026-06-13 21:43:22] [PID:16632] HandleHoldTimer called.
+[2026-06-13 21:43:22] [PID:16632] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:43:22] [PID:16632] CreateRadialMenu: CursorPos = 598, 573
+[2026-06-13 21:43:22] [PID:16632] WndProc: message=70 wParam=0
+[2026-06-13 21:43:22] [PID:16632] WndProc: message=28 wParam=1
+[2026-06-13 21:43:22] [PID:16632] CreateRadialMenu: CreateWindowExW succeeded. HWND = 789724
+[2026-06-13 21:43:22] [PID:16632] CreateRadialMenu: Warping cursor to center: 598, 573
+[2026-06-13 21:43:22] [PID:16632] HandleHoldTimer: Radial menu created. HWND=789724
+[2026-06-13 21:43:22] [PID:16632] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:22] [PID:16632] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:22] [PID:16632] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:22] [PID:16632] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:43:22] [PID:16632] LowLevelKeyboardProc: Mouse distance=0.000000
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+[2026-06-13 21:43:23] [PID:13356] WndProc: message=36 wParam=0
+[2026-06-13 21:43:23] [PID:13356] WndProc: message=129 wParam=0
+[2026-06-13 21:43:23] [PID:13356] WndProc: message=131 wParam=0
+[2026-06-13 21:43:23] [PID:13356] WndProc: message=1 wParam=0
+[2026-06-13 21:43:23] [PID:13356] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:23] [PID:13356] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:43:23] [PID:13356] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:23] [PID:13356] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:23] [PID:13356] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:23] [PID:13356] wWinMain: Entering message loop
+[2026-06-13 21:43:23] [PID:13356] WndProc: message=799 wParam=1
+[2026-06-13 21:43:23] [PID:13356] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:23] [PID:13356] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:23] [PID:13356] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:23] [PID:13356] WndProc: message=275 wParam=1
+[2026-06-13 21:43:23] [PID:13356] HandleHoldTimer called.
+[2026-06-13 21:43:23] [PID:13356] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:43:23] [PID:13356] CreateRadialMenu: CursorPos = 598, 573
+[2026-06-13 21:43:23] [PID:13356] WndProc: message=70 wParam=0
+[2026-06-13 21:43:23] [PID:13356] WndProc: message=28 wParam=1
+[2026-06-13 21:43:23] [PID:13356] CreateRadialMenu: CreateWindowExW succeeded. HWND = 855258
+[2026-06-13 21:43:23] [PID:13356] CreateRadialMenu: Warping cursor to center: 598, 573
+[2026-06-13 21:43:23] [PID:13356] HandleHoldTimer: Radial menu created. HWND=855258
+[2026-06-13 21:43:23] [PID:13356] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:23] [PID:13356] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:23] [PID:13356] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:23] [PID:13356] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:43:23] [PID:13356] LowLevelKeyboardProc: Mouse distance=0.000000
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+[2026-06-13 21:43:23] [PID:16032] WndProc: message=36 wParam=0
+[2026-06-13 21:43:23] [PID:16032] WndProc: message=129 wParam=0
+[2026-06-13 21:43:23] [PID:16032] WndProc: message=131 wParam=0
+[2026-06-13 21:43:23] [PID:16032] WndProc: message=1 wParam=0
+[2026-06-13 21:43:23] [PID:16032] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:23] [PID:16032] StartInputHook: Hooking targetVk=173 threshold=10
+[2026-06-13 21:43:23] [PID:16032] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:23] [PID:16032] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:23] [PID:16032] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:23] [PID:16032] wWinMain: Entering message loop
+[2026-06-13 21:43:23] [PID:16032] WndProc: message=799 wParam=1
+[2026-06-13 21:43:24] [PID:16032] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:24] [PID:16032] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:24] [PID:16032] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:24] [PID:16032] WndProc: message=275 wParam=1
+[2026-06-13 21:43:24] [PID:16032] HandleHoldTimer called.
+[2026-06-13 21:43:24] [PID:16032] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:43:24] [PID:16032] CreateRadialMenu: CursorPos = 598, 573
+[2026-06-13 21:43:24] [PID:16032] WndProc: message=70 wParam=0
+[2026-06-13 21:43:24] [PID:16032] WndProc: message=28 wParam=1
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+[2026-06-13 21:43:24] [PID:12528] WndProc: message=36 wParam=0
+[2026-06-13 21:43:24] [PID:12528] WndProc: message=129 wParam=0
+[2026-06-13 21:43:24] [PID:12528] WndProc: message=131 wParam=0
+[2026-06-13 21:43:24] [PID:12528] WndProc: message=1 wParam=0
+[2026-06-13 21:43:24] [PID:12528] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:24] [PID:12528] StartInputHook: Hooking targetVk=173 threshold=3000
+[2026-06-13 21:43:24] [PID:12528] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:24] [PID:12528] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:24] [PID:12528] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:24] [PID:12528] wWinMain: Entering message loop
+[2026-06-13 21:43:24] [PID:12528] WndProc: message=799 wParam=1
+[2026-06-13 21:43:24] [PID:12528] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:24] [PID:12528] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:24] [PID:12528] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:27] [PID:12528] WndProc: message=275 wParam=1
+[2026-06-13 21:43:27] [PID:12528] HandleHoldTimer called.
+[2026-06-13 21:43:27] [PID:12528] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:43:27] [PID:12528] CreateRadialMenu: CursorPos = 598, 573
+[2026-06-13 21:43:27] [PID:12528] WndProc: message=70 wParam=0
+[2026-06-13 21:43:27] [PID:12528] WndProc: message=28 wParam=1
+[2026-06-13 21:43:27] [PID:12528] CreateRadialMenu: CreateWindowExW succeeded. HWND = 986332
+[2026-06-13 21:43:27] [PID:12528] CreateRadialMenu: Warping cursor to center: 598, 573
+[2026-06-13 21:43:27] [PID:12528] HandleHoldTimer: Radial menu created. HWND=986332
+[2026-06-13 21:43:28] [PID:12528] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:28] [PID:12528] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:28] [PID:12528] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:28] [PID:12528] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:43:28] [PID:12528] LowLevelKeyboardProc: Mouse distance=0.000000
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+[2026-06-13 21:43:28] [PID:3896] WndProc: message=36 wParam=0
+[2026-06-13 21:43:28] [PID:3896] WndProc: message=129 wParam=0
+[2026-06-13 21:43:28] [PID:3896] WndProc: message=131 wParam=0
+[2026-06-13 21:43:28] [PID:3896] WndProc: message=1 wParam=0
+[2026-06-13 21:43:28] [PID:3896] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:28] [PID:3896] StartInputHook: Hooking targetVk=135 threshold=500
+[2026-06-13 21:43:28] [PID:3896] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:28] [PID:3896] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:28] [PID:3896] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:28] [PID:3896] wWinMain: Entering message loop
+[2026-06-13 21:43:28] [PID:3896] WndProc: message=799 wParam=1
+[2026-06-13 21:43:28] [PID:3896] LowLevelKeyboardProc: vkCode=135 flags=16 extra=0
+[2026-06-13 21:43:28] [PID:3896] LowLevelKeyboardProc: target hotkey matched. vkCode=135 isDown=1 isUp=0
+[2026-06-13 21:43:28] [PID:3896] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:29] [PID:3896] WndProc: message=275 wParam=1
+[2026-06-13 21:43:29] [PID:3896] HandleHoldTimer called.
+[2026-06-13 21:43:29] [PID:3896] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:43:29] [PID:3896] CreateRadialMenu: CursorPos = 598, 573
+[2026-06-13 21:43:29] [PID:3896] WndProc: message=70 wParam=0
+[2026-06-13 21:43:29] [PID:3896] WndProc: message=28 wParam=1
+[2026-06-13 21:43:29] [PID:3896] CreateRadialMenu: CreateWindowExW succeeded. HWND = 986330
+[2026-06-13 21:43:29] [PID:3896] CreateRadialMenu: Warping cursor to center: 598, 573
+[2026-06-13 21:43:29] [PID:3896] HandleHoldTimer: Radial menu created. HWND=986330
+[2026-06-13 21:43:29] [PID:3896] LowLevelKeyboardProc: vkCode=135 flags=144 extra=0
+[2026-06-13 21:43:29] [PID:3896] LowLevelKeyboardProc: target hotkey matched. vkCode=135 isDown=0 isUp=1
+[2026-06-13 21:43:29] [PID:3896] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:29] [PID:3896] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:43:29] [PID:3896] LowLevelKeyboardProc: Mouse distance=0.000000
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+[2026-06-13 21:43:29] [PID:17300] WndProc: message=36 wParam=0
+[2026-06-13 21:43:29] [PID:17300] WndProc: message=129 wParam=0
+[2026-06-13 21:43:29] [PID:17300] WndProc: message=131 wParam=0
+[2026-06-13 21:43:29] [PID:17300] WndProc: message=1 wParam=0
+[2026-06-13 21:43:29] [PID:17300] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:29] [PID:17300] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:43:29] [PID:17300] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:29] [PID:17300] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:29] [PID:17300] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:29] [PID:17300] wWinMain: Entering message loop
+[2026-06-13 21:43:29] [PID:17300] WndProc: message=799 wParam=1
+[2026-06-13 21:43:29] [PID:17300] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:29] [PID:17300] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:29] [PID:17300] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:30] [PID:17300] WndProc: message=275 wParam=1
+[2026-06-13 21:43:30] [PID:17300] HandleHoldTimer called.
+[2026-06-13 21:43:30] [PID:17300] HandleHoldTimer: Creating radial menu.
+[2026-06-13 21:43:30] [PID:17300] CreateRadialMenu: CursorPos = 598, 573
+[2026-06-13 21:43:30] [PID:17300] WndProc: message=70 wParam=0
+[2026-06-13 21:43:30] [PID:17300] WndProc: message=28 wParam=1
+[2026-06-13 21:43:30] [PID:17300] CreateRadialMenu: CreateWindowExW succeeded. HWND = 920788
+[2026-06-13 21:43:30] [PID:17300] CreateRadialMenu: Warping cursor to center: 598, 573
+[2026-06-13 21:43:30] [PID:17300] HandleHoldTimer: Radial menu created. HWND=920788
+[2026-06-13 21:43:30] [PID:17300] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:30] [PID:17300] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:30] [PID:17300] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:30] [PID:17300] LowLevelKeyboardProc: Menu was visible, closing and triggering.
+[2026-06-13 21:43:30] [PID:17300] LowLevelKeyboardProc: Mouse distance=0.000000
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+[2026-06-13 21:43:31] [PID:6688] WndProc: message=36 wParam=0
+[2026-06-13 21:43:31] [PID:6688] WndProc: message=129 wParam=0
+[2026-06-13 21:43:31] [PID:6688] WndProc: message=131 wParam=0
+[2026-06-13 21:43:31] [PID:6688] WndProc: message=1 wParam=0
+[2026-06-13 21:43:31] [PID:6688] StartInputHook: Thread desktop name = agy-GK3KB5EOX34FUSRZJA6373GZQW
+[2026-06-13 21:43:31] [PID:6688] StartInputHook: Hooking targetVk=173 threshold=150
+[2026-06-13 21:43:31] [PID:6688] StartInputHook: Hook registered. Result=1
+[2026-06-13 21:43:31] [PID:6688] wWinMain: Calling Shell_NotifyIconW
+[2026-06-13 21:43:31] [PID:6688] wWinMain: Shell_NotifyIconW finished. Result=0
+[2026-06-13 21:43:31] [PID:6688] wWinMain: Entering message loop
+[2026-06-13 21:43:31] [PID:6688] WndProc: message=799 wParam=1
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Menu not visible, sending simulated tap.
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=3735929054
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=3735929054
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Menu not visible, sending simulated tap.
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=3735929054
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=3735929054
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Menu not visible, sending simulated tap.
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=3735929054
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=3735929054
+[2026-06-13 21:43:31] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Menu not visible, sending simulated tap.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Menu not visible, sending simulated tap.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Menu not visible, sending simulated tap.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Menu not visible, sending simulated tap.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Menu not visible, sending simulated tap.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Menu not visible, sending simulated tap.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=1 isUp=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Setting hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=0
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: target hotkey matched. vkCode=173 isDown=0 isUp=1
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Killing hold timer.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Menu not visible, sending simulated tap.
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=17 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: vkCode=173 flags=145 extra=3735929054
+[2026-06-13 21:43:32] [PID:6688] LowLevelKeyboardProc: Bypassing signature event: vkCode=173
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_1_generate_default_config ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_2_custom_config_load ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_3_config_auto_reload ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_4_tray_menu_reload ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_5_config_save_on_exit ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_1_missing_config_file ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_2_malformed_config ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_3_config_missing_slots ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: tests.test_cases.test_config.TestConfig.test_t1_f3_1_generate_default_config ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: tests.test_cases.test_config.TestConfig.test_t1_f3_2_custom_config_load ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: tests.test_cases.test_config.TestConfig.test_t1_f3_3_config_auto_reload ===================
+
+=================== TEST: tests.test_cases.test_config.TestConfig.test_t1_f3_4_tray_menu_reload ===================
+
+=================== TEST: tests.test_cases.test_config.TestConfig.test_t1_f3_5_config_save_on_exit ===================
+
+=================== TEST: tests.test_cases.test_config.TestConfig.test_t2_f3_1_missing_config_file ===================
+
+=================== TEST: tests.test_cases.test_config.TestConfig.test_t2_f3_2_malformed_config ===================
+
+=================== TEST: tests.test_cases.test_config.TestConfig.test_t2_f3_3_config_missing_slots ===================
+
+=================== TEST: tests.test_cases.test_config.TestConfig.test_t2_f3_4_config_invalid_slot_types ===================
+
+=================== TEST: tests.test_cases.test_config.TestConfig.test_t2_f3_5_extremely_long_labels ===================
+
+=================== TEST: tests.test_cases.test_config.TestConfig.test_t3_3_auto_reload_while_menu_open ===================
+
+=================== TEST: tests.test_cases.test_config.TestConfig.test_t4_4_invalid_config_recovery ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_1_generate_default_config ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_2_custom_config_load ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_3_config_auto_reload ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_4_tray_menu_reload ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_5_config_save_on_exit ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_1_missing_config_file ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_2_malformed_config ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_3_config_missing_slots ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_4_config_invalid_slot_types ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_5_extremely_long_labels ===================
+
+=================== TEST: test_config.TestConfig.test_t3_3_auto_reload_while_menu_open ===================
+
+=================== TEST: test_config.TestConfig.test_t4_4_invalid_config_recovery ===================
+
+=================== TEST: test_gui.TestGui.test_t1_f2_5_window_styles ===================
+
+=================== TEST: test_gui.TestGui.test_t2_f2_3_rapid_menu_toggle ===================
+
+=================== TEST: test_gui.TestGui.test_t2_f2_4_window_overlapping_controls ===================
+
+=================== TEST: test_gui.TestGui.test_t3_2_radial_sizes ===================
+
+=================== TEST: test_gui.TestGui.test_t4_2_high_frequency_hold_release ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_1_generate_default_config ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_2_custom_config_load ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_3_config_auto_reload ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_4_tray_menu_reload ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_5_config_save_on_exit ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_1_missing_config_file ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_2_malformed_config ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_3_config_missing_slots ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_4_config_invalid_slot_types ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_5_extremely_long_labels ===================
+
+=================== TEST: test_config.TestConfig.test_t3_3_auto_reload_while_menu_open ===================
+
+=================== TEST: test_config.TestConfig.test_t4_4_invalid_config_recovery ===================
+
+=================== TEST: test_gui.TestGui.test_t1_f2_5_window_styles ===================
+
+=================== TEST: test_gui.TestGui.test_t2_f2_3_rapid_menu_toggle ===================
+
+=================== TEST: test_gui.TestGui.test_t2_f2_4_window_overlapping_controls ===================
+
+=================== TEST: test_gui.TestGui.test_t3_2_radial_sizes ===================
+
+=================== TEST: test_gui.TestGui.test_t3_2_radial_sizes ===================
+
+=================== TEST: test_gui.TestGui.test_t3_2_radial_sizes ===================
+
+=================== TEST: test_gui.TestGui.test_t4_2_high_frequency_hold_release ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: test_macro.TestMacro.test_t1_f4_1_run_program_basic ===================
+
+=================== TEST: test_macro.TestMacro.test_t1_f4_2_run_program_with_arguments ===================
+
+=================== TEST: test_macro.TestMacro.test_t1_f4_3_open_url_macro ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_1_run_program_invalid_path ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_2_open_url_malformed ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_3_ahk_script_missing_file ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: tests.test_cases.test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: tests.test_cases.test_macro.TestMacro.test_t1_f4_1_run_program_basic ===================
+
+=================== TEST: tests.test_cases.test_macro.TestMacro.test_t1_f4_2_run_program_with_arguments ===================
+
+=================== TEST: tests.test_cases.test_macro.TestMacro.test_t1_f4_3_open_url_macro ===================
+
+=================== TEST: tests.test_cases.test_macro.TestMacro.test_t2_f4_1_run_program_invalid_path ===================
+
+=================== TEST: tests.test_cases.test_macro.TestMacro.test_t2_f4_2_open_url_malformed ===================
+
+=================== TEST: tests.test_cases.test_macro.TestMacro.test_t2_f4_3_ahk_script_missing_file ===================
+
+=================== TEST: tests.test_cases.test_macro.TestMacro.test_t2_f4_4_run_program_admin_without_elevation ===================
+
+=================== TEST: tests.test_cases.test_macro.TestMacro.test_t2_f4_5_multiple_macro_execution_overlap ===================
+
+=================== TEST: tests.test_cases.test_macro.TestMacro.test_t3_5_run_program_starts_another_macro ===================
+
+=================== TEST: tests.test_cases.test_macro.TestMacro.test_t4_1_multi_slot_setup ===================
+
+=================== TEST: tests.test_cases.test_macro.TestMacro.test_t4_5_full_cleanup_on_exit ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_1_generate_default_config ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_2_custom_config_load ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_3_config_auto_reload ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_4_tray_menu_reload ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_5_config_save_on_exit ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_1_missing_config_file ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_2_malformed_config ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_3_config_missing_slots ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_4_config_invalid_slot_types ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_5_extremely_long_labels ===================
+
+=================== TEST: test_config.TestConfig.test_t3_3_auto_reload_while_menu_open ===================
+
+=================== TEST: test_config.TestConfig.test_t4_4_invalid_config_recovery ===================
+
+=================== TEST: test_gui.TestGui.test_t1_f2_5_window_styles ===================
+
+=================== TEST: test_gui.TestGui.test_t2_f2_3_rapid_menu_toggle ===================
+
+=================== TEST: test_gui.TestGui.test_t2_f2_4_window_overlapping_controls ===================
+
+=================== TEST: test_gui.TestGui.test_t3_2_radial_sizes ===================
+
+=================== TEST: test_gui.TestGui.test_t4_2_high_frequency_hold_release ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: test_macro.TestMacro.test_t1_f4_1_run_program_basic ===================
+
+=================== TEST: test_macro.TestMacro.test_t1_f4_2_run_program_with_arguments ===================
+
+=================== TEST: test_macro.TestMacro.test_t1_f4_3_open_url_macro ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_1_run_program_invalid_path ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_2_open_url_malformed ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_3_ahk_script_missing_file ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_4_run_program_admin_without_elevation ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_5_multiple_macro_execution_overlap ===================
+
+=================== TEST: test_macro.TestMacro.test_t3_5_run_program_starts_another_macro ===================
+
+=================== TEST: test_macro.TestMacro.test_t4_1_multi_slot_setup ===================
+
+=================== TEST: test_macro.TestMacro.test_t4_5_full_cleanup_on_exit ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_1_generate_default_config ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_2_custom_config_load ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_3_config_auto_reload ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_4_tray_menu_reload ===================
+
+=================== TEST: test_config.TestConfig.test_t1_f3_5_config_save_on_exit ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_1_missing_config_file ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_2_malformed_config ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_3_config_missing_slots ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_4_config_invalid_slot_types ===================
+
+=================== TEST: test_config.TestConfig.test_t2_f3_5_extremely_long_labels ===================
+
+=================== TEST: test_config.TestConfig.test_t3_3_auto_reload_while_menu_open ===================
+
+=================== TEST: test_config.TestConfig.test_t4_4_invalid_config_recovery ===================
+
+=================== TEST: test_gui.TestGui.test_t1_f2_1_cursor_warp ===================
+
+=================== TEST: test_gui.TestGui.test_t1_f2_2_sector_highlight ===================
+
+=================== TEST: test_gui.TestGui.test_t1_f2_3_sector_selection_release ===================
+
+=================== TEST: test_gui.TestGui.test_t1_f2_4_center_cancel_zone ===================
+
+=================== TEST: test_gui.TestGui.test_t1_f2_5_window_styles ===================
+
+=================== TEST: test_gui.TestGui.test_t2_f2_1_mouse_extreme_boundary ===================
+
+=================== TEST: test_gui.TestGui.test_t2_f2_2_mouse_cancel_border ===================
+
+=================== TEST: test_gui.TestGui.test_t2_f2_3_rapid_menu_toggle ===================
+
+=================== TEST: test_gui.TestGui.test_t2_f2_4_window_overlapping_controls ===================
+
+=================== TEST: test_gui.TestGui.test_t2_f2_5_cursor_warp_screen_edge ===================
+
+=================== TEST: test_gui.TestGui.test_t3_2_radial_sizes ===================
+
+=================== TEST: test_gui.TestGui.test_t3_2_radial_sizes ===================
+
+=================== TEST: test_gui.TestGui.test_t3_2_radial_sizes ===================
+
+=================== TEST: test_gui.TestGui.test_t4_2_high_frequency_hold_release ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_1_default_hotkey_hold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_2_hotkey_tap_short ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_3_hotkey_override ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_4_hotkey_release_close ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t1_f1_5_disable_enable_toggle ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_1_hold_exact_threshold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_2_hold_just_below_threshold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_3_hold_just_above_threshold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_4_extreme_threshold_small ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t2_f1_5_extreme_threshold_large ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t3_1_override_custom_threshold ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t3_4_ahk_invoke_hook_no_loop ===================
+
+=================== TEST: test_hotkey.TestHotkey.test_t4_3_volume_fallback_tap_sequence ===================
+
+=================== TEST: test_macro.TestMacro.test_t1_f4_1_run_program_basic ===================
+
+=================== TEST: test_macro.TestMacro.test_t1_f4_2_run_program_with_arguments ===================
+
+=================== TEST: test_macro.TestMacro.test_t1_f4_3_open_url_macro ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_1_run_program_invalid_path ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_2_open_url_malformed ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_3_ahk_script_missing_file ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_4_run_program_admin_without_elevation ===================
+
+=================== TEST: test_macro.TestMacro.test_t2_f4_5_multiple_macro_execution_overlap ===================
+
+=================== TEST: test_macro.TestMacro.test_t3_5_run_program_starts_another_macro ===================
+
+=================== TEST: test_macro.TestMacro.test_t4_1_multi_slot_setup ===================
+
+=================== TEST: test_macro.TestMacro.test_t4_5_full_cleanup_on_exit ===================

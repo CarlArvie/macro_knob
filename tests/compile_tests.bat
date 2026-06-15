@@ -16,5 +16,10 @@ if %errorlevel% neq 0 (
     echo Compilation of diagnostic failed
     exit /b %errorlevel%
 )
+cl.exe /EHsc /std:c++17 tests/hook_stress_tests.cpp src/input_hook.cpp src/config_store.cpp src/radial_menu.cpp src/macro_runner.cpp /Iinclude /Isrc /link user32.lib shell32.lib shlwapi.lib gdi32.lib gdiplus.lib /out:bin/hook_stress_tests.exe
+if %errorlevel% neq 0 (
+    echo Compilation of hook_stress_tests failed
+    exit /b %errorlevel%
+)
 echo Compilation successful
 exit /b 0

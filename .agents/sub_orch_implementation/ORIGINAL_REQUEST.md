@@ -15,3 +15,9 @@ Follow the Project Pattern:
 6. For Milestone 5 (E2E Integration), wait for `TEST_READY.md` to be published by the E2E Testing track. Once published, decompose the tests into sub-milestones by tier (Tier 1 -> Tier 2 -> Tier 3 -> Tier 4) and run them, fixing any failures.
 7. For Milestone 6, run the Adversarial Coverage Hardening (Tier 5) loop.
 8. Once complete and verified clean, write a handoff and message your parent (conversation ID: 7a1f18b7-37f4-4f50-81f9-3afe7220f9f4) with the recipient name "main agent" or "orchestrator".
+
+## 2026-06-13T01:05:06Z
+
+Resume work at c:\Users\carla\Desktop\AHK\Arvie Knob Macro\.agents\sub_orch_implementation. Read handoff.md, BRIEFING.md, ORIGINAL_REQUEST.md, and progress.md for current state.
+Your parent is 7a1f18b7-37f4-4f50-81f9-3afe7220f9f4 — use this ID for all escalation and status reporting (send_message).
+You should begin by rescheduling your heartbeat cron and executing Milestone 2: Key Hook.

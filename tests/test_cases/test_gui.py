@@ -3,7 +3,7 @@ import os
 import time
 import ctypes
 import math
-from test_cases.test_base import KnobLaunchTestBase, User32, VK_VOLUME_MUTE, POINT, RECT, WS_EX_TOPMOST, WS_EX_LAYERED
+from test_cases.test_base import KnobLaunchTestBase, User32, VK_VOLUME_MUTE, POINT, RECT, WS_EX_TOPMOST, WS_EX_LAYERED, GUI_AVAILABLE
 
 WORKSPACE_DIR = r"c:\Users\carla\Desktop\AHK\Arvie Knob Macro"
 DAEMON_EXE = os.path.join(WORKSPACE_DIR, "knoblaunch.exe")
@@ -14,20 +14,8 @@ if not os.path.exists(DAEMON_EXE):
 
 DAEMON_EXISTS = os.path.exists(DAEMON_EXE)
 
-def check_gui_available():
-    pt = POINT()
-    if not User32.GetCursorPos(ctypes.byref(pt)):
-        return False
-    ret = User32.SetCursorPos(pt.x, pt.y)
-    if ret == 0:
-        err = ctypes.windll.kernel32.GetLastError()
-        if err == 5:
-            return False
-    return True
-
-GUI_AVAILABLE = check_gui_available()
-
 @unittest.skipIf(not DAEMON_EXISTS, "knoblaunch.exe not found. Build the project first.")
+@unittest.skipIf(not GUI_AVAILABLE, "Interactive GUI session not available")
 class TestGui(KnobLaunchTestBase):
 
     def get_sector_coordinates(self, center_x, center_y, sector_idx, radius=100):

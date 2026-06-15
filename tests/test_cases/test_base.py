@@ -113,6 +113,29 @@ else:
     GetWindowLong.argtypes = [ctypes.c_void_p, ctypes.c_int]
     GetWindowLong.restype = ctypes.c_long
 
+def check_gui_available():
+    pt = POINT()
+    if not User32.GetCursorPos(ctypes.byref(pt)):
+        return False
+    ret = User32.SetCursorPos(pt.x, pt.y)
+    if ret == 0:
+        err = ctypes.windll.kernel32.GetLastError()
+        if err == 5:  # ERROR_ACCESS_DENIED
+            return False
+
+    # Send a key up for a dummy key (VK_F24) to verify SendInput doesn't fail with ACCESS_DENIED
+    ki = KEYBDINPUT(wVk=0x87, wScan=0, dwFlags=KEYEVENTF_KEYUP, time=0, dwExtraInfo=None)
+    inp = INPUT(type=INPUT_KEYBOARD, union=INPUT_UNION(ki=ki))
+    ret = User32.SendInput(1, ctypes.byref(inp), ctypes.sizeof(inp))
+    if ret == 0:
+        err = ctypes.windll.kernel32.GetLastError()
+        if err == 5:  # ERROR_ACCESS_DENIED
+            return False
+            
+    return True
+
+GUI_AVAILABLE = check_gui_available()
+
 class KnobLaunchTestBase(unittest.TestCase):
     # Workspace paths
     WORKSPACE_DIR = r"c:\Users\carla\Desktop\AHK\Arvie Knob Macro"
@@ -186,7 +209,9 @@ class KnobLaunchTestBase(unittest.TestCase):
         # Ensure log directory/file is accessible
         log_dir = os.path.join(self.WORKSPACE_DIR, "tests")
         os.makedirs(log_dir, exist_ok=True)
-        self.log_file = open(os.path.join(log_dir, "daemon.log"), "w")
+        self.log_file = open(os.path.join(log_dir, "daemon.log"), "a")
+        self.log_file.write(f"\n=================== TEST: {self.id()} ===================\n")
+        self.log_file.flush()
         
         daemon_exe = os.path.join(self.WORKSPACE_DIR, "knoblaunch.exe")
         
@@ -260,7 +285,10 @@ class KnobLaunchTestBase(unittest.TestCase):
             type=INPUT_KEYBOARD,
             union=INPUT_UNION(ki=ki)
         )
-        User32.SendInput(1, ctypes.byref(inp), ctypes.sizeof(inp))
+        ret = User32.SendInput(1, ctypes.byref(inp), ctypes.sizeof(inp))
+        if ret == 0:
+            err = ctypes.windll.kernel32.GetLastError()
+            print(f"SendInput FAILED in send_key. vk: {vk}, ret: {ret}, err: {err}")
 
     def press_and_hold_key(self, vk, duration_seconds):
         self.send_key(vk, is_down=True)

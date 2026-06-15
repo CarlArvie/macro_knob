@@ -1,4 +1,4 @@
-# BRIEFING — 2026-06-12T23:42:51+08:00
+# BRIEFING — 2026-06-15T19:18:30+08:00
 
 ## Mission
 Decompose KnobLaunch, plan milestones, coordinate implementation, and run verification loops to build the C++ volume knob daemon + AHK radial menu interceptor.
@@ -26,13 +26,13 @@ Decompose KnobLaunch, plan milestones, coordinate implementation, and run verifi
 4. **Succession**: Self-succeed at 16 spawns. Write handoff.md, spawn successor.
 - **Work items**:
   1. Decompose project and create plan.md [done]
-  2. Implement Core Keyboard Hook & Volume Interceptor Daemon [in-progress]
+  2. Implement Core Keyboard Hook & Volume Interceptor Daemon [done]
   3. Implement Layered GDI+ Radial Menu overlay [in-progress]
-  4. Implement AHK macro execution (subprocess/COM) & config.json manager [in-progress]
+  4. Implement AHK macro execution (subprocess/COM) & config.json manager [pending]
   5. E2E test suite implementation [done]
   6. Final E2E pass & adversarial verification [pending]
 - **Current phase**: 2
-- **Current focus**: Parallel execution of E2E testing track and implementation track.
+- **Current focus**: Milestone 3 execution in the implementation track.
 
 ## 🔒 Key Constraints
 - Never reuse a subagent after it has delivered its handoff — always spawn fresh
@@ -54,17 +54,17 @@ Decompose KnobLaunch, plan milestones, coordinate implementation, and run verifi
 | Agent | Type | Work Item | Status | Conv ID |
 |-------|------|-----------|--------|---------|
 | sub_orch_e2e_testing | self | E2E Testing Track | completed | 7089ff27-7749-43a4-a86c-8dabc5ba56b9 |
-| sub_orch_implementation | self | Implementation Track | in-progress | cc4c5702-2237-42c5-ab50-47def0c404ac |
+| sub_orch_implementation | self | Implementation Track | in-progress | 916d9844-9ca1-44ca-bed4-eb9091863684 |
 
 ## Succession Status
 - Succession required: no
 - Spawn count: 2 / 16
-- Pending subagents: cc4c5702-2237-42c5-ab50-47def0c404ac
+- Pending subagents: 916d9844-9ca1-44ca-bed4-eb9091863684
 - Predecessor: none
 - Successor: not yet spawned
 
 ## Active Timers
-- Heartbeat cron: 7a1f18b7-37f4-4f50-81f9-3afe7220f9f4/task-87
+- Heartbeat cron: 7a1f18b7-37f4-4f50-81f9-3afe7220f9f4/task-250
 - Safety timer: none
 
 ## Artifact Index

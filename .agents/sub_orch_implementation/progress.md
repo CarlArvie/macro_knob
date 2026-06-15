@@ -1,20 +1,20 @@
 # Progress — KnobLaunch Implementation Track
 
 ## Current Status
-Last visited: 2026-06-12T23:53:20+08:00
-- [/] Initialize project configuration and scope (M1 planning)
-- [ ] Milestone 1: Scaffold & Config
+Last visited: 2026-06-13T09:06:15+08:00
+- [x] Initialize project configuration and scope (M1 planning)
+- [x] Milestone 1: Scaffold & Config
   - [x] Explorer: Assess codebase layout & scaffolding plan
   - [x] Worker: Implement CMakeLists.txt, directory layout, JSON config loader/saver, tray menu (refactored)
-  - [ ] Reviewer: Verify scaffolding, tray menu, and configuration correctness (refactor review) [in-progress]
-  - [ ] Challenger: Stress-test config loader and tray menu logic (refactor testing) [in-progress]
-  - [ ] Auditor: Perform integrity audit (refactor audit) [in-progress]
-- [ ] Milestone 2: Key Hook
-  - [ ] Explorer: Assess hook strategy and tap/hold logic
-  - [ ] Worker: Implement WH_KEYBOARD_LL hook & hold logic
-  - [ ] Reviewer: Verify hook functionality and input handling
-  - [ ] Challenger: Stress-test hook triggers and timings
-  - [ ] Auditor: Perform integrity audit
+  - [x] Reviewer: Verify scaffolding, tray menu, and configuration correctness (refactored verified)
+  - [x] Challenger: Stress-test config loader and tray menu logic (refactored verified)
+  - [x] Auditor: Perform integrity audit (refactored audited CLEAN)
+- [x] Milestone 2: Key Hook
+  - [x] Explorer: Assess hook strategy and tap/hold logic
+  - [x] Worker: Implement WH_KEYBOARD_LL hook & hold logic
+  - [x] Reviewer: Verify hook functionality and input handling
+  - [x] Challenger: Stress-test hook triggers and timings
+  - [x] Auditor: Perform integrity audit
 - [ ] Milestone 3: Radial Menu GUI
   - [ ] Explorer: Assess GDI+ drawing and layered window proc
   - [ ] Worker: Implement radial menu window and GDI+ rendering
@@ -41,7 +41,7 @@ Last visited: 2026-06-12T23:53:20+08:00
 
 ## Iteration Status
 Current iteration: 0 / 32
-Spawn count: 20 / 16
+Spawn count: 21 / 16
 
 ## Retrospective Notes
 - Initiated Implementation Track Orchestrator.

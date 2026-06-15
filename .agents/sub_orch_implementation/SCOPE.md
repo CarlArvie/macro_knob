@@ -23,8 +23,8 @@ KnobLaunch is composed of two primary executable elements:
 ## Milestones
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| M1 | Milestone 1: Scaffold & Config | CMakeLists.txt, project directory structure, config_store load/save, default config, TrayIcon minimal stub | None | PLANNED |
-| M2 | Milestone 2: Key Hook | WH_KEYBOARD_LL hook, knob tap vs hold logic, hold threshold configuration | M1 | PLANNED |
+| M1 | Milestone 1: Scaffold & Config | CMakeLists.txt, project directory structure, config_store load/save, default config, TrayIcon minimal stub | None | DONE |
+| M2 | Milestone 2: Key Hook | WH_KEYBOARD_LL hook, knob tap vs hold logic, hold threshold configuration | M1 | DONE |
 | M3 | Milestone 3: Radial Menu GUI | Layered Win32 window, GDI+ radial menu layout rendering (8 slices), hover highlight | M1, M2 | PLANNED |
 | M4 | Milestone 4: Macro Runner & AHK | Execution logic (programs, URLs, AutoHotkey subprocess invocation via AutoHotkey64.exe) | M1, M3 | PLANNED |
 | M5 | Milestone 5: E2E Integration | Run test tiers (Tier 1 -> Tier 2 -> Tier 3 -> Tier 4) from E2E suite, fix bugs | M4 | PLANNED |

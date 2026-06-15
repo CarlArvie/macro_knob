@@ -4,7 +4,7 @@ import time
 import json
 import shutil
 import ctypes
-from test_cases.test_base import KnobLaunchTestBase, User32, VK_VOLUME_MUTE
+from test_cases.test_base import KnobLaunchTestBase, User32, VK_VOLUME_MUTE, GUI_AVAILABLE
 
 WORKSPACE_DIR = r"c:\Users\carla\Desktop\AHK\Arvie Knob Macro"
 DAEMON_EXE = os.path.join(WORKSPACE_DIR, "knoblaunch.exe")
@@ -20,6 +20,7 @@ ID_TRAY_RELOAD = 40003
 ID_TRAY_EXIT = 40004
 
 @unittest.skipIf(not DAEMON_EXISTS, "knoblaunch.exe not found. Build the project first.")
+@unittest.skipIf(not GUI_AVAILABLE, "Interactive GUI session not available")
 class TestConfig(KnobLaunchTestBase):
 
     def setUp(self):
