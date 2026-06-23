@@ -1,0 +1,13 @@
+
+TEST FAILED: Radial menu did not appear after simulating Volume Down!
+Starting Rotary Hook Standalone Test...
+Backed up existing config.
+Wrote test config.json.
+Launching daemon: c:\Users\carla\Desktop\AHK\Arvie Knob Macro\knoblaunch.exe
+System volume before keystrokes: 0.74
+Simulating Volume Down (rotary_prev) to open menu...
+SendInput FAILED for vk: 174, error: 5
+SendInput FAILED for vk: 174, error: 5
+Radial menu window visible: False
+Terminating daemon...
+Restored original config.

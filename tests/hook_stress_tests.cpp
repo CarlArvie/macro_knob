@@ -7,6 +7,7 @@
 #include "config_store.h"
 #include "radial_menu.h"
 #include "input_hook.h"
+#include <gdiplus.h>
 
 // Define test assertions
 #define TEST_ASSERT(cond) \
@@ -46,6 +47,10 @@ void PumpMessages(DWORD limitMs) {
 
 int main() {
     std::cout << "Starting Input Hook Empirical Stress Tests..." << std::endl;
+
+    Gdiplus::GdiplusStartupInput gdiplusStartupInput;
+    ULONG_PTR gdiplusToken;
+    Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 
     // 1. Initialize configuration and GDI+
     g_configStore.Load();
@@ -218,5 +223,6 @@ int main() {
     DestroyWindow(hDaemonWnd);
 
     std::cout << "Input Hook Empirical Stress Tests complete." << std::endl;
+    Gdiplus::GdiplusShutdown(gdiplusToken);
     return 0;
 }

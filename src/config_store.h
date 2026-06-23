@@ -11,15 +11,22 @@ struct GlobalConfig {
     std::string hotkey_override = "F13";
     bool show_tray_icon = true;
     bool debug_log = false;
+    std::string interaction_mode = "mouse_hold";
+    std::string rotary_prev = "PgDn";
+    std::string rotary_next = "PgUp";
+    bool is_enabled = true;
+    std::string toggle_hotkey = "F14";
 };
 
 struct SlotConfig {
     int index = 0;
+    bool enabled = true;
     std::string label;
     std::string icon;
     std::string color;
     std::string type;
     nlohmann::json config_data;
+    std::vector<SlotConfig> child_slots;
 };
 
 class ConfigStore {
@@ -37,6 +44,8 @@ public:
     GlobalConfig GetGlobal() const;
     std::vector<SlotConfig> GetSlots() const;
     SlotConfig GetSlot(int index) const;
+    std::vector<SlotConfig> GetSlotsAtPath(const std::vector<int>& path) const;
+    SlotConfig GetSlotAtPath(const std::vector<int>& path, int index) const;
 
     // Thread-safe setters
     void UpdateGlobal(const GlobalConfig& newGlobal);

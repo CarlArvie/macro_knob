@@ -1438,3 +1438,194 @@
 =================== TEST: test_macro.TestMacro.test_t4_1_multi_slot_setup ===================
 
 =================== TEST: test_macro.TestMacro.test_t4_5_full_cleanup_on_exit ===================
+[2026-06-23 14:52:04] [PID:10104] Process notepad.exe exited with code 0
+[2026-06-23 14:52:14] [PID:10104] Opening URL: https://github.com
+
+=================== ROTARY HOOK INTERACTIVE TEST ===================
+
+=================== ROTARY HOOK INTERACTIVE TEST ===================
+[2026-06-23 17:45:16] [PID:9760] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 17:45:17] [PID:9760] SetMenuVisible: 1
+[2026-06-23 17:45:17] [PID:9760] RegisterRawInputDevices failed, error: 87
+[2026-06-23 17:45:18] [PID:9760] SetMenuVisible: 0
+[2026-06-23 17:45:18] [PID:9760] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 17:45:18] [PID:9760] Opening URL: https://google.com
+
+=================== ROTARY HOOK INTERACTIVE TEST ===================
+[2026-06-23 17:45:53] [PID:17128] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 17:45:54] [PID:17128] SetMenuVisible: 1
+[2026-06-23 17:45:54] [PID:17128] RegisterRawInputDevices failed, error: 87
+[2026-06-23 17:45:55] [PID:17128] SetMenuVisible: 0
+[2026-06-23 17:45:55] [PID:17128] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 17:45:55] [PID:17128] Process C:\Windows\System32\cmd.exe exited with code 0
+
+=================== ROTARY HOOK INTERACTIVE TEST ===================
+[2026-06-23 17:49:20] [PID:15608] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+
+=================== ROTARY HOOK INTERACTIVE TEST ===================
+[2026-06-23 17:51:49] [PID:14272] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+
+=================== ROTARY HOOK INTERACTIVE TEST ===================
+[2026-06-23 17:54:28] [PID:7412] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 17:54:29] [PID:7412] SetMenuVisible: 1
+[2026-06-23 17:54:29] [PID:7412] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 17:54:31] [PID:7412] SetMenuVisible: 0
+[2026-06-23 17:54:31] [PID:7412] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 17:54:31] [PID:7412] Process C:\Windows\System32\cmd.exe exited with code 0
+
+=================== ROTARY HOOK INTERACTIVE TEST ===================
+[2026-06-23 18:01:11] [PID:4856] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+
+=================== ROTARY HOOK INTERACTIVE TEST ===================
+[2026-06-23 18:05:43] [PID:7412] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 18:05:44] [PID:7412] SetMenuVisible: 1
+[2026-06-23 18:05:44] [PID:7412] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 18:05:45] [PID:7412] SetMenuVisible: 0
+[2026-06-23 18:05:45] [PID:7412] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 18:05:45] [PID:7412] Process C:\Windows\System32\cmd.exe exited with code 0
+[2026-06-23 18:11:54] [PID:16880] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=173 prevVk=174 nextVk=175
+[2026-06-23 18:11:54] [PID:16880] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 18:11:54] [PID:16880] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=173 prevVk=174 nextVk=175
+[2026-06-23 18:12:23] [PID:8476] UpdateHookConfig: interactionMode=mouse_hold debugLog=1 targetVk=173 prevVk=174 nextVk=175
+[2026-06-23 18:12:23] [PID:8476] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 18:12:23] [PID:8476] UpdateHookConfig: interactionMode=mouse_hold debugLog=1 targetVk=173 prevVk=174 nextVk=175
+[2026-06-23 18:12:23] [PID:8476] SetMenuVisible: 1
+[2026-06-23 18:12:23] [PID:8476] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 18:12:23] [PID:8476] SetMenuVisible: 0
+[2026-06-23 18:12:23] [PID:8476] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 18:12:23] [PID:8476] RegisterRawInputDevices toggled: swallow=0
+
+=================== ROTARY HOOK INTERACTIVE TEST ===================
+[2026-06-23 18:12:39] [PID:19424] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 18:14:43] [PID:18048] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 19:10:19] [PID:2876] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 19:10:19] [PID:2876] SetMenuVisible: 1
+[2026-06-23 19:10:19] [PID:2876] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 19:10:23] [PID:2876] SetMenuVisible: 0
+[2026-06-23 19:10:23] [PID:2876] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 19:10:23] [PID:2876] Opening URL: https://google.com
+[2026-06-23 19:10:26] [PID:2876] SetMenuVisible: 1
+[2026-06-23 19:10:26] [PID:2876] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 19:10:33] [PID:2876] SetMenuVisible: 0
+[2026-06-23 19:10:33] [PID:2876] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 19:10:33] [PID:2876] Opening URL: https://google.com
+[2026-06-23 19:10:36] [PID:2876] SetMenuVisible: 1
+[2026-06-23 19:10:36] [PID:2876] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 19:10:38] [PID:2876] SetMenuVisible: 0
+[2026-06-23 19:10:38] [PID:2876] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 19:10:38] [PID:2876] Opening URL: https://google.com
+[2026-06-23 19:10:40] [PID:2876] SetMenuVisible: 1
+[2026-06-23 19:10:40] [PID:2876] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 19:10:41] [PID:2876] SetMenuVisible: 0
+[2026-06-23 19:10:41] [PID:2876] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 19:10:41] [PID:2876] Opening URL: https://google.com
+[2026-06-23 19:10:41] [PID:2876] SetMenuVisible: 1
+[2026-06-23 19:10:41] [PID:2876] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 19:10:42] [PID:2876] SetMenuVisible: 0
+[2026-06-23 19:10:42] [PID:2876] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 19:10:42] [PID:2876] Opening URL: https://google.com
+[2026-06-23 19:10:43] [PID:2876] SetMenuVisible: 1
+[2026-06-23 19:10:43] [PID:2876] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 19:10:46] [PID:2876] SetMenuVisible: 0
+[2026-06-23 19:10:46] [PID:2876] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 19:10:46] [PID:2876] Opening URL: https://google.com
+[2026-06-23 19:11:04] [PID:2876] SetMenuVisible: 1
+[2026-06-23 19:11:04] [PID:2876] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 19:11:08] [PID:2876] SetMenuVisible: 0
+[2026-06-23 19:11:08] [PID:2876] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 19:11:08] [PID:2876] Opening URL: https://google.com
+[2026-06-23 19:13:17] [PID:2876] SetMenuVisible: 1
+[2026-06-23 19:13:17] [PID:2876] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 19:13:20] [PID:2876] SetMenuVisible: 0
+[2026-06-23 19:13:20] [PID:2876] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 19:13:20] [PID:2876] Opening URL: https://google.com
+[2026-06-23 19:17:10] [PID:2876] SetMenuVisible: 1
+[2026-06-23 19:17:10] [PID:2876] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 19:17:13] [PID:2876] SetMenuVisible: 0
+[2026-06-23 19:17:13] [PID:2876] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 19:17:13] [PID:2876] Opening URL: https://google.com
+[2026-06-23 19:17:15] [PID:2876] SetMenuVisible: 1
+[2026-06-23 19:17:15] [PID:2876] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 19:17:16] [PID:2876] SetMenuVisible: 0
+[2026-06-23 19:17:16] [PID:2876] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 19:17:16] [PID:2876] Opening URL: https://google.com
+[2026-06-23 20:44:32] [PID:2876] SetMenuVisible: 1
+[2026-06-23 20:44:32] [PID:2876] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 20:44:35] [PID:2876] SetMenuVisible: 0
+[2026-06-23 20:44:35] [PID:2876] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 20:44:35] [PID:2876] Opening URL: https://google.com
+[2026-06-23 20:44:47] [PID:2876] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 20:52:16] [PID:7372] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 21:09:00] [PID:20272] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 21:09:15] [PID:20272] SetMenuVisible: 1
+[2026-06-23 21:09:15] [PID:20272] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 21:09:16] [PID:20272] SetMenuVisible: 0
+[2026-06-23 21:09:16] [PID:20272] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 21:09:16] [PID:20272] Opening URL: https://google.com
+[2026-06-23 21:10:01] [PID:20272] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 21:43:58] [PID:20272] SetMenuVisible: 1
+[2026-06-23 21:43:58] [PID:20272] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 21:44:00] [PID:20272] SetMenuVisible: 0
+[2026-06-23 21:44:00] [PID:20272] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 21:44:00] [PID:20272] Opening URL: https://google.com
+[2026-06-23 21:46:23] [PID:20272] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 21:46:33] [PID:2036] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 21:46:41] [PID:2036] SetMenuVisible: 1
+[2026-06-23 21:46:41] [PID:2036] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 21:46:48] [PID:2036] SetMenuVisible: 0
+[2026-06-23 21:46:48] [PID:2036] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 21:46:48] [PID:2036] Opening URL: https://google.com
+[2026-06-23 21:51:24] [PID:2036] SetMenuVisible: 1
+[2026-06-23 21:51:24] [PID:2036] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 21:51:27] [PID:2036] SetMenuVisible: 0
+[2026-06-23 21:51:27] [PID:2036] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 21:51:27] [PID:2036] Opening URL: https://google.com
+[2026-06-23 22:00:51] [PID:1892] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:02:29] [PID:1892] SetMenuVisible: 1
+[2026-06-23 22:02:29] [PID:1892] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:02:33] [PID:1892] SetMenuVisible: 0
+[2026-06-23 22:02:33] [PID:1892] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:02:33] [PID:1892] Opening URL: https://google.com
+[2026-06-23 22:07:02] [PID:3620] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:08:11] [PID:3620] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:08:14] [PID:3620] SetMenuVisible: 1
+[2026-06-23 22:08:14] [PID:3620] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:08:17] [PID:3620] SetMenuVisible: 0
+[2026-06-23 22:08:17] [PID:3620] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:08:17] [PID:3620] Opening URL: https://google.com
+[2026-06-23 22:08:20] [PID:3620] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:08:23] [PID:3620] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:08:23] [PID:3620] SetMenuVisible: 1
+[2026-06-23 22:08:23] [PID:3620] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:08:27] [PID:3620] SetMenuVisible: 0
+[2026-06-23 22:08:27] [PID:3620] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:08:27] [PID:3620] Opening URL: https://google.com
+[2026-06-23 22:16:38] [PID:18532] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:17:34] [PID:18532] SetMenuVisible: 1
+[2026-06-23 22:17:34] [PID:18532] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:17:36] [PID:18532] SetMenuVisible: 0
+[2026-06-23 22:17:36] [PID:18532] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:17:36] [PID:18532] Opening URL: https://google.com
+[2026-06-23 22:18:08] [PID:18532] SetMenuVisible: 1
+[2026-06-23 22:18:08] [PID:18532] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:18:18] [PID:18532] SetMenuVisible: 0
+[2026-06-23 22:18:18] [PID:18532] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:18:22] [PID:18532] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:18:23] [PID:18532] SetMenuVisible: 1
+[2026-06-23 22:18:23] [PID:18532] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:18:38] [PID:18532] SetMenuVisible: 0
+[2026-06-23 22:18:38] [PID:18532] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:19:56] [PID:18532] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:19:57] [PID:18532] SetMenuVisible: 1
+[2026-06-23 22:19:57] [PID:18532] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:20:00] [PID:18532] SetMenuVisible: 0
+[2026-06-23 22:20:00] [PID:18532] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:20:29] [PID:18532] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:20:30] [PID:18532] SetMenuVisible: 1
+[2026-06-23 22:20:30] [PID:18532] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:20:41] [PID:18532] SetMenuVisible: 0
+[2026-06-23 22:20:41] [PID:18532] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:20:43] [PID:18532] SetMenuVisible: 1
+[2026-06-23 22:20:43] [PID:18532] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:20:56] [PID:18532] SetMenuVisible: 0
+[2026-06-23 22:20:56] [PID:18532] RegisterRawInputDevices toggled: swallow=0

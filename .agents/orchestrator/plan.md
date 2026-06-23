@@ -1,39 +1,38 @@
-# plan.md — KnobLaunch Orchestration Plan
+# plan.md — Rotary Knob Support & Input Hook Interception Plan
 
 ## 1. Problem Classification
 - **Domain**: SWE / Project
-- **Stack**: C++ (Win32, GDI+) + AutoHotkey v2
-- **Integrity Level**: development (Integrity Forensics verification required)
+- **Stack**: C++ (Win32, WH_KEYBOARD_LL / WM_INPUT / WM_APPCOMMAND) + Python (verification script)
+- **Integrity Level**: demo (Integrity Forensics verification required)
 
 ## 2. Agent Roles & Strategy
-We will use a dual-track parallel structure:
-1. **E2E Testing Track**:
-   - Spawns a sub-orchestrator (`self` archetype) for test harness and case generation.
-   - Deliverable: Comprehensive opaque-box test runner + test suite, resulting in `TEST_READY.md`.
-2. **Implementation Track**:
-   - Spawns subagents for sequential milestones.
-   - Milestone 1: Scaffold, basic tray, JSON configs.
-   - Milestone 2: Low-level keyboard hook (`WH_KEYBOARD_LL`) with hold threshold detection.
-   - Milestone 3: WS_EX_LAYERED GDI+ drawing of radial menu.
-   - Milestone 4: MacroRunner (Process, URL, AHK).
-   - Milestone 5: E2E Integration (passing 100% of E2E tests).
-   - Milestone 6: Adversarial Hardening (Challenger-led gaps verification).
+We will execute the implementation of the rotary menu navigation via hardware volume knob rotations using the standard Explorer -> Worker -> Reviewer -> Challenger -> Auditor cycle.
+To ensure the requirements are met, we will address:
+1. **R1. Reliable Hardware Interception**:
+   - The low-level hook `WH_KEYBOARD_LL` might block due to thread locking. We will cache configuration variables (like `interaction_mode`, `rotary_prev`, `rotary_next`, `hotkey_override`) instead of calling `g_configStore.GetGlobal()` in the timing-critical hook function.
+   - If physical knob rotation events are bypassed by the keyboard hook, we will add support for raw input via `RegisterRawInputDevices` for HID Consumer Control devices (`UsagePage = 0x0C`, `Usage = 0x01` / `0x02` or similar) or handle `WM_APPCOMMAND` messages in the daemon window.
+2. **R2. Swallow Volume Change Events**:
+   - When the menu is triggered or navigated in `"rotary"` mode, we must ensure that `VK_VOLUME_UP` and `VK_VOLUME_DOWN` keystrokes (either from raw input or keyboard hook) are entirely swallowed so the Windows system volume remains unchanged.
+3. **R3. Execution Key Reliability**:
+   - The execution key `PgUp` must be reliable. We will verify that pressing `PgUp` while the radial menu is open triggers `TriggerSlotMacro` for the hovered slot and immediately destroys the menu cleanly.
+4. **Acceptance Criteria Script (`test_rotary_hook.py`)**:
+   - We will write a python script `tests/test_rotary_hook.py` that simulates low-level events for `Volume_Up`, `Volume_Down`, and `PgUp` using ctypes. It will verify that:
+     - The menu appears on rotation.
+     - System volume does not change.
+     - PgUp executes the macro and closes the UI window.
 
 ## 3. Step-by-Step Task Delegation
 
 | Step | Scope / Milestone | Assigned Agent Type | Expected Output | Verification Method |
 |---|---|---|---|---|
-| Step 1 | E2E Testing Track (Milestones T1 & T2) | `self` (Testing Sub-orch) | Test harness, 40+ test cases, `TEST_READY.md` | Execute test suite on a stub implementation |
-| Step 2 | Implementation Milestone 1 | `teamwork_preview_worker` | CMakeLists.txt, config manager, system tray icon | Build check, verify `config.json` is generated |
-| Step 3 | Implementation Milestone 2 | `teamwork_preview_worker` | WH_KEYBOARD_LL hook, hold/tap logic | Simulating key inputs, check hook logs |
-| Step 4 | Implementation Milestone 3 | `teamwork_preview_worker` | GDI+ overlay window, angle calculation, hovering | Verify window class exists, visual overlay check |
-| Step 5 | Implementation Milestone 4 | `teamwork_preview_worker` | MacroRunner & AutoHotkey subprocess execution | Verify AHK macro runs correctly on trigger |
-| Step 6 | Implementation Milestone 5 (E2E Pass) | `self` (Impl Sub-orch) | Full integration, debug fixes | All Tier 1-4 tests pass via E2E test runner |
-| Step 7 | Milestone 6 (Adversarial Hardening) | `teamwork_preview_challenger` + `teamwork_preview_reviewer` | Hardened coverage, bug fixes | Challenger verifies no gaps in edge cases |
-| Step 8 | Forensic Audit | `teamwork_preview_auditor` | Audit report | Verify no hardcoding, no cheats, clean execution |
+| Step 1 | Exploration & Hook Strategy | `teamwork_preview_explorer` | Analysis of why current hook fails, raw input device registration options, and clean hook implementation strategy | Review explorer handoff |
+| Step 2 | Implementation (Hook + Test Script) | `teamwork_preview_worker` | Modified `src/input_hook.cpp`, `src/main.cpp`, and newly created `tests/test_rotary_hook.py` | Compiles, test script successfully runs |
+| Step 3 | Reviewer Verification | `teamwork_preview_reviewer` | Review of changes to ensure no thread blocking, proper swallowing, and code conformance | Reviewer handoff check |
+| Step 4 | Challenger Verification | `teamwork_preview_challenger` | Executes `tests/test_rotary_hook.py` and other test cases, verifies volume changes are swallowed | Challenger logs verification |
+| Step 5 | Forensic Audit | `teamwork_preview_auditor` | Audit report validating clean, non-cheating implementation | Audit verdict must be CLEAN |
 
 ## 4. Verification Gating
-- E2E Tests: 100% pass rate.
-- Forensic Audit: Must return verdict CLEAN.
+- `test_rotary_hook.py` must pass 100%.
+- Volume level remains completely unchanged before and after the simulated volume keystrokes.
+- Forensic Audit returns CLEAN.
 - Reviewer Verdicts: No vetoes.
-- Challenger Verification: Successful checks.

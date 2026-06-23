@@ -59,11 +59,39 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
     case WM_HOLD_TIMER:
         HandleHoldTimer(wParam);
         break;
+    case WM_ROTARY_TIMEOUT:
+        HandleRotaryTimeout();
+        break;
+    case WM_TRIGGER_MACRO:
+        TriggerSlotMacro((int)wParam);
+        break;
+    case WM_INPUT: {
+        HRAWINPUT hRawInput = (HRAWINPUT)lParam;
+        BYTE buffer[256];
+        UINT dwSize = sizeof(buffer);
+        if (GetRawInputData(hRawInput, RID_INPUT, buffer, &dwSize, sizeof(RAWINPUTHEADER)) != (UINT)-1) {
+            PRAWINPUT raw = (PRAWINPUT)buffer;
+            return DefRawInputProc(&raw, 1, sizeof(RAWINPUTHEADER));
+        }
+        return 0;
+    }
     case WM_COMMAND:
         switch (LOWORD(wParam)) {
         case ID_OPEN_CONFIG: {
-            std::wstring configPath = g_configStore.GetResolvedPath();
-            ShellExecuteW(NULL, L"open", configPath.c_str(), NULL, NULL, SW_SHOWNORMAL);
+            wchar_t exePath[MAX_PATH];
+            GetModuleFileNameW(NULL, exePath, MAX_PATH);
+            std::wstring exeDir = exePath;
+            size_t lastSlash = exeDir.find_last_of(L"\\/");
+            if (lastSlash != std::wstring::npos) {
+                exeDir = exeDir.substr(0, lastSlash);
+            }
+            std::wstring pyScript;
+            if (exeDir.find(L"\\bin") != std::wstring::npos) {
+                pyScript = exeDir + L"\\..\\config_server.py";
+            } else {
+                pyScript = exeDir + L"\\config_server.py";
+            }
+            ShellExecuteW(NULL, L"open", L"python", (L"\"" + pyScript + L"\"").c_str(), NULL, SW_HIDE);
             break;
         }
         case ID_TRAY_RELOAD:

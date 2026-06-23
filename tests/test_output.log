@@ -1,0 +1,17 @@
+Starting Rotary Hook Standalone Test...
+Backed up existing config.
+Wrote test config.json.
+Launching daemon: c:\Users\carla\Desktop\AHK\Arvie Knob Macro\knoblaunch.exe
+System volume before keystrokes: 0.74
+Simulating Volume Down (rotary_prev) to open menu...
+Radial menu window visible: True
+Simulating further volume rotations while menu is open...
+System volume after simulated keystrokes: 0.74
+Simulating PgUp to trigger macro and close menu...
+Macro executed successfully!
+Radial menu window visible after execute: False
+Radial menu closed cleanly!
+
+ALL TESTS PASSED SUCCESSFULLY!
+Terminating daemon...
+Restored original config.

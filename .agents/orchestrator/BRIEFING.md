@@ -1,21 +1,21 @@
-# BRIEFING — 2026-06-15T19:18:30+08:00
+# BRIEFING — 2026-06-23T17:35:00+08:00
 
 ## Mission
-Decompose KnobLaunch, plan milestones, coordinate implementation, and run verification loops to build the C++ volume knob daemon + AHK radial menu interceptor.
+Coordinate specialists to debug and fix input hook in input_hook.cpp to intercept volume knob rotations, swallow volume changes, support PgUp execution, and implement a validation test script test_rotary_hook.py.
 
 ## 🔒 My Identity
 - Archetype: orchestrator
 - Roles: orchestrator, user_liaison, human_reporter, successor
 - Working directory: c:\Users\carla\Desktop\AHK\Arvie Knob Macro\.agents\orchestrator
 - Original parent: main agent
-- Original parent conversation ID: 8f8d6c42-68ed-4898-8c7c-438db8d734d7
+- Original parent conversation ID: 6a744d9c-54d1-47b7-84e1-4db277818684
 
 ## 🔒 My Workflow
 - **Pattern**: Project
-- **Scope document**: c:\Users\carla\Desktop\AHK\Arvie Knob Macro\PROJECT.md
-1. **Decompose**: Identify milestones corresponding to module boundaries, define interfaces, and write PROJECT.md.
+- **Scope document**: c:\Users\carla\Desktop\AHK\Arvie Knob Macro\.agents\orchestrator\plan.md
+1. **Decompose**: Decomposed the rotary knob support into exploration/design, implementation in input_hook, test_rotary_hook.py creation, reviewer verification, challenger validation, and forensic audit.
 2. **Dispatch & Execute**:
-   - **Delegate**: Spawn sub-orchestrators for milestones or tracks.
+   - **Direct (iteration loop)**: Spawn Explorer for strategy, Worker for implementation/test script, Reviewer for verification, Challenger for testing, Auditor for compliance.
 3. **On failure**:
    - Retry: nudge stuck agent or re-send task
    - Replace: spawn fresh agent with partial progress
@@ -25,50 +25,51 @@ Decompose KnobLaunch, plan milestones, coordinate implementation, and run verifi
    - Escalate: report to parent (sub-orchestrators only, last resort)
 4. **Succession**: Self-succeed at 16 spawns. Write handoff.md, spawn successor.
 - **Work items**:
-  1. Decompose project and create plan.md [done]
-  2. Implement Core Keyboard Hook & Volume Interceptor Daemon [done]
-  3. Implement Layered GDI+ Radial Menu overlay [in-progress]
-  4. Implement AHK macro execution (subprocess/COM) & config.json manager [pending]
-  5. E2E test suite implementation [done]
-  6. Final E2E pass & adversarial verification [pending]
-- **Current phase**: 2
-- **Current focus**: Milestone 3 execution in the implementation track.
+  1. Explore input hooking alternative (Raw Input vs Hook vs WM_APPCOMMAND) [pending]
+  2. Implement reliable knob interception and PgUp execution in input_hook.cpp [pending]
+  3. Create test_rotary_hook.py script [pending]
+  4. Perform Reviewer checks [pending]
+  5. Run Challenger tests and verify volume remains unchanged [pending]
+  6. Perform Forensic Audit [pending]
+- **Current phase**: 1
+- **Current focus**: Step 1 (Exploration)
 
 ## 🔒 Key Constraints
-- Never reuse a subagent after it has delivered its handoff — always spawn fresh
-- Victory Audit is MANDATORY before reporting completion
 - Never write, modify, or create source code files directly — delegate to workers
 - Never run build/test commands yourself — require workers to do so
+- Victory Audit is MANDATORY before reporting completion
+- Never reuse a subagent after it has delivered its handoff — always spawn fresh
 
 ## Current Parent
-- Conversation ID: 8f8d6c42-68ed-4898-8c7c-438db8d734d7
-- Updated: not yet
+- Conversation ID: 6a744d9c-54d1-47b7-84e1-4db277818684
+- Updated: yes
 
 ## Key Decisions Made
-- Starting with C++ CMake based daemon using WH_KEYBOARD_LL hook.
-- AHK script macros will start with Subprocess execution model (Option A).
-- Use nlohmann/json for config storing and loading.
-- Delegated execution to two track sub-orchestrators (E2E testing and Implementation).
+- Caching config parameters in input_hook to prevent blocking in low-level callback hooks due to mutex locks.
+- Checking raw input WM_INPUT or app commands if low-level hooks fail to swallow volume keys.
 
 ## Team Roster
 | Agent | Type | Work Item | Status | Conv ID |
-|-------|------|-----------|--------|---------|
-| sub_orch_e2e_testing | self | E2E Testing Track | completed | 7089ff27-7749-43a4-a86c-8dabc5ba56b9 |
-| sub_orch_implementation | self | Implementation Track | in-progress | 916d9844-9ca1-44ca-bed4-eb9091863684 |
+|---|---|---|---|---|
+| explorer_rotary_1 | teamwork_preview_explorer | Explore hook improvements & raw input | completed | f46aa7fc-a688-4814-9ddb-ec794151cec5 |
+| worker_rotary | teamwork_preview_worker | Implement hook fixes, raw input & test script | completed | 87e37bbd-322a-43d3-b8a8-3d0f5bf2df4c |
+| auditor_rotary | teamwork_preview_auditor | Forensic integrity audit of changes | completed | 3de8f29f-fead-45e6-add0-bd76a9e979a5 |
+| worker_rotary_fix | teamwork_preview_worker | Fix RegisterRawInputDevices error 87 | completed | 185bac9c-52bc-4f4a-9418-f58495a62a7c |
+| auditor_rotary_fix | teamwork_preview_auditor | Forensic audit of raw input fix | completed | c82902f4-6079-41b4-8bb7-5a8418e5f18a |
 
 ## Succession Status
 - Succession required: no
-- Spawn count: 2 / 16
-- Pending subagents: 916d9844-9ca1-44ca-bed4-eb9091863684
+- Spawn count: 5 / 16 (for this generation)
+- Pending subagents: none
 - Predecessor: none
 - Successor: not yet spawned
 
 ## Active Timers
-- Heartbeat cron: 7a1f18b7-37f4-4f50-81f9-3afe7220f9f4/task-250
+- Heartbeat cron: none
 - Safety timer: none
 
 ## Artifact Index
-- c:\Users\carla\Desktop\AHK\Arvie Knob Macro\.agents\orchestrator\ORIGINAL_REQUEST.md — Verbatim user request
+- c:\Users\carla\Desktop\AHK\Arvie Knob Macro\.agents\ORIGINAL_REQUEST.md — Verbatim user request
 - c:\Users\carla\Desktop\AHK\Arvie Knob Macro\.agents\orchestrator\BRIEFING.md — Persistent briefing state
-- c:\Users\carla\Desktop\AHK\Arvie Knob Macro\PROJECT.md — Main project scope and milestones
 - c:\Users\carla\Desktop\AHK\Arvie Knob Macro\.agents\orchestrator\plan.md — Orchestration plan
+- c:\Users\carla\Desktop\AHK\Arvie Knob Macro\.agents\orchestrator\progress.md — Progress tracker

@@ -21,5 +21,15 @@ if %errorlevel% neq 0 (
     echo Compilation of hook_stress_tests failed
     exit /b %errorlevel%
 )
+cl.exe /EHsc /std:c++17 tests/diagnostic_ui.cpp src/radial_menu.cpp src/config_store.cpp /Iinclude /Isrc /link user32.lib gdi32.lib gdiplus.lib shell32.lib shlwapi.lib /out:diagnostic_ui.exe
+if %errorlevel% neq 0 (
+    echo Compilation of diagnostic_ui failed
+    exit /b %errorlevel%
+)
+cl.exe /EHsc /std:c++17 tests/query_volume.cpp /link ole32.lib /out:bin/query_volume.exe
+if %errorlevel% neq 0 (
+    echo Compilation of query_volume failed
+    exit /b %errorlevel%
+)
 echo Compilation successful
 exit /b 0

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnobLaunch Configuration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="glass-container">
+        <header>
+            <h1>KnobLaunch</h1>
+            <div class="header-actions">
+                <button id="save-btn" class="primary-btn">Save & Close</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="panel global-settings">
+                <h2>Global Settings</h2>
+                
+                <div class="checkbox-group" style="margin-bottom: 1.5rem;">
+                    <input type="checkbox" id="is_enabled">
+                    <label for="is_enabled" style="font-weight: 700; color: #fff;">Master App Enable</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="toggle_hotkey">App Toggle Hotkey</label>
+                    <input type="text" id="toggle_hotkey" placeholder="e.g. F14, ScrollLock">
+                </div>
+                
+                <div class="form-group">
+                    <label for="interaction_mode">Interaction Mode</label>
+                    <select id="interaction_mode">
+                        <option value="rotary">Rotary Knob</option>
+                        <option value="mouse_hold">Mouse Hold</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="hotkey_override">Trigger/Execute Key</label>
+                    <input type="text" id="hotkey_override" placeholder="e.g. PgUp, F13">
+                </div>
+
+                <div class="form-group">
+                    <label for="rotary_next">Rotary Next Key</label>
+                    <input type="text" id="rotary_next" placeholder="e.g. Volume_Up">
+                </div>
+
+                <div class="form-group">
+                    <label for="rotary_prev">Rotary Prev Key</label>
+                    <input type="text" id="rotary_prev" placeholder="e.g. Volume_Down">
+                </div>
+
+                <div class="form-group">
+                    <label for="hold_threshold_ms">Hold Threshold (ms)</label>
+                    <input type="number" id="hold_threshold_ms" placeholder="150">
+                </div>
+                
+                <div class="form-group">
+                    <label for="radial_size">Menu Size</label>
+                    <select id="radial_size">
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="show_tray_icon">
+                    <label for="show_tray_icon">Show Tray Icon</label>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="debug_log">
+                    <label for="debug_log">Enable Debug Log</label>
+                </div>
+            </div>
+
+            <div class="panel slot-editor-container">
+                <div id="breadcrumb" style="font-weight: 600; color: #a78bfa; margin-bottom: -1rem; text-align: center;">&#x1F3E0; Home</div>
+                <div class="visualizer">
+                    <svg viewBox="-100 -100 200 200" id="pie-chart"></svg>
+                </div>
+                
+                <div class="slot-editor" id="slot-editor">
+                    <h2 id="editor-title">Edit Slot</h2>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="slot_enabled">
+                        <label for="slot_enabled">Enable this Slot</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="slot_label">Label</label>
+                        <input type="text" id="slot_label">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="slot_color">Color (Hex)</label>
+                        <div class="color-picker-row">
+                            <input type="color" id="slot_color_picker">
+                            <input type="text" id="slot_color" placeholder="0xFF555555">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="slot_type">Action Type</label>
+                        <select id="slot_type">
+                            <option value="run_program">Run Program / AHK Script</option>
+                            <option value="open_url">Open URL</option>
+                            <option value="sub_menu">Sub-Menu (Folder)</option>
+                            <option value="back">Back to Parent</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="group_path">
+                        <label for="slot_path">Target Path (.exe, .ahk, .lnk)</label>
+                        <input type="text" id="slot_path" placeholder="C:\Path\To\Script.ahk">
+                    </div>
+
+                    <div class="form-group" id="group_url" style="display: none;">
+                        <label for="slot_url">Website URL</label>
+                        <input type="text" id="slot_url" placeholder="https://github.com">
+                    </div>
+                    <div class="form-group" id="group_sub_menu" style="display: none; margin-top: 1rem;">
+                        <button id="btn_enter_sub_menu" class="primary-btn" style="width: 100%; background: #a78bfa; color: #000;">Open Folder &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification toast -->
+    <div id="toast" class="toast">Settings Saved successfully!</div>
+
+    <script src="app.js"></script>
+</body>
+</html>

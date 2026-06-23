@@ -5,26 +5,62 @@
 #include <iostream>
 #include <algorithm>
 
-// Custom load/save helper functions
-static void LoadFromJson(const nlohmann::json& j, GlobalConfig& g, std::vector<SlotConfig>& sVec) {
-    auto& gj = j["global"];
-    g.hold_threshold_ms = gj["hold_threshold_ms"].get<int>();
-    g.radial_size = gj["radial_size"].get<std::string>();
-    g.hotkey_override = gj["hotkey_override"].get<std::string>();
-    g.show_tray_icon = gj["show_tray_icon"].get<bool>();
-    g.debug_log = gj["debug_log"].get<bool>();
-
-    sVec.clear();
-    auto& sj = j["slots"];
+static std::vector<SlotConfig> ParseSlotsFromJson(const nlohmann::json& sj, int depth = 0) {
+    std::vector<SlotConfig> sVec;
+    if (depth > 10 || !sj.is_array()) return sVec;
     for (auto& item : sj) {
         SlotConfig sc;
-        sc.index = item["index"].get<int>();
-        sc.label = item["label"].get<std::string>();
-        sc.icon = item["icon"].get<std::string>();
-        sc.color = item["color"].get<std::string>();
-        sc.type = item["type"].get<std::string>();
-        sc.config_data = item["config"];
+        sc.index = item.value("index", 0);
+        sc.enabled = item.value("enabled", true);
+        sc.label = item.value("label", "");
+        sc.icon = item.value("icon", "");
+        sc.color = item.value("color", "");
+        sc.type = item.value("type", "run_program");
+        if (item.contains("config")) sc.config_data = item["config"];
+        if (sc.type == "sub_menu" && item.contains("slots")) {
+            sc.child_slots = ParseSlotsFromJson(item["slots"], depth + 1);
+        }
         sVec.push_back(sc);
+    }
+    return sVec;
+}
+
+static nlohmann::json SerializeSlotsToJson(const std::vector<SlotConfig>& sVec) {
+    nlohmann::json j = nlohmann::json::array();
+    for (const auto& sc : sVec) {
+        nlohmann::json item;
+        item["index"] = sc.index;
+        item["enabled"] = sc.enabled;
+        item["label"] = sc.label;
+        item["icon"] = sc.icon;
+        item["color"] = sc.color;
+        item["type"] = sc.type;
+        item["config"] = sc.config_data;
+        if (sc.type == "sub_menu") {
+            item["slots"] = SerializeSlotsToJson(sc.child_slots);
+        }
+        j.push_back(item);
+    }
+    return j;
+}
+
+static void LoadFromJson(const nlohmann::json& j, GlobalConfig& g, std::vector<SlotConfig>& sVec) {
+    auto& gj = j["global"];
+    g.hold_threshold_ms = gj.value("hold_threshold_ms", 150);
+    g.radial_size = gj.value("radial_size", "medium");
+    g.hotkey_override = gj.value("hotkey_override", "F13");
+    g.show_tray_icon = gj.value("show_tray_icon", true);
+    g.debug_log = gj.value("debug_log", false);
+    g.interaction_mode = gj.value("interaction_mode", "mouse_hold");
+    g.rotary_prev = gj.value("rotary_prev", "PgDn");
+    g.rotary_next = gj.value("rotary_next", "PgUp");
+    g.is_enabled = gj.value("is_enabled", true);
+    g.toggle_hotkey = gj.value("toggle_hotkey", "F14");
+
+    if (j.contains("slots")) {
+        sVec = ParseSlotsFromJson(j["slots"], 0);
+    } else {
+        sVec.clear();
     }
 }
 
@@ -35,18 +71,13 @@ static nlohmann::json SaveToJson(const GlobalConfig& g, const std::vector<SlotCo
     j["global"]["hotkey_override"] = g.hotkey_override;
     j["global"]["show_tray_icon"] = g.show_tray_icon;
     j["global"]["debug_log"] = g.debug_log;
+    j["global"]["interaction_mode"] = g.interaction_mode;
+    j["global"]["rotary_prev"] = g.rotary_prev;
+    j["global"]["rotary_next"] = g.rotary_next;
+    j["global"]["is_enabled"] = g.is_enabled;
+    j["global"]["toggle_hotkey"] = g.toggle_hotkey;
 
-    j["slots"] = nlohmann::json::array();
-    for (const auto& sc : sVec) {
-        nlohmann::json item;
-        item["index"] = sc.index;
-        item["label"] = sc.label;
-        item["icon"] = sc.icon;
-        item["color"] = sc.color;
-        item["type"] = sc.type;
-        item["config"] = sc.config_data;
-        j["slots"].push_back(item);
-    }
+    j["slots"] = SerializeSlotsToJson(sVec);
     return j;
 }
 
@@ -66,25 +97,14 @@ std::wstring ConfigStore::ResolveConfigPath() const {
     }
     std::wstring exeDir = pathStr.substr(0, lastSlash);
 
-    // Candidates:
-    // 1. (exe_dir)/config/config.json
     std::wstring cand1 = exeDir + L"\\config\\config.json";
-    // 2. (exe_dir)/../config/config.json
     std::wstring cand2 = exeDir + L"\\..\\config\\config.json";
-    // 3. (exe_dir)/config.json
     std::wstring cand3 = exeDir + L"\\config.json";
 
-    if (GetFileAttributesW(cand1.c_str()) != INVALID_FILE_ATTRIBUTES) {
-        return cand1;
-    }
-    if (GetFileAttributesW(cand2.c_str()) != INVALID_FILE_ATTRIBUTES) {
-        return cand2;
-    }
-    if (GetFileAttributesW(cand3.c_str()) != INVALID_FILE_ATTRIBUTES) {
-        return cand3;
-    }
+    if (GetFileAttributesW(cand1.c_str()) != INVALID_FILE_ATTRIBUTES) return cand1;
+    if (GetFileAttributesW(cand2.c_str()) != INVALID_FILE_ATTRIBUTES) return cand2;
+    if (GetFileAttributesW(cand3.c_str()) != INVALID_FILE_ATTRIBUTES) return cand3;
 
-    // Determine where to create
     bool isBin = false;
     if (exeDir.length() >= 3) {
         std::wstring last3 = exeDir.substr(exeDir.length() - 3);
@@ -95,26 +115,23 @@ std::wstring ConfigStore::ResolveConfigPath() const {
         }
     }
 
-    if (isBin) {
-        return cand2;
-    } else {
-        return cand1;
-    }
+    if (isBin) return cand2;
+    else return cand1;
 }
 
-void ConfigStore::GenerateDefaultConfig() {
-    globalSettings = GlobalConfig();
-    slotsSettings.clear();
+static std::vector<SlotConfig> GenerateDefaultSlots(int depth = 0) {
+    std::vector<SlotConfig> slots;
     for (int i = 0; i < 8; ++i) {
         SlotConfig sc;
         sc.index = i;
-        if (i == 0) {
+        sc.enabled = true;
+        if (depth == 0 && i == 0) {
             sc.label = "Notepad";
             sc.icon = "resources/icons/notepad.png";
             sc.color = "0xFF555555";
             sc.type = "run_program";
             sc.config_data["path"] = "notepad.exe";
-        } else if (i == 1) {
+        } else if (depth == 0 && i == 1) {
             sc.label = "GitHub";
             sc.icon = "resources/icons/github.png";
             sc.color = "0xFF333333";
@@ -127,8 +144,14 @@ void ConfigStore::GenerateDefaultConfig() {
             sc.type = "run_program";
             sc.config_data["path"] = "";
         }
-        slotsSettings.push_back(sc);
+        slots.push_back(sc);
     }
+    return slots;
+}
+
+void ConfigStore::GenerateDefaultConfig() {
+    globalSettings = GlobalConfig();
+    slotsSettings = GenerateDefaultSlots();
 
     nlohmann::json j = SaveToJson(globalSettings, slotsSettings);
     std::wstring tmpPath = resolvedPath + L".tmp";
@@ -144,6 +167,126 @@ void ConfigStore::GenerateDefaultConfig() {
         ofs.close();
         MoveFileExW(tmpPath.c_str(), resolvedPath.c_str(), MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH);
     }
+}
+
+static bool SanitizeSlots(nlohmann::json& s, int depth) {
+    bool modified = false;
+    if (depth > 10) return false;
+    
+    if (!s.is_array()) {
+        s = nlohmann::json::array();
+        modified = true;
+    }
+
+    std::vector<nlohmann::json> existingSlots(8, nlohmann::json());
+    for (auto& item : s) {
+        if (item.is_object() && item.contains("index") && item["index"].is_number_integer()) {
+            int idx = item["index"].get<int>();
+            if (idx >= 0 && idx < 8) {
+                existingSlots[idx] = item;
+            }
+        }
+    }
+
+    nlohmann::json sanitizedSlots = nlohmann::json::array();
+    for (int i = 0; i < 8; ++i) {
+        nlohmann::json& item = existingSlots[i];
+        bool itemModified = false;
+        
+        if (item.is_null()) {
+            item = nlohmann::json::object();
+            item["index"] = i;
+            itemModified = true;
+        }
+
+        if (!item.contains("index") || item["index"] != i) {
+            item["index"] = i;
+            itemModified = true;
+        }
+
+        if (!item.contains("enabled") || !item["enabled"].is_boolean()) {
+            item["enabled"] = true;
+            itemModified = true;
+        }
+
+        if (!item.contains("label") || !item["label"].is_string()) {
+            if (depth == 0 && i == 0) item["label"] = "Notepad";
+            else if (depth == 0 && i == 1) item["label"] = "GitHub";
+            else item["label"] = "Slot " + std::to_string(i);
+            itemModified = true;
+        }
+
+        if (!item.contains("icon") || !item["icon"].is_string()) {
+            if (depth == 0 && i == 0) item["icon"] = "resources/icons/notepad.png";
+            else if (depth == 0 && i == 1) item["icon"] = "resources/icons/github.png";
+            else item["icon"] = "resources/icons/default.png";
+            itemModified = true;
+        }
+
+        if (!item.contains("color") || !item["color"].is_string()) {
+            if (depth == 0 && i == 0) item["color"] = "0xFF555555";
+            else if (depth == 0 && i == 1) item["color"] = "0xFF333333";
+            else item["color"] = "0xFF777777";
+            itemModified = true;
+        }
+
+        if (!item.contains("type") || !item["type"].is_string()) {
+            item["type"] = "run_program";
+            itemModified = true;
+        } else {
+            std::string t = item["type"];
+            if (t != "run_program" && t != "open_url" && t != "ahk_script" && t != "sub_menu" && t != "back") {
+                item["type"] = "run_program";
+                itemModified = true;
+            }
+        }
+
+        if (!item.contains("config") || !item["config"].is_object()) {
+            item["config"] = nlohmann::json::object();
+            itemModified = true;
+        }
+
+        auto& c = item["config"];
+        std::string t = item["type"];
+        if (t == "run_program") {
+            if (!c.contains("path") || !c["path"].is_string()) {
+                if (depth == 0 && i == 0) c["path"] = "notepad.exe";
+                else c["path"] = "";
+                itemModified = true;
+            }
+        } else if (t == "open_url") {
+            if (!c.contains("url") || !c["url"].is_string()) {
+                if (depth == 0 && i == 1) c["url"] = "https://github.com";
+                else c["url"] = "";
+                itemModified = true;
+            }
+        } else if (t == "ahk_script") {
+            if (!c.contains("script_file") || !c["script_file"].is_string()) {
+                c["script_file"] = "";
+                itemModified = true;
+            }
+        } else if (t == "sub_menu") {
+            if (!item.contains("slots")) {
+                item["slots"] = nlohmann::json::array();
+                itemModified = true;
+            }
+            if (SanitizeSlots(item["slots"], depth + 1)) {
+                itemModified = true;
+            }
+        }
+
+        sanitizedSlots.push_back(item);
+        if (itemModified) {
+            modified = true;
+        }
+    }
+
+    if (s != sanitizedSlots) {
+        s = sanitizedSlots;
+        modified = true;
+    }
+
+    return modified;
 }
 
 bool ConfigStore::ValidateAndSanitize(nlohmann::json& j) {
@@ -187,108 +330,33 @@ bool ConfigStore::ValidateAndSanitize(nlohmann::json& j) {
         g["debug_log"] = false;
         modified = true;
     }
+    if (!g.contains("interaction_mode") || !g["interaction_mode"].is_string()) {
+        g["interaction_mode"] = "mouse_hold";
+        modified = true;
+    }
+    if (!g.contains("rotary_prev") || !g["rotary_prev"].is_string()) {
+        g["rotary_prev"] = "PgDn";
+        modified = true;
+    }
+    if (!g.contains("rotary_next") || !g["rotary_next"].is_string()) {
+        g["rotary_next"] = "PgUp";
+        modified = true;
+    }
+    if (!g.contains("is_enabled") || !g["is_enabled"].is_boolean()) {
+        g["is_enabled"] = true;
+        modified = true;
+    }
+    if (!g.contains("toggle_hotkey") || !g["toggle_hotkey"].is_string()) {
+        g["toggle_hotkey"] = "F14";
+        modified = true;
+    }
 
-    if (!j.contains("slots") || !j["slots"].is_array()) {
+    if (!j.contains("slots")) {
         j["slots"] = nlohmann::json::array();
         modified = true;
     }
 
-    auto& s = j["slots"];
-    std::vector<nlohmann::json> existingSlots(8, nlohmann::json());
-    
-    for (auto& item : s) {
-        if (item.is_object() && item.contains("index") && item["index"].is_number_integer()) {
-            int idx = item["index"].get<int>();
-            if (idx >= 0 && idx < 8) {
-                existingSlots[idx] = item;
-            }
-        }
-    }
-
-    nlohmann::json sanitizedSlots = nlohmann::json::array();
-    for (int i = 0; i < 8; ++i) {
-        nlohmann::json& item = existingSlots[i];
-        bool itemModified = false;
-        
-        if (item.is_null()) {
-            item = nlohmann::json::object();
-            item["index"] = i;
-            itemModified = true;
-        }
-
-        if (!item.contains("index") || item["index"] != i) {
-            item["index"] = i;
-            itemModified = true;
-        }
-
-        if (!item.contains("label") || !item["label"].is_string()) {
-            if (i == 0) item["label"] = "Notepad";
-            else if (i == 1) item["label"] = "GitHub";
-            else item["label"] = "Slot " + std::to_string(i);
-            itemModified = true;
-        }
-
-        if (!item.contains("icon") || !item["icon"].is_string()) {
-            if (i == 0) item["icon"] = "resources/icons/notepad.png";
-            else if (i == 1) item["icon"] = "resources/icons/github.png";
-            else item["icon"] = "resources/icons/default.png";
-            itemModified = true;
-        }
-
-        if (!item.contains("color") || !item["color"].is_string()) {
-            if (i == 0) item["color"] = "0xFF555555";
-            else if (i == 1) item["color"] = "0xFF333333";
-            else item["color"] = "0xFF777777";
-            itemModified = true;
-        }
-
-        if (!item.contains("type") || !item["type"].is_string()) {
-            if (i == 0) item["type"] = "run_program";
-            else if (i == 1) item["type"] = "open_url";
-            else item["type"] = "run_program";
-            itemModified = true;
-        } else {
-            std::string t = item["type"];
-            if (t != "run_program" && t != "open_url" && t != "ahk_script") {
-                item["type"] = "run_program";
-                itemModified = true;
-            }
-        }
-
-        if (!item.contains("config") || !item["config"].is_object()) {
-            item["config"] = nlohmann::json::object();
-            itemModified = true;
-        }
-
-        auto& c = item["config"];
-        std::string t = item["type"];
-        if (t == "run_program") {
-            if (!c.contains("path") || !c["path"].is_string()) {
-                if (i == 0) c["path"] = "notepad.exe";
-                else c["path"] = "";
-                itemModified = true;
-            }
-        } else if (t == "open_url") {
-            if (!c.contains("url") || !c["url"].is_string()) {
-                if (i == 1) c["url"] = "https://github.com";
-                else c["url"] = "";
-                itemModified = true;
-            }
-        } else if (t == "ahk_script") {
-            if (!c.contains("script_file") || !c["script_file"].is_string()) {
-                c["script_file"] = "";
-                itemModified = true;
-            }
-        }
-
-        sanitizedSlots.push_back(item);
-        if (itemModified) {
-            modified = true;
-        }
-    }
-
-    if (s != sanitizedSlots) {
-        s = sanitizedSlots;
+    if (SanitizeSlots(j["slots"], 0)) {
         modified = true;
     }
 
@@ -383,6 +451,27 @@ SlotConfig ConfigStore::GetSlot(int index) const {
     std::shared_lock<std::shared_mutex> lock(mtx);
     if (index >= 0 && index < (int)slotsSettings.size()) {
         return slotsSettings[index];
+    }
+    return SlotConfig();
+}
+
+std::vector<SlotConfig> ConfigStore::GetSlotsAtPath(const std::vector<int>& path) const {
+    std::shared_lock<std::shared_mutex> lock(mtx);
+    const std::vector<SlotConfig>* current = &slotsSettings;
+    for (int idx : path) {
+        if (idx >= 0 && idx < (int)current->size()) {
+            current = &(*current)[idx].child_slots;
+        } else {
+            return std::vector<SlotConfig>();
+        }
+    }
+    return *current;
+}
+
+SlotConfig ConfigStore::GetSlotAtPath(const std::vector<int>& path, int index) const {
+    std::vector<SlotConfig> sVec = GetSlotsAtPath(path);
+    if (index >= 0 && index < (int)sVec.size()) {
+        return sVec[index];
     }
     return SlotConfig();
 }

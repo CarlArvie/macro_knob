@@ -12,8 +12,23 @@
 
 extern ConfigStore g_configStore;
 
+static std::string g_interactionMode = "mouse_hold";
+static bool g_debugLog = false;
+static std::string g_rotaryPrev = "PgDn";
+static std::string g_rotaryNext = "PgUp";
+static std::string g_hotkeyOverride = "F13";
+static bool g_appEnabled = true;
+#include <vector>
+static std::vector<UINT> g_toggleHotkeys;
+static bool g_slotEnabled[8] = {true, true, true, true, true, true, true, true};
+static std::vector<int> g_menuPath;
+
+std::vector<int> GetCurrentMenuPath() {
+    return g_menuPath;
+}
+
 void DebugLog(const std::string& msg) {
-    if (!g_configStore.GetGlobal().debug_log) {
+    if (!g_debugLog) {
         return;
     }
     // Filter out verbose events in timing-sensitive paths
@@ -43,15 +58,62 @@ static bool g_isHotkeyHeld = false;
 static bool g_menuVisible = false;
 static HWND g_hRadialMenuWnd = NULL;
 static UINT g_targetVk = VK_VOLUME_MUTE;
+static UINT g_rotaryPrevVk = VK_NEXT;
+static UINT g_rotaryNextVk = VK_PRIOR;
 static int g_holdThresholdMs = 150;
 static HANDLE g_hTimer = NULL;
 static UINT g_timerSeq = 0;
+static HANDLE g_hRotaryTimer = NULL;
+static int g_rotaryHovered = 0;
+
+static bool g_swallowTargetUp = false;
+
+static void ToggleRawInputVolumeSwallow(bool swallow) {
+    RAWINPUTDEVICE rid[1];
+    rid[0].usUsagePage = 0x0C;
+    rid[0].usUsage = 0x01;
+    if (swallow) {
+        rid[0].dwFlags = RIDEV_INPUTSINK;
+        rid[0].hwndTarget = g_hDaemonWnd;
+    } else {
+        rid[0].dwFlags = RIDEV_REMOVE;
+        rid[0].hwndTarget = NULL;
+    }
+    if (!RegisterRawInputDevices(rid, 1, sizeof(rid[0]))) {
+        DebugLog("RegisterRawInputDevices failed, error: " + std::to_string(GetLastError()));
+    } else {
+        DebugLog("RegisterRawInputDevices toggled: swallow=" + std::to_string(swallow));
+    }
+}
+
+
+static void UpdateSlotEnabledCache() {
+    for (int i=0; i<8; i++) {
+        g_slotEnabled[i] = g_configStore.GetSlotAtPath(g_menuPath, i).enabled;
+    }
+}
+
+static void SetMenuVisible(bool visible) {
+    if (g_menuVisible != visible) {
+        g_menuVisible = visible;
+        DebugLog("SetMenuVisible: " + std::to_string(visible));
+        ToggleRawInputVolumeSwallow(visible);
+    }
+}
 
 VOID CALLBACK HoldTimerCallback(PVOID lpParameter, BOOLEAN TimerOrWaitFired) {
     (void)TimerOrWaitFired;
     ULONG_PTR seq = (ULONG_PTR)lpParameter;
     if (g_hDaemonWnd) {
         PostMessageW(g_hDaemonWnd, WM_HOLD_TIMER, (WPARAM)seq, 0);
+    }
+}
+
+VOID CALLBACK RotaryTimerCallback(PVOID lpParameter, BOOLEAN TimerOrWaitFired) {
+    (void)TimerOrWaitFired;
+    (void)lpParameter;
+    if (g_hDaemonWnd) {
+        PostMessageW(g_hDaemonWnd, WM_ROTARY_TIMEOUT, 0, 0);
     }
 }
 
@@ -67,6 +129,14 @@ static UINT ParseHotkeyStringToVk(const std::string& hotkeyStr) {
     if (lowerStr == "volume_mute" || lowerStr == "volumemute" || lowerStr == "mute") {
         return VK_VOLUME_MUTE;
     }
+    if (lowerStr == "pgup" || lowerStr == "pageup") return VK_PRIOR;
+    if (lowerStr == "pgdn" || lowerStr == "pagedown") return VK_NEXT;
+    if (lowerStr == "up") return VK_UP;
+    if (lowerStr == "down") return VK_DOWN;
+    if (lowerStr == "left") return VK_LEFT;
+    if (lowerStr == "right") return VK_RIGHT;
+    if (lowerStr == "volume_up" || lowerStr == "volumeup") return VK_VOLUME_UP;
+    if (lowerStr == "volume_down" || lowerStr == "volumedown") return VK_VOLUME_DOWN;
 
     if (lowerStr[0] == 'f') {
         try {
@@ -116,14 +186,15 @@ static void SendSimulatedTap(WORD vkCode) {
     SendInput(2, inputs, sizeof(INPUT));
 }
 
-static void TriggerSlotMacro(int sector) {
-    SlotConfig slot = g_configStore.GetSlot(sector);
+void TriggerSlotMacro(int sector) {
+    SlotConfig slot = g_configStore.GetSlotAtPath(g_menuPath, sector);
     if (slot.config_data.is_object()) {
         if (slot.type == "run_program") {
             std::string path = slot.config_data.value("path", "");
             std::string args = slot.config_data.value("args", "");
+            bool runAsAdmin = slot.config_data.value("run_as_admin", false);
             if (!path.empty()) {
-                RunProgram(path, args);
+                RunProgram(path, args, runAsAdmin);
             }
         } else if (slot.type == "open_url") {
             std::string url = slot.config_data.value("url", "");
@@ -149,72 +220,202 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
             return CallNextHookEx(g_hHook, nCode, wParam, lParam);
         }
 
-        if (pKeyInfo->vkCode == g_targetVk) {
+        bool isToggleHotkey = false;
+        if (!g_toggleHotkeys.empty()) {
+            isToggleHotkey = true;
+            bool foundCurrent = false;
+            for (UINT vk : g_toggleHotkeys) {
+                if (pKeyInfo->vkCode == vk) {
+                    foundCurrent = true;
+                    continue;
+                }
+                if ((GetAsyncKeyState(vk) & 0x8000) == 0) {
+                    isToggleHotkey = false;
+                    break;
+                }
+            }
+            if (!foundCurrent) isToggleHotkey = false;
+        }
+
+        if (isToggleHotkey) {
+            bool isDown = (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN);
+            if (isDown) {
+                static ULONGLONG lastToggleTime = 0;
+                ULONGLONG now = GetTickCount64();
+                if (now - lastToggleTime > 500) {
+                    lastToggleTime = now;
+                    g_appEnabled = !g_appEnabled;
+                    GlobalConfig cfg = g_configStore.GetGlobal();
+                    cfg.is_enabled = g_appEnabled;
+                    g_configStore.UpdateGlobal(cfg);
+                    g_configStore.Save();
+                    PostMessageW(g_hDaemonWnd, 0x0111, 40003, 0); // WM_COMMAND, ID_TRAY_RELOAD
+                }
+            }
+            return 1;
+        }
+
+        if (!g_appEnabled) {
+            return CallNextHookEx(g_hHook, nCode, wParam, lParam);
+        }
+
+        if (g_interactionMode == "rotary") {
             bool isDown = (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN);
             bool isUp = (wParam == WM_KEYUP || wParam == WM_SYSKEYUP);
-
-            DebugLog("LowLevelKeyboardProc: target hotkey matched. vkCode=" + std::to_string(pKeyInfo->vkCode) + " isDown=" + std::to_string(isDown) + " isUp=" + std::to_string(isUp));
-
-            if (isDown) {
-                if (!g_isHotkeyHeld) {
-                    g_isHotkeyHeld = true;
-                    DebugLog("LowLevelKeyboardProc: Setting hold timer.");
-                    if (g_hTimer) {
-                        DeleteTimerQueueTimer(NULL, g_hTimer, NULL);
-                        g_hTimer = NULL;
+            
+            if (pKeyInfo->vkCode == g_rotaryPrevVk || pKeyInfo->vkCode == g_rotaryNextVk) {
+                if (isDown) {
+                    if (!g_menuVisible) {
+                        g_menuPath.clear();
+                        UpdateSlotEnabledCache();
+                        SetMenuVisible(true);
+                        g_rotaryHovered = 0;
+                        g_hRadialMenuWnd = CreateRadialMenu(g_hDaemonWnd);
+                        RadialMenuSetHovered(g_hRadialMenuWnd, g_rotaryHovered);
+                    } else {
+                        if (pKeyInfo->vkCode == g_rotaryNextVk) {
+                            int nextSlot = g_rotaryHovered;
+                            do {
+                                nextSlot = (nextSlot + 1) % 8;
+                            } while (!g_slotEnabled[nextSlot] && nextSlot != g_rotaryHovered);
+                            g_rotaryHovered = nextSlot;
+                        } else {
+                            int nextSlot = g_rotaryHovered;
+                            do {
+                                nextSlot = (nextSlot - 1 + 8) % 8;
+                            } while (!g_slotEnabled[nextSlot] && nextSlot != g_rotaryHovered);
+                            g_rotaryHovered = nextSlot;
+                        }
+                        RadialMenuSetHovered(g_hRadialMenuWnd, g_rotaryHovered);
                     }
-                    g_timerSeq++;
-                    UINT timerDuration = (g_holdThresholdMs > 0) ? (UINT)g_holdThresholdMs : 0;
-                    CreateTimerQueueTimer(&g_hTimer, NULL, HoldTimerCallback, (PVOID)(ULONG_PTR)g_timerSeq, timerDuration, 0, WT_EXECUTEONLYONCE);
+                    if (g_hRotaryTimer) {
+                        DeleteTimerQueueTimer(NULL, g_hRotaryTimer, NULL);
+                        g_hRotaryTimer = NULL;
+                    }
+                    CreateTimerQueueTimer(&g_hRotaryTimer, NULL, RotaryTimerCallback, NULL, 10000, 0, WT_EXECUTEONLYONCE);
                 }
                 return 1;
-            }
-            else if (isUp) {
-                g_isHotkeyHeld = false;
-                DebugLog("LowLevelKeyboardProc: Killing hold timer.");
-                if (g_hTimer) {
-                    DeleteTimerQueueTimer(NULL, g_hTimer, NULL);
-                    g_hTimer = NULL;
-                }
-
-                if (g_menuVisible) {
-                    g_menuVisible = false;
-                    DebugLog("LowLevelKeyboardProc: Menu was visible, closing and triggering.");
-
-                    POINT pt;
-                    GetCursorPos(&pt);
-
-                    RECT rect = {};
-                    if (g_hRadialMenuWnd) {
-                        GetWindowRect(g_hRadialMenuWnd, &rect);
+            } else if (pKeyInfo->vkCode == g_targetVk) {
+                if (isDown && g_menuVisible) {
+                    SlotConfig slot = g_configStore.GetSlotAtPath(g_menuPath, g_rotaryHovered);
+                    if (slot.type == "sub_menu") {
+                        g_menuPath.push_back(g_rotaryHovered);
+                        g_rotaryHovered = 0;
+                        UpdateSlotEnabledCache();
+                        RadialMenuSetHovered(g_hRadialMenuWnd, g_rotaryHovered);
+                        if (g_hRotaryTimer) { DeleteTimerQueueTimer(NULL, g_hRotaryTimer, NULL); g_hRotaryTimer = NULL; }
+                        CreateTimerQueueTimer(&g_hRotaryTimer, NULL, RotaryTimerCallback, NULL, 10000, 0, WT_EXECUTEONLYONCE);
+                        g_swallowTargetUp = true;
+                        return 1;
+                    } else if (slot.type == "back") {
+                        if (!g_menuPath.empty()) g_menuPath.pop_back();
+                        g_rotaryHovered = 0;
+                        UpdateSlotEnabledCache();
+                        RadialMenuSetHovered(g_hRadialMenuWnd, g_rotaryHovered);
+                        if (g_hRotaryTimer) { DeleteTimerQueueTimer(NULL, g_hRotaryTimer, NULL); g_hRotaryTimer = NULL; }
+                        CreateTimerQueueTimer(&g_hRotaryTimer, NULL, RotaryTimerCallback, NULL, 10000, 0, WT_EXECUTEONLYONCE);
+                        g_swallowTargetUp = true;
+                        return 1;
                     }
 
-                    int cx = (rect.left + rect.right) / 2;
-                    int cy = (rect.top + rect.bottom) / 2;
-
-                    double dx = pt.x - cx;
-                    double dy = cy - pt.y;
-
-                    double dist = sqrt(dx * dx + dy * dy);
-                    DebugLog("LowLevelKeyboardProc: Mouse distance=" + std::to_string(dist));
-                    if (dist >= 60.0) {
-                        double angle = atan2(dx, dy);
-                        double deg = angle * 180.0 / 3.14159265358979323846;
-                        if (deg < 0) deg += 360.0;
-                        int sector = (int)floor((deg + 22.5) / 45.0) % 8;
-                        DebugLog("LowLevelKeyboardProc: Triggering sector " + std::to_string(sector));
-                        TriggerSlotMacro(sector);
-                    }
-
+                    PostMessageW(g_hDaemonWnd, WM_TRIGGER_MACRO, (WPARAM)g_rotaryHovered, 0);
                     if (g_hRadialMenuWnd) {
                         DestroyWindow(g_hRadialMenuWnd);
                         g_hRadialMenuWnd = NULL;
                     }
-                } else {
-                    DebugLog("LowLevelKeyboardProc: Menu not visible, sending simulated tap.");
-                    SendSimulatedTap((WORD)g_targetVk);
+                    SetMenuVisible(false);
+                    if (g_hRotaryTimer) {
+                        DeleteTimerQueueTimer(NULL, g_hRotaryTimer, NULL);
+                        g_hRotaryTimer = NULL;
+                    }
+                    g_swallowTargetUp = true;
+                    return 1;
+                } else if (isUp) {
+                    if (g_swallowTargetUp) {
+                        g_swallowTargetUp = false;
+                        return 1;
+                    }
                 }
-                return 1;
+            }
+        } else {
+            if (pKeyInfo->vkCode == g_targetVk) {
+                bool isDown = (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN);
+                bool isUp = (wParam == WM_KEYUP || wParam == WM_SYSKEYUP);
+
+                DebugLog("LowLevelKeyboardProc: target hotkey matched. vkCode=" + std::to_string(pKeyInfo->vkCode) + " isDown=" + std::to_string(isDown) + " isUp=" + std::to_string(isUp));
+
+                if (isDown) {
+                    if (!g_isHotkeyHeld) {
+                        g_isHotkeyHeld = true;
+                        DebugLog("LowLevelKeyboardProc: Setting hold timer.");
+                        if (g_hTimer) {
+                            DeleteTimerQueueTimer(NULL, g_hTimer, NULL);
+                            g_hTimer = NULL;
+                        }
+                        g_timerSeq++;
+                        UINT timerDuration = (g_holdThresholdMs > 0) ? (UINT)g_holdThresholdMs : 0;
+                        CreateTimerQueueTimer(&g_hTimer, NULL, HoldTimerCallback, (PVOID)(ULONG_PTR)g_timerSeq, timerDuration, 0, WT_EXECUTEONLYONCE);
+                    }
+                    return 1;
+                }
+                else if (isUp) {
+                    g_isHotkeyHeld = false;
+                    DebugLog("LowLevelKeyboardProc: Killing hold timer.");
+                    if (g_hTimer) {
+                        DeleteTimerQueueTimer(NULL, g_hTimer, NULL);
+                        g_hTimer = NULL;
+                    }
+
+                    if (g_menuVisible) {
+                        SetMenuVisible(false);
+                        DebugLog("LowLevelKeyboardProc: Menu was visible, closing and triggering.");
+
+                        POINT pt;
+                        GetCursorPos(&pt);
+
+                        RECT rect = {};
+                        if (g_hRadialMenuWnd) {
+                            GetWindowRect(g_hRadialMenuWnd, &rect);
+                        }
+
+                        int cx = (rect.left + rect.right) / 2;
+                        int cy = (rect.top + rect.bottom) / 2;
+
+                        double dx = pt.x - cx;
+                        double dy = cy - pt.y;
+
+                        double dist = sqrt(dx * dx + dy * dy);
+                        DebugLog("LowLevelKeyboardProc: Mouse distance=" + std::to_string(dist));
+                        if (dist >= 60.0) {
+                            double angle = atan2(dx, dy);
+                            double deg = angle * 180.0 / 3.14159265358979323846;
+                            if (deg < 0) deg += 360.0;
+                            int sector = (int)floor((deg + 22.5) / 45.0) % 8;
+                            SlotConfig slot = g_configStore.GetSlotAtPath(g_menuPath, sector);
+                            if (slot.type == "sub_menu") {
+                                g_menuPath.push_back(sector);
+                                UpdateSlotEnabledCache();
+                                g_isHotkeyHeld = false; // require re-press, but keep menu open
+                                return 1;
+                            } else if (slot.type == "back") {
+                                if (!g_menuPath.empty()) g_menuPath.pop_back();
+                                UpdateSlotEnabledCache();
+                                g_isHotkeyHeld = false;
+                                return 1;
+                            } else {
+                                PostMessageW(g_hDaemonWnd, WM_TRIGGER_MACRO, (WPARAM)sector, 0);
+                            }
+                        }
+
+                        if (g_hRadialMenuWnd) {
+                            DestroyWindow(g_hRadialMenuWnd);
+                            g_hRadialMenuWnd = NULL;
+                        }
+                    } else {
+                        SendSimulatedTap((WORD)g_targetVk);
+                    }
+                    return 1;
+                }
             }
         }
     }
@@ -223,6 +424,7 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
 
 bool StartInputHook(HWND hDaemonWnd) {
     g_hDaemonWnd = hDaemonWnd;
+    ToggleRawInputVolumeSwallow(false);
     UpdateHookConfig();
     HDESK hDesk = GetThreadDesktop(GetCurrentThreadId());
     char dName[256] = {0};
@@ -244,18 +446,48 @@ void StopInputHook() {
         DeleteTimerQueueTimer(NULL, g_hTimer, NULL);
         g_hTimer = NULL;
     }
+    if (g_hRotaryTimer) {
+        DeleteTimerQueueTimer(NULL, g_hRotaryTimer, NULL);
+        g_hRotaryTimer = NULL;
+    }
     if (g_hRadialMenuWnd) {
         DestroyWindow(g_hRadialMenuWnd);
         g_hRadialMenuWnd = NULL;
     }
-    g_menuVisible = false;
+    SetMenuVisible(false);
+    ToggleRawInputVolumeSwallow(false); // force clean-up
     g_isHotkeyHeld = false;
 }
 
 void UpdateHookConfig() {
     GlobalConfig cfg = g_configStore.GetGlobal();
+    g_interactionMode = cfg.interaction_mode;
+    g_debugLog = cfg.debug_log;
+    g_rotaryPrev = cfg.rotary_prev;
+    g_rotaryNext = cfg.rotary_next;
+    g_hotkeyOverride = cfg.hotkey_override;
+    g_appEnabled = cfg.is_enabled;
+    g_toggleHotkeys.clear();
+    std::string s = cfg.toggle_hotkey;
+    size_t pos = 0;
+    while ((pos = s.find('+')) != std::string::npos) {
+        std::string t = s.substr(0, pos);
+        t.erase(0, t.find_first_not_of(" \t"));
+        t.erase(t.find_last_not_of(" \t") + 1);
+        if(!t.empty()) g_toggleHotkeys.push_back(ParseHotkeyStringToVk(t));
+        s.erase(0, pos + 1);
+    }
+    s.erase(0, s.find_first_not_of(" \t"));
+    s.erase(s.find_last_not_of(" \t") + 1);
+    if(!s.empty()) g_toggleHotkeys.push_back(ParseHotkeyStringToVk(s));
+    UpdateSlotEnabledCache();
+
     g_holdThresholdMs = cfg.hold_threshold_ms;
-    g_targetVk = ParseHotkeyStringToVk(cfg.hotkey_override);
+    g_targetVk = ParseHotkeyStringToVk(g_hotkeyOverride);
+    g_rotaryPrevVk = ParseHotkeyStringToVk(g_rotaryPrev);
+    g_rotaryNextVk = ParseHotkeyStringToVk(g_rotaryNext);
+
+    DebugLog("UpdateHookConfig: interactionMode=" + g_interactionMode + " debugLog=" + std::to_string(g_debugLog) + " targetVk=" + std::to_string(g_targetVk) + " prevVk=" + std::to_string(g_rotaryPrevVk) + " nextVk=" + std::to_string(g_rotaryNextVk));
 }
 
 void EnableInputHook(bool enable) {
@@ -271,8 +503,9 @@ void EnableInputHook(bool enable) {
                 DestroyWindow(g_hRadialMenuWnd);
                 g_hRadialMenuWnd = NULL;
             }
-            g_menuVisible = false;
+            SetMenuVisible(false);
         }
+        ToggleRawInputVolumeSwallow(false); // force clean-up
     }
 }
 
@@ -291,14 +524,34 @@ void HandleHoldTimer(WPARAM wParam) {
         DeleteTimerQueueTimer(NULL, g_hTimer, NULL);
         g_hTimer = NULL;
     }
+    if (g_hRotaryTimer) {
+        DeleteTimerQueueTimer(NULL, g_hRotaryTimer, NULL);
+        g_hRotaryTimer = NULL;
+    }
     if (!g_isHotkeyHeld) {
         DebugLog("HandleHoldTimer: hotkey is not held, aborting radial menu creation.");
         return;
     }
     if (!g_menuVisible) {
-        g_menuVisible = true;
+        g_menuPath.clear();
+        UpdateSlotEnabledCache();
+        SetMenuVisible(true);
         DebugLog("HandleHoldTimer: Creating radial menu.");
         g_hRadialMenuWnd = CreateRadialMenu(g_hDaemonWnd);
         DebugLog("HandleHoldTimer: Radial menu created. HWND=" + std::to_string((unsigned long long)g_hRadialMenuWnd));
+    }
+}
+
+void HandleRotaryTimeout() {
+    if (g_menuVisible && g_interactionMode == "rotary") {
+        if (g_hRadialMenuWnd) {
+            DestroyWindow(g_hRadialMenuWnd);
+            g_hRadialMenuWnd = NULL;
+        }
+        SetMenuVisible(false);
+        if (g_hRotaryTimer) {
+            DeleteTimerQueueTimer(NULL, g_hRotaryTimer, NULL);
+            g_hRotaryTimer = NULL;
+        }
     }
 }
