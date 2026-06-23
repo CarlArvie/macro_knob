@@ -1,7 +1,8 @@
 {
     "global": {
         "debug_log": true,
-        "hold_threshold_ms": 150,
+        "enable_haptic_sound": true,
+        "hold_threshold_ms": 1000,
         "hotkey_override": "PgUp",
         "interaction_mode": "rotary",
         "is_enabled": true,
@@ -13,182 +14,59 @@
     },
     "slots": [
         {
-            "color": "0xFF3526A6",
+            "color": "0xFF777777",
             "config": {
-                "path": ""
+                "path": "C:\\Program Files\\VideoLAN\\VLC\\vlc.exe"
             },
             "enabled": true,
             "icon": "",
             "index": 0,
-            "label": "Folder",
-            "slots": [
-                {
-                    "color": "0xFF7F2F2F",
-                    "config": {
-                        "path": ""
-                    },
-                    "enabled": true,
-                    "icon": "resources/icons/default.png",
-                    "index": 0,
-                    "label": "Back",
-                    "type": "back"
-                },
-                {
-                    "color": "0xFF777777",
-                    "config": {
-                        "path": ""
-                    },
-                    "enabled": true,
-                    "icon": "resources/icons/default.png",
-                    "index": 1,
-                    "label": "Slot 1",
-                    "type": "run_program"
-                },
-                {
-                    "color": "0xFF777777",
-                    "config": {
-                        "path": ""
-                    },
-                    "enabled": true,
-                    "icon": "resources/icons/default.png",
-                    "index": 2,
-                    "label": "Slot 2",
-                    "type": "run_program"
-                },
-                {
-                    "color": "0xFF777777",
-                    "config": {
-                        "path": ""
-                    },
-                    "enabled": true,
-                    "icon": "resources/icons/default.png",
-                    "index": 3,
-                    "label": "Slot 3",
-                    "type": "run_program"
-                },
-                {
-                    "color": "0xFF777777",
-                    "config": {
-                        "path": ""
-                    },
-                    "enabled": true,
-                    "icon": "resources/icons/default.png",
-                    "index": 4,
-                    "label": "Slot 4",
-                    "type": "run_program"
-                },
-                {
-                    "color": "0xFF777777",
-                    "config": {
-                        "path": ""
-                    },
-                    "enabled": true,
-                    "icon": "resources/icons/default.png",
-                    "index": 5,
-                    "label": "Slot 5",
-                    "type": "run_program"
-                },
-                {
-                    "color": "0xFF777777",
-                    "config": {
-                        "path": ""
-                    },
-                    "enabled": true,
-                    "icon": "resources/icons/default.png",
-                    "index": 6,
-                    "label": "Slot 6",
-                    "type": "run_program"
-                },
-                {
-                    "color": "0xFF777777",
-                    "config": {
-                        "path": ""
-                    },
-                    "enabled": true,
-                    "icon": "resources/icons/default.png",
-                    "index": 7,
-                    "label": "Slot 7",
-                    "type": "run_program"
-                }
-            ],
-            "type": "sub_menu"
+            "label": "folder",
+            "type": "run_program"
         },
         {
-            "color": "blue",
+            "color": "0xFF777777",
             "config": {
                 "url": "https://google.com"
             },
             "enabled": true,
             "icon": "",
             "index": 1,
-            "label": "Slot 1",
+            "label": "Slot 6",
             "type": "open_url"
         },
         {
-            "color": "blue",
+            "color": "0xFF777777",
             "config": {
                 "url": "https://google.com"
             },
             "enabled": true,
             "icon": "",
             "index": 2,
-            "label": "Slot 2",
-            "type": "open_url"
-        },
-        {
-            "color": "blue",
-            "config": {
-                "url": "https://google.com"
-            },
-            "enabled": true,
-            "icon": "",
-            "index": 3,
-            "label": "Slot 3",
-            "type": "open_url"
-        },
-        {
-            "color": "blue",
-            "config": {
-                "url": "https://google.com"
-            },
-            "enabled": true,
-            "icon": "",
-            "index": 4,
-            "label": "Slot 4",
-            "type": "open_url"
-        },
-        {
-            "color": "0xFFBB1B1B",
-            "config": {
-                "url": "https://google.com"
-            },
-            "enabled": true,
-            "icon": "",
-            "index": 5,
-            "label": "Slot 5",
-            "type": "open_url"
-        },
-        {
-            "color": "blue",
-            "config": {
-                "url": "https://google.com"
-            },
-            "enabled": true,
-            "icon": "",
-            "index": 6,
-            "label": "Slot 6",
-            "type": "open_url"
-        },
-        {
-            "color": "blue",
-            "config": {
-                "url": "https://google.com"
-            },
-            "enabled": true,
-            "icon": "",
-            "index": 7,
             "label": "Slot 7",
             "type": "open_url"
+        },
+        {
+            "color": "0xFF777777",
+            "config": {
+                "path": ""
+            },
+            "enabled": true,
+            "icon": "resources/icons/default.png",
+            "index": 3,
+            "label": "Slot 5",
+            "type": "run_program"
+        },
+        {
+            "color": "0xFF777777",
+            "config": {
+                "path": "C:\\Users\\carla\\Desktop\\AHK\\Arvie Knob Macro"
+            },
+            "enabled": true,
+            "icon": "resources/icons/default.png",
+            "index": 4,
+            "label": "Slot 6",
+            "type": "run_program"
         }
     ]
 }

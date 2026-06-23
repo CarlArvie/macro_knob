@@ -1629,3 +1629,250 @@
 [2026-06-23 22:20:43] [PID:18532] RegisterRawInputDevices toggled: swallow=1
 [2026-06-23 22:20:56] [PID:18532] SetMenuVisible: 0
 [2026-06-23 22:20:56] [PID:18532] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:26:24] [PID:20208] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:26:49] [PID:20208] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:26:50] [PID:20208] SetMenuVisible: 1
+[2026-06-23 22:26:50] [PID:20208] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:27:06] [PID:20208] SetMenuVisible: 0
+[2026-06-23 22:27:06] [PID:20208] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:30:16] [PID:13408] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:30:28] [PID:13408] SetMenuVisible: 1
+[2026-06-23 22:30:28] [PID:13408] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:30:49] [PID:13408] SetMenuVisible: 0
+[2026-06-23 22:30:49] [PID:13408] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:33:32] [PID:13408] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:33:35] [PID:17908] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:34:40] [PID:17908] SetMenuVisible: 1
+[2026-06-23 22:34:40] [PID:17908] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:34:57] [PID:17908] SetMenuVisible: 0
+[2026-06-23 22:34:57] [PID:17908] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:35:05] [PID:17908] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:35:07] [PID:17908] SetMenuVisible: 1
+[2026-06-23 22:35:07] [PID:17908] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:35:18] [PID:17908] SetMenuVisible: 0
+[2026-06-23 22:35:18] [PID:17908] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:35:51] [PID:17908] SetMenuVisible: 1
+[2026-06-23 22:35:51] [PID:17908] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:36:08] [PID:17908] SetMenuVisible: 0
+[2026-06-23 22:36:08] [PID:17908] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:40:13] [PID:17908] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:40:18] [PID:17908] SetMenuVisible: 1
+[2026-06-23 22:40:18] [PID:17908] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:40:28] [PID:17908] SetMenuVisible: 0
+[2026-06-23 22:40:28] [PID:17908] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:40:35] [PID:17908] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:40:44] [PID:17908] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:40:47] [PID:17908] SetMenuVisible: 1
+[2026-06-23 22:40:47] [PID:17908] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:40:57] [PID:17908] SetMenuVisible: 0
+[2026-06-23 22:40:57] [PID:17908] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:41:14] [PID:17908] SetMenuVisible: 1
+[2026-06-23 22:41:14] [PID:17908] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:41:32] [PID:17908] SetMenuVisible: 0
+[2026-06-23 22:41:32] [PID:17908] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:44:21] [PID:17908] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:44:39] [PID:17908] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:44:42] [PID:17908] SetMenuVisible: 1
+[2026-06-23 22:44:42] [PID:17908] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:44:55] [PID:17908] SetMenuVisible: 0
+[2026-06-23 22:44:55] [PID:17908] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:49:44] [PID:4768] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:50:08] [PID:4768] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:50:19] [PID:4768] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:50:27] [PID:4768] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:53:12] [PID:4768] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:54:53] [PID:4768] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:54:55] [PID:4768] SetMenuVisible: 1
+[2026-06-23 22:54:55] [PID:4768] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:54:56] [PID:4768] SetMenuVisible: 0
+[2026-06-23 22:54:56] [PID:4768] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:54:56] [PID:4768] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 22:54:57] [PID:4768] SetMenuVisible: 1
+[2026-06-23 22:54:57] [PID:4768] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:54:57] [PID:4768] SetMenuVisible: 0
+[2026-06-23 22:54:57] [PID:4768] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:54:57] [PID:4768] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 22:54:58] [PID:4768] SetMenuVisible: 1
+[2026-06-23 22:54:58] [PID:4768] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:54:58] [PID:4768] SetMenuVisible: 0
+[2026-06-23 22:54:58] [PID:4768] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:54:58] [PID:4768] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 22:55:04] [PID:4768] SetMenuVisible: 1
+[2026-06-23 22:55:04] [PID:4768] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:55:05] [PID:4768] SetMenuVisible: 0
+[2026-06-23 22:55:05] [PID:4768] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:55:05] [PID:4768] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 22:55:23] [PID:4768] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:55:23] [PID:4768] SetMenuVisible: 1
+[2026-06-23 22:55:23] [PID:4768] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:55:25] [PID:4768] SetMenuVisible: 0
+[2026-06-23 22:55:25] [PID:4768] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:55:25] [PID:4768] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 22:55:26] [PID:4768] SetMenuVisible: 1
+[2026-06-23 22:55:26] [PID:4768] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:55:27] [PID:4768] SetMenuVisible: 0
+[2026-06-23 22:55:27] [PID:4768] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:55:27] [PID:4768] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 22:55:27] [PID:4768] SetMenuVisible: 1
+[2026-06-23 22:55:27] [PID:4768] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:55:28] [PID:4768] SetMenuVisible: 0
+[2026-06-23 22:55:28] [PID:4768] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:55:28] [PID:4768] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 22:57:42] [PID:4768] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:57:49] [PID:18744] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:57:49] [PID:11376] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:57:52] [PID:11376] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:57:54] [PID:18744] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:57:56] [PID:14640] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:58:07] [PID:14640] SetMenuVisible: 1
+[2026-06-23 22:58:07] [PID:14640] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:58:08] [PID:14640] SetMenuVisible: 0
+[2026-06-23 22:58:08] [PID:14640] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:58:08] [PID:14640] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 22:58:13] [PID:14640] SetMenuVisible: 1
+[2026-06-23 22:58:13] [PID:14640] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:58:14] [PID:14640] SetMenuVisible: 0
+[2026-06-23 22:58:14] [PID:14640] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:58:14] [PID:14640] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 22:58:15] [PID:14640] SetMenuVisible: 1
+[2026-06-23 22:58:15] [PID:14640] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:58:16] [PID:14640] SetMenuVisible: 0
+[2026-06-23 22:58:16] [PID:14640] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:58:16] [PID:14640] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 22:58:50] [PID:14640] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 22:58:51] [PID:14640] SetMenuVisible: 1
+[2026-06-23 22:58:51] [PID:14640] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 22:58:52] [PID:14640] SetMenuVisible: 0
+[2026-06-23 22:58:52] [PID:14640] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 22:58:52] [PID:14640] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 23:00:09] [PID:14640] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:00:10] [PID:14640] SetMenuVisible: 1
+[2026-06-23 23:00:10] [PID:14640] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:00:12] [PID:14640] SetMenuVisible: 0
+[2026-06-23 23:00:12] [PID:14640] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:04:10] [PID:14640] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:04:19] [PID:6848] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:04:26] [PID:6848] SetMenuVisible: 1
+[2026-06-23 23:04:26] [PID:6848] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:04:28] [PID:6848] SetMenuVisible: 0
+[2026-06-23 23:04:28] [PID:6848] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:04:32] [PID:6848] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-23 23:04:33] [PID:6848] SetMenuVisible: 1
+[2026-06-23 23:04:33] [PID:6848] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:04:35] [PID:6848] SetMenuVisible: 0
+[2026-06-23 23:04:35] [PID:6848] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:04:38] [PID:6848] SetMenuVisible: 1
+[2026-06-23 23:04:38] [PID:6848] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:04:39] [PID:6848] SetMenuVisible: 0
+[2026-06-23 23:04:39] [PID:6848] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:04:42] [PID:6848] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-23 23:04:50] [PID:6848] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:04:50] [PID:12632] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:04:51] [PID:12632] SetMenuVisible: 1
+[2026-06-23 23:04:51] [PID:12632] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:04:55] [PID:12632] SetMenuVisible: 0
+[2026-06-23 23:04:55] [PID:12632] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:04:55] [PID:12632] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 23:04:59] [PID:12632] SetMenuVisible: 1
+[2026-06-23 23:04:59] [PID:12632] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:05:01] [PID:12632] SetMenuVisible: 0
+[2026-06-23 23:05:01] [PID:12632] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:05:01] [PID:12632] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 23:05:09] [PID:12632] SetMenuVisible: 1
+[2026-06-23 23:05:09] [PID:12632] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:05:10] [PID:12632] SetMenuVisible: 0
+[2026-06-23 23:05:10] [PID:12632] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:05:10] [PID:12632] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 23:05:15] [PID:12632] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:05:15] [PID:5976] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:05:16] [PID:5976] SetMenuVisible: 1
+[2026-06-23 23:05:16] [PID:5976] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:05:17] [PID:5976] SetMenuVisible: 0
+[2026-06-23 23:05:17] [PID:5976] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:05:17] [PID:5976] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 23:05:28] [PID:5976] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:05:28] [PID:16572] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:05:28] [PID:16572] SetMenuVisible: 1
+[2026-06-23 23:05:28] [PID:16572] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:05:38] [PID:16572] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:05:38] [PID:17652] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:05:40] [PID:17652] SetMenuVisible: 1
+[2026-06-23 23:05:40] [PID:17652] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:05:41] [PID:17652] SetMenuVisible: 0
+[2026-06-23 23:05:41] [PID:17652] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:05:41] [PID:17652] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 23:06:04] [PID:17652] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:06:04] [PID:16272] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:06:05] [PID:16272] SetMenuVisible: 1
+[2026-06-23 23:06:05] [PID:16272] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:06:06] [PID:16272] SetMenuVisible: 0
+[2026-06-23 23:06:06] [PID:16272] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:06:06] [PID:16272] CreateProcessW failed for C:\Users\carla\Desktop\AHK with error 5
+[2026-06-23 23:06:12] [PID:16272] SetMenuVisible: 1
+[2026-06-23 23:06:12] [PID:16272] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:06:13] [PID:16272] SetMenuVisible: 0
+[2026-06-23 23:06:13] [PID:16272] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:06:13] [PID:16272] CreateProcessW failed for C:\Users\carla\Desktop\AHK with error 5
+[2026-06-23 23:06:16] [PID:16272] SetMenuVisible: 1
+[2026-06-23 23:06:16] [PID:16272] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:06:17] [PID:16272] SetMenuVisible: 0
+[2026-06-23 23:06:17] [PID:16272] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:06:17] [PID:16272] CreateProcessW failed for C:\Users\carla\Desktop\AHK with error 5
+[2026-06-23 23:06:20] [PID:16272] SetMenuVisible: 1
+[2026-06-23 23:06:20] [PID:16272] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:06:21] [PID:16272] SetMenuVisible: 0
+[2026-06-23 23:06:21] [PID:16272] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:06:21] [PID:16272] CreateProcessW failed for C:\Users\carla\Desktop\AHK with error 5
+[2026-06-23 23:06:55] [PID:16272] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:06:55] [PID:4024] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:06:56] [PID:4024] SetMenuVisible: 1
+[2026-06-23 23:06:56] [PID:4024] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:06:57] [PID:4024] SetMenuVisible: 0
+[2026-06-23 23:06:57] [PID:4024] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:06:57] [PID:4024] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 23:07:02] [PID:4024] SetMenuVisible: 1
+[2026-06-23 23:07:02] [PID:4024] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:07:04] [PID:4024] SetMenuVisible: 0
+[2026-06-23 23:07:04] [PID:4024] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:07:04] [PID:4024] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 23:07:31] [PID:4024] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:07:44] [PID:17668] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:07:48] [PID:17668] SetMenuVisible: 1
+[2026-06-23 23:07:48] [PID:17668] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:07:50] [PID:17668] SetMenuVisible: 0
+[2026-06-23 23:07:50] [PID:17668] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:07:50] [PID:17668] CreateProcessW failed for C:\Users\carla\Desktop\AHK with error 5
+[2026-06-23 23:07:53] [PID:17668] SetMenuVisible: 1
+[2026-06-23 23:07:53] [PID:17668] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:07:54] [PID:17668] SetMenuVisible: 0
+[2026-06-23 23:07:54] [PID:17668] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:07:54] [PID:17668] CreateProcessW failed for C:\Users\carla\Desktop\AHK with error 5
+[2026-06-23 23:08:31] [PID:17668] SetMenuVisible: 1
+[2026-06-23 23:08:31] [PID:17668] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:08:33] [PID:17668] SetMenuVisible: 0
+[2026-06-23 23:08:33] [PID:17668] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:08:33] [PID:17668] CreateProcessW failed for C:\Users\carla\Desktop\AHK\Arvie Knob Macro with error 5
+[2026-06-23 23:11:53] [PID:17668] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:11:53] [PID:10624] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:11:54] [PID:10624] SetMenuVisible: 1
+[2026-06-23 23:11:54] [PID:10624] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:11:56] [PID:10624] SetMenuVisible: 0
+[2026-06-23 23:11:56] [PID:10624] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:11:56] [PID:10624] RunProgram: Path is a directory, redirecting to ShellExecuteW natively.
+[2026-06-23 23:12:01] [PID:10624] SetMenuVisible: 1
+[2026-06-23 23:12:01] [PID:10624] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:12:02] [PID:10624] SetMenuVisible: 0
+[2026-06-23 23:12:02] [PID:10624] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:12:02] [PID:10624] RunProgram: Path is a directory, redirecting to ShellExecuteW natively.
+[2026-06-23 23:12:22] [PID:10624] SetMenuVisible: 1
+[2026-06-23 23:12:22] [PID:10624] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:12:23] [PID:10624] SetMenuVisible: 0
+[2026-06-23 23:12:23] [PID:10624] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:12:23] [PID:10624] RunProgram: Path is a directory, redirecting to ShellExecuteW natively.
+[2026-06-23 23:12:35] [PID:10624] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:12:35] [PID:6764] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-23 23:12:36] [PID:6764] SetMenuVisible: 1
+[2026-06-23 23:12:36] [PID:6764] RegisterRawInputDevices toggled: swallow=1
+[2026-06-23 23:12:37] [PID:6764] SetMenuVisible: 0
+[2026-06-23 23:12:37] [PID:6764] RegisterRawInputDevices toggled: swallow=0
+[2026-06-23 23:12:40] [PID:6764] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0

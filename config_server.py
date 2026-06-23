@@ -59,8 +59,13 @@ class ConfigRequestHandler(http.server.SimpleHTTPRequestHandler):
                     ctypes.windll.user32.PostMessageW(HWND, WM_COMMAND, 40003, 0)
 
                 # Shut down server after successful save
-                print("Config saved. Shutting down server...")
-                threading.Thread(target=self.server.shutdown).start()
+                print("Config saved. Restarting daemon...")
+                import subprocess
+                try:
+                    subprocess.run(["taskkill", "/IM", "knoblaunch.exe", "/F"], capture_output=True)
+                    subprocess.Popen(["bin\\knoblaunch.exe"], cwd=os.path.dirname(os.path.abspath(__file__)), creationflags=subprocess.CREATE_NO_WINDOW)
+                except Exception as ex:
+                    print("Failed to restart daemon:", ex)
                 
             except Exception as e:
                 self.send_response(500)

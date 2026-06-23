@@ -56,6 +56,7 @@ static void LoadFromJson(const nlohmann::json& j, GlobalConfig& g, std::vector<S
     g.rotary_next = gj.value("rotary_next", "PgUp");
     g.is_enabled = gj.value("is_enabled", true);
     g.toggle_hotkey = gj.value("toggle_hotkey", "F14");
+    g.enable_haptic_sound = gj.value("enable_haptic_sound", true);
 
     if (j.contains("slots")) {
         sVec = ParseSlotsFromJson(j["slots"], 0);
@@ -76,6 +77,7 @@ static nlohmann::json SaveToJson(const GlobalConfig& g, const std::vector<SlotCo
     j["global"]["rotary_next"] = g.rotary_next;
     j["global"]["is_enabled"] = g.is_enabled;
     j["global"]["toggle_hotkey"] = g.toggle_hotkey;
+    j["global"]["enable_haptic_sound"] = g.enable_haptic_sound;
 
     j["slots"] = SerializeSlotsToJson(sVec);
     return j;
@@ -178,18 +180,21 @@ static bool SanitizeSlots(nlohmann::json& s, int depth) {
         modified = true;
     }
 
-    std::vector<nlohmann::json> existingSlots(8, nlohmann::json());
+    std::vector<nlohmann::json> existingSlots;
     for (auto& item : s) {
-        if (item.is_object() && item.contains("index") && item["index"].is_number_integer()) {
-            int idx = item["index"].get<int>();
-            if (idx >= 0 && idx < 8) {
-                existingSlots[idx] = item;
-            }
+        if (item.is_object()) {
+            existingSlots.push_back(item);
         }
+    }
+    
+    // Fallback if empty root
+    if (depth == 0 && existingSlots.empty()) {
+        for (int i=0; i<8; i++) existingSlots.push_back(nlohmann::json::object());
+        modified = true;
     }
 
     nlohmann::json sanitizedSlots = nlohmann::json::array();
-    for (int i = 0; i < 8; ++i) {
+    for (size_t i = 0; i < existingSlots.size(); ++i) {
         nlohmann::json& item = existingSlots[i];
         bool itemModified = false;
         
@@ -348,6 +353,10 @@ bool ConfigStore::ValidateAndSanitize(nlohmann::json& j) {
     }
     if (!g.contains("toggle_hotkey") || !g["toggle_hotkey"].is_string()) {
         g["toggle_hotkey"] = "F14";
+        modified = true;
+    }
+    if (!g.contains("enable_haptic_sound") || !g["enable_haptic_sound"].is_boolean()) {
+        g["enable_haptic_sound"] = true;
         modified = true;
     }
 

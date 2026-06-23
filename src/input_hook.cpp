@@ -2,6 +2,8 @@
 #include "config_store.h"
 #include "radial_menu.h"
 #include "macro_runner.h"
+#include <mmsystem.h>
+#pragma comment(lib, "winmm.lib")
 #include <algorithm>
 #include <string>
 #include <cmath>
@@ -20,7 +22,7 @@ static std::string g_hotkeyOverride = "F13";
 static bool g_appEnabled = true;
 #include <vector>
 static std::vector<UINT> g_toggleHotkeys;
-static bool g_slotEnabled[8] = {true, true, true, true, true, true, true, true};
+static std::vector<bool> g_slotEnabled;
 static std::vector<int> g_menuPath;
 
 std::vector<int> GetCurrentMenuPath() {
@@ -88,8 +90,10 @@ static void ToggleRawInputVolumeSwallow(bool swallow) {
 
 
 static void UpdateSlotEnabledCache() {
-    for (int i=0; i<8; i++) {
-        g_slotEnabled[i] = g_configStore.GetSlotAtPath(g_menuPath, i).enabled;
+    std::vector<SlotConfig> slots = g_configStore.GetSlotsAtPath(g_menuPath);
+    g_slotEnabled.clear();
+    for (size_t i=0; i<slots.size(); i++) {
+        g_slotEnabled.push_back(slots[i].enabled);
     }
 }
 
@@ -273,18 +277,23 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
                         g_hRadialMenuWnd = CreateRadialMenu(g_hDaemonWnd);
                         RadialMenuSetHovered(g_hRadialMenuWnd, g_rotaryHovered);
                     } else {
-                        if (pKeyInfo->vkCode == g_rotaryNextVk) {
-                            int nextSlot = g_rotaryHovered;
-                            do {
-                                nextSlot = (nextSlot + 1) % 8;
-                            } while (!g_slotEnabled[nextSlot] && nextSlot != g_rotaryHovered);
-                            g_rotaryHovered = nextSlot;
-                        } else {
-                            int nextSlot = g_rotaryHovered;
-                            do {
-                                nextSlot = (nextSlot - 1 + 8) % 8;
-                            } while (!g_slotEnabled[nextSlot] && nextSlot != g_rotaryHovered);
-                            g_rotaryHovered = nextSlot;
+                        int N = (int)g_slotEnabled.size();
+                        if (N > 0) {
+                            if (pKeyInfo->vkCode == g_rotaryNextVk) {
+                                int nextSlot = g_rotaryHovered;
+                                do {
+                                    nextSlot = (nextSlot + 1) % N;
+                                } while (!g_slotEnabled[nextSlot] && nextSlot != g_rotaryHovered);
+                                g_rotaryHovered = nextSlot;
+                                if (g_configStore.GetGlobal().enable_haptic_sound) PlaySoundW(L"resources\\sounds\\tick.wav", NULL, SND_FILENAME | SND_ASYNC | SND_NODEFAULT);
+                            } else {
+                                int nextSlot = g_rotaryHovered;
+                                do {
+                                    nextSlot = (nextSlot - 1 + N) % N;
+                                } while (!g_slotEnabled[nextSlot] && nextSlot != g_rotaryHovered);
+                                g_rotaryHovered = nextSlot;
+                                if (g_configStore.GetGlobal().enable_haptic_sound) PlaySoundW(L"resources\\sounds\\tick.wav", NULL, SND_FILENAME | SND_ASYNC | SND_NODEFAULT);
+                            }
                         }
                         RadialMenuSetHovered(g_hRadialMenuWnd, g_rotaryHovered);
                     }
@@ -390,7 +399,10 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
                             double angle = atan2(dx, dy);
                             double deg = angle * 180.0 / 3.14159265358979323846;
                             if (deg < 0) deg += 360.0;
-                            int sector = (int)floor((deg + 22.5) / 45.0) % 8;
+                            int N = (int)g_slotEnabled.size();
+                            if (N == 0) return 1;
+                            double sweep = 360.0 / N;
+                            int sector = (int)floor((deg + sweep / 2.0) / sweep) % N;
                             SlotConfig slot = g_configStore.GetSlotAtPath(g_menuPath, sector);
                             if (slot.type == "sub_menu") {
                                 g_menuPath.push_back(sector);

@@ -4,36 +4,57 @@ file_path = "c:\\Users\\carla\\Desktop\\AHK\\Arvie Knob Macro\\src\\config_store
 with open(file_path, "r", encoding="utf-8") as f:
     content = f.read()
 
-content = content.replace(
-    'g.interaction_mode = gj.value("interaction_mode", "mouse_hold");\n    g.rotary_prev = gj.value("rotary_prev", "PgDn");\n    g.rotary_next = gj.value("rotary_next", "PgUp");',
-    'g.interaction_mode = gj.value("interaction_mode", "mouse_hold");\n    g.rotary_prev = gj.value("rotary_prev", "PgDn");\n    g.rotary_next = gj.value("rotary_next", "PgUp");\n    g.is_enabled = gj.value("is_enabled", True);\n    g.toggle_hotkey = gj.value("toggle_hotkey", "F14");'
-)
+find_block = """static bool SanitizeSlots(nlohmann::json& s, int depth) {
+    bool modified = false;
+    if (depth > 10) return false;
+    
+    if (!s.is_array()) {
+        s = nlohmann::json::array();
+        modified = true;
+    }
 
-content = content.replace(
-    'sc.index = item["index"].get<int>();\n        sc.label = item["label"].get<std::string>();',
-    'sc.index = item["index"].get<int>();\n        sc.enabled = item.value("enabled", True);\n        sc.label = item["label"].get<std::string>();'
-)
+    std::vector<nlohmann::json> existingSlots(8, nlohmann::json());
+    for (auto& item : s) {
+        if (item.is_object() && item.contains("index") && item["index"].is_number_integer()) {
+            int idx = item["index"].get<int>();
+            if (idx >= 0 && idx < 8) {
+                existingSlots[idx] = item;
+            }
+        }
+    }
 
-content = content.replace(
-    'j["global"]["rotary_prev"] = g.rotary_prev;\n    j["global"]["rotary_next"] = g.rotary_next;',
-    'j["global"]["rotary_prev"] = g.rotary_prev;\n    j["global"]["rotary_next"] = g.rotary_next;\n    j["global"]["is_enabled"] = g.is_enabled;\n    j["global"]["toggle_hotkey"] = g.toggle_hotkey;'
-)
+    nlohmann::json sanitizedSlots = nlohmann::json::array();
+    for (int i = 0; i < 8; ++i) {
+        nlohmann::json& item = existingSlots[i];"""
 
-content = content.replace(
-    'item["index"] = sc.index;\n        item["label"] = sc.label;',
-    'item["index"] = sc.index;\n        item["enabled"] = sc.enabled;\n        item["label"] = sc.label;'
-)
+replace_block = """static bool SanitizeSlots(nlohmann::json& s, int depth) {
+    bool modified = false;
+    if (depth > 10) return false;
+    
+    if (!s.is_array()) {
+        s = nlohmann::json::array();
+        modified = true;
+    }
 
-content = content.replace(
-    'if (!g.contains("rotary_next") || !g["rotary_next"].is_string()) {\n        g["rotary_next"] = "PgUp";\n        modified = true;\n    }',
-    'if (!g.contains("rotary_next") || !g["rotary_next"].is_string()) {\n        g["rotary_next"] = "PgUp";\n        modified = true;\n    }\n    if (!g.contains("is_enabled") || !g["is_enabled"].is_boolean()) {\n        g["is_enabled"] = true;\n        modified = true;\n    }\n    if (!g.contains("toggle_hotkey") || !g["toggle_hotkey"].is_string()) {\n        g["toggle_hotkey"] = "F14";\n        modified = true;\n    }'
-)
+    std::vector<nlohmann::json> existingSlots;
+    for (auto& item : s) {
+        if (item.is_object()) {
+            existingSlots.push_back(item);
+        }
+    }
+    
+    // Fallback if empty root
+    if (depth == 0 && existingSlots.empty()) {
+        for (int i=0; i<8; i++) existingSlots.push_back(nlohmann::json::object());
+        modified = true;
+    }
 
-content = content.replace(
-    'if (!item.contains("index") || item["index"] != i) {\n            item["index"] = i;\n            itemModified = true;\n        }',
-    'if (!item.contains("index") || item["index"] != i) {\n            item["index"] = i;\n            itemModified = true;\n        }\n\n        if (!item.contains("enabled") || !item["enabled"].is_boolean()) {\n            item["enabled"] = true;\n            itemModified = true;\n        }'
-)
+    nlohmann::json sanitizedSlots = nlohmann::json::array();
+    for (size_t i = 0; i < existingSlots.size(); ++i) {
+        nlohmann::json& item = existingSlots[i];"""
+
+content = content.replace(find_block, replace_block)
 
 with open(file_path, "w", encoding="utf-8") as f:
     f.write(content)
-print("Patch applied to config_store.cpp")
+print("config_store.cpp padded logic removed")

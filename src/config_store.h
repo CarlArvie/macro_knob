@@ -16,6 +16,7 @@ struct GlobalConfig {
     std::string rotary_next = "PgUp";
     bool is_enabled = true;
     std::string toggle_hotkey = "F14";
+    bool enable_haptic_sound = true;
 };
 
 struct SlotConfig {

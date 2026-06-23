@@ -4,6 +4,7 @@ let currentPath = [];
 
 const DOM = {
     isEnabled: document.getElementById('is_enabled'),
+    enableHapticSound: document.getElementById('enable_haptic_sound'),
     toggleHotkey: document.getElementById('toggle_hotkey'),
     slotEnabled: document.getElementById('slot_enabled'),
     interactionMode: document.getElementById('interaction_mode'),
@@ -20,6 +21,7 @@ const DOM = {
     editorTitle: document.getElementById('editor-title'),
     slotLabel: document.getElementById('slot_label'),
     slotColor: document.getElementById('slot_color'),
+    btnResetColor: document.getElementById('btn_reset_color'),
     slotColorPicker: document.getElementById('slot_color_picker'),
     slotType: document.getElementById('slot_type'),
     slotPath: document.getElementById('slot_path'),
@@ -29,6 +31,8 @@ const DOM = {
     groupUrl: document.getElementById('group_url'),
     groupSubMenu: document.getElementById('group_sub_menu'),
     btnEnterSubMenu: document.getElementById('btn_enter_sub_menu'),
+    btnAddSlice: document.getElementById('btn_add_slice'),
+    btnDeleteSlice: document.getElementById('btn_delete_slice'),
     breadcrumb: document.getElementById('breadcrumb'),
     
     saveBtn: document.getElementById('save-btn'),
@@ -55,7 +59,7 @@ function getSlotsAtPath(path) {
         const idx = path[i];
         if (!current[idx].slots) {
             current[idx].slots = [];
-            for(let j=0; j<8; j++) current[idx].slots.push({index: j, enabled: true, label: `Slot ${j}`, color: "0xFF777777", type: "run_program", config: {}});
+            for(let j=0; j<4; j++) current[idx].slots.push({index: j, enabled: true, label: `Slot ${j}`, color: "0xFF777777", type: "run_program", config: {}});
         }
         current = current[idx].slots;
     }
@@ -87,6 +91,7 @@ window.goHome = function() {
 function populateGlobalSettings() {
     const g = configData.global;
     DOM.isEnabled.checked = g.is_enabled ?? true;
+    DOM.enableHapticSound.checked = g.enable_haptic_sound ?? true;
     DOM.toggleHotkey.value = g.toggle_hotkey || "F14";
     DOM.interactionMode.value = g.interaction_mode || "mouse_hold";
     DOM.hotkeyOverride.value = g.hotkey_override || "";
@@ -115,64 +120,97 @@ function convertHexToARGB(hex) {
 
 function renderPieChart() {
     DOM.svg.innerHTML = '';
-    const numSlices = 8;
+    const slotsArr = getSlotsAtPath(currentPath);
+    const N = slotsArr.length;
+    if (N === 0) return;
     
-    // Draw slices
-    for (let i = 0; i < numSlices; i++) {
-        const slotsArr = getSlotsAtPath(currentPath);
-        const slot = slotsArr[i];
-        const hexColor = extractHexFromARGB(slot.color);
-        
-        // Math for 8 slices (45 degrees each). Start at top (-90 deg), shifted back by 22.5 deg so slice 0 is perfectly top-centered.
-        const startAngle = (i * 45) - 90 - 22.5;
-        const endAngle = startAngle + 45;
-        
-        const startRad = startAngle * Math.PI / 180;
-        const endRad = endAngle * Math.PI / 180;
-        
-        const r = 90;
-        const x1 = Math.cos(startRad) * r;
-        const y1 = Math.sin(startRad) * r;
-        const x2 = Math.cos(endRad) * r;
-        const y2 = Math.sin(endRad) * r;
-        
-        const pathData = [
-            `M 0 0`,
-            `L ${x1} ${y1}`,
-            `A ${r} ${r} 0 0 1 ${x2} ${y2}`,
-            `Z`
-        ].join(' ');
-        
-        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttribute("d", pathData);
-        path.setAttribute("fill", hexColor);
-        path.setAttribute("class", i === activeSlotIndex ? "slice active" : "slice");
-        path.addEventListener("click", () => loadSlot(i));
-        if (slot.enabled === false) path.setAttribute("opacity", "0.15");
-        DOM.svg.appendChild(path);
-        
-        // Add Text
-        const midRad = (startAngle + 22.5) * Math.PI / 180;
-        const textR = 60; // position text along the slice radius
-        const tx = Math.cos(midRad) * textR;
-        const ty = Math.sin(midRad) * textR;
+    if (N === 1) {
+        const slot = slotsArr[0];
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("cx", "0");
+        circle.setAttribute("cy", "0");
+        circle.setAttribute("r", "90");
+        circle.setAttribute("fill", `#${slot.color.replace('0xFF', '')}`);
+        circle.setAttribute("stroke", "#2d2d2d");
+        circle.setAttribute("stroke-width", "2");
+        circle.style.cursor = "pointer";
+        if (slot.enabled === false) circle.setAttribute("opacity", "0.15");
+        circle.addEventListener('click', () => loadSlot(0));
+        DOM.svg.appendChild(circle);
         
         const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", "0");
+        text.setAttribute("y", "0");
+        text.setAttribute("text-anchor", "middle");
+        text.setAttribute("dominant-baseline", "middle");
+        text.setAttribute("fill", "#ffffff");
+        text.setAttribute("font-size", "12px");
+        text.setAttribute("font-weight", "600");
+        text.style.pointerEvents = "none";
+        text.textContent = slot.label || "Slot 1";
+        if (slot.enabled === false) text.setAttribute("opacity", "0.15");
+        DOM.svg.appendChild(text);
+        return;
+    }
+    
+    const sweepAngle = 360 / N;
+    for (let i = 0; i < N; i++) {
+        const slot = slotsArr[i];
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        const startAngle = (i * sweepAngle) - 90 - (sweepAngle / 2);
+        const endAngle = startAngle + sweepAngle;
+        
+        const x1 = 90 * Math.cos(startAngle * Math.PI / 180);
+        const y1 = 90 * Math.sin(startAngle * Math.PI / 180);
+        const x2 = 90 * Math.cos(endAngle * Math.PI / 180);
+        const y2 = 90 * Math.sin(endAngle * Math.PI / 180);
+        const largeArcFlag = sweepAngle > 180 ? 1 : 0;
+        
+        path.setAttribute("d", `M 0 0 L ${x1} ${y1} A 90 90 0 ${largeArcFlag} 1 ${x2} ${y2} Z`);
+        path.setAttribute("fill", `#${slot.color.replace('0xFF', '')}`);
+        path.setAttribute("stroke", "#2d2d2d");
+        path.setAttribute("stroke-width", "2");
+        path.style.cursor = "pointer";
+        path.style.transition = "all 0.2s ease";
+        if (slot.enabled === false) path.setAttribute("opacity", "0.15");
+        DOM.svg.appendChild(path);
+
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        const midAngle = startAngle + (sweepAngle / 2);
+        const tx = 60 * Math.cos(midAngle * Math.PI / 180);
+        const ty = 60 * Math.sin(midAngle * Math.PI / 180);
+        
         text.setAttribute("x", tx);
         text.setAttribute("y", ty);
-        text.setAttribute("class", "slice-text");
+        text.setAttribute("text-anchor", "middle");
+        text.setAttribute("dominant-baseline", "middle");
+        text.setAttribute("fill", "#ffffff");
+        text.setAttribute("font-size", "12px");
+        text.setAttribute("font-weight", "600");
+        text.style.pointerEvents = "none";
         
         let label = slot.label || `Slot ${i+1}`;
-        if (label.length > 10) label = label.substring(0, 8) + "..";
+        if (label.length > 10) label = label.substring(0, 8) + '..';
         text.textContent = label;
         if (slot.enabled === false) text.setAttribute("opacity", "0.15");
         DOM.svg.appendChild(text);
+
+        path.addEventListener('click', () => loadSlot(i));
+        // Add visual highlighting on hover
+        path.addEventListener('mouseover', () => {
+            path.setAttribute("opacity", "0.8");
+        });
+        path.addEventListener('mouseout', () => {
+            if (slot.enabled === false) path.setAttribute("opacity", "0.15");
+            else path.setAttribute("opacity", "1");
+        });
     }
 }
 
 function loadSlot(index) {
     activeSlotIndex = index;
     const slotsArr = getSlotsAtPath(currentPath);
+    if(slotsArr.length === 0) return;
     const slot = slotsArr[index];
     
     DOM.editorTitle.textContent = `Edit Slot ${index + 1}`;
@@ -233,6 +271,27 @@ function attachEventListeners() {
     // Auto update on input
     const inputs = [DOM.slotLabel, DOM.slotPath, DOM.slotUrl];
     DOM.slotEnabled.addEventListener('change', updateCurrentSlot);
+    DOM.btnAddSlice.addEventListener('click', () => {
+        const slotsArr = getSlotsAtPath(currentPath);
+        const newIdx = slotsArr.length;
+        slotsArr.push({index: newIdx, enabled: true, label: `Slot ${newIdx}`, color: "0xFF777777", type: "run_program", config: {}});
+        renderPieChart();
+    });
+
+    DOM.btnDeleteSlice.addEventListener('click', () => {
+        const slotsArr = getSlotsAtPath(currentPath);
+        if (slotsArr.length > 0) {
+            slotsArr.splice(activeSlotIndex, 1);
+            for(let i=0; i<slotsArr.length; i++) slotsArr[i].index = i;
+            activeSlotIndex = Math.max(0, activeSlotIndex - 1);
+            if (slotsArr.length > 0) {
+                loadSlot(activeSlotIndex);
+            } else {
+                DOM.slotEditor.style.display = 'none';
+            }
+            renderPieChart();
+        }
+    });
     inputs.forEach(input => {
         input.addEventListener('input', updateCurrentSlot);
     });
@@ -245,6 +304,12 @@ function attachEventListeners() {
     
     DOM.slotColor.addEventListener('input', (e) => {
         DOM.slotColorPicker.value = extractHexFromARGB(e.target.value);
+        updateCurrentSlot();
+    });
+
+    DOM.btnResetColor.addEventListener('click', () => {
+        DOM.slotColor.value = "0xFF777777";
+        DOM.slotColorPicker.value = extractHexFromARGB("0xFF777777");
         updateCurrentSlot();
     });
 
@@ -272,6 +337,7 @@ function updateCurrentSlot() {
 async function saveConfig() {
     // Update global settings
     configData.global.is_enabled = DOM.isEnabled.checked;
+    configData.global.enable_haptic_sound = DOM.enableHapticSound.checked;
     configData.global.toggle_hotkey = DOM.toggleHotkey.value;
     configData.global.interaction_mode = DOM.interactionMode.value;
     configData.global.hotkey_override = DOM.hotkeyOverride.value;
@@ -294,9 +360,8 @@ async function saveConfig() {
         
         showToast();
         setTimeout(() => {
-            window.close();
-            // Fallback if window.close() is blocked
-            document.body.innerHTML = "<div class='glass-container' style='text-align: center; margin-top: 100px;'><h2>Settings Saved!</h2><p>You can close this tab now. The config server has been safely shut down.</p></div>";
+            DOM.saveBtn.textContent = "Save Changes";
+            DOM.saveBtn.disabled = false;
         }, 1500);
     } catch (e) {
         console.error("Save failed", e);

@@ -154,12 +154,21 @@ static void MonitorProcess(HANDLE hProcess, const std::string& processName) {
 }
 
 bool RunProgram(const std::string& path, const std::string& args, bool runAsAdmin) {
+    std::wstring wpath = ResolvePath(path);
+    
+    // Check if path is a directory, if so, open it with ShellExecute natively
+    DWORD dwAttrib = GetFileAttributesW(wpath.c_str());
+    if (dwAttrib != INVALID_FILE_ATTRIBUTES && (dwAttrib & FILE_ATTRIBUTE_DIRECTORY)) {
+        LogMessage("RunProgram: Path is a directory, redirecting to ShellExecuteW natively.");
+        HINSTANCE hInst = ShellExecuteW(NULL, L"open", wpath.c_str(), NULL, NULL, SW_SHOWNORMAL);
+        return ((intptr_t)hInst > 32);
+    }
+
     if (runAsAdmin) {
         SHELLEXECUTEINFOW sei = {};
         sei.cbSize = sizeof(sei);
         sei.fMask = SEE_MASK_NOCLOSEPROCESS | SEE_MASK_FLAG_NO_UI;
         sei.lpVerb = L"runas";
-        std::wstring wpath = ResolvePath(path);
         sei.lpFile = wpath.c_str();
         std::wstring wargs = Utf8ToUtf16(args);
         if (!wargs.empty()) {
@@ -186,7 +195,6 @@ bool RunProgram(const std::string& path, const std::string& args, bool runAsAdmi
         si.cb = sizeof(si);
         PROCESS_INFORMATION pi = {};
         
-        std::wstring wpath = ResolvePath(path);
         std::wstring wargs = Utf8ToUtf16(args);
         
         std::wstring cmdLine = L"\"" + wpath + L"\"";

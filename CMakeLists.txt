@@ -57,6 +57,7 @@ target_link_libraries(knoblaunch PRIVATE
     gdi32
     gdiplus
     shlwapi
+    winmm
 )
 
 # Copy executable to workspace root after build

@@ -377,6 +377,7 @@ C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/
 C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/include/any
 C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.51.36231/include/string_view
 C:/Users/carla/Desktop/AHK/Arvie Knob Macro/src/input_hook.h
+C:/Program Files (x86)/Windows Kits/10/include/10.0.26100.0/um/mmsystem.h
 C:/Program Files (x86)/Windows Kits/10/include/10.0.26100.0/um/gdiplus.h
 C:/Program Files (x86)/Windows Kits/10/include/10.0.26100.0/shared/pshpack8.h
 C:/Program Files (x86)/Windows Kits/10/include/10.0.26100.0/um/GdiplusMem.h
