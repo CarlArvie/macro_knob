@@ -11,6 +11,10 @@
 
 extern ConfigStore g_configStore;
 
+extern void ForceCloseMenu();
+static ULONGLONG g_lastInteractionTime = 0;
+static POINT g_lastMousePt = {0, 0};
+
 static Gdiplus::Color ParseColorString(const std::string& colorStr, bool isHovered) {
     Gdiplus::Color baseColor(180, 80, 80, 80); // default semi-transparent dark gray
     
@@ -186,6 +190,8 @@ LRESULT CALLBACK RadialMenuWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARA
         SetWindowLongPtrW(hWnd, GWLP_USERDATA, (LONG_PTR)-1);
         SetTimer(hWnd, 1, 16, NULL);
         RedrawRadialMenu(hWnd, -1);
+        g_lastInteractionTime = GetTickCount64();
+        GetCursorPos(&g_lastMousePt);
         break;
     }
     case WM_TIMER: {
@@ -195,6 +201,17 @@ LRESULT CALLBACK RadialMenuWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARA
             }
             POINT pt;
             if (GetCursorPos(&pt)) {
+                if (pt.x != g_lastMousePt.x || pt.y != g_lastMousePt.y) {
+                    g_lastInteractionTime = GetTickCount64();
+                    g_lastMousePt = pt;
+                }
+
+                int autoHideS = g_configStore.GetGlobal().auto_hide_timer_s;
+                if (autoHideS > 0 && (GetTickCount64() - g_lastInteractionTime) > (ULONGLONG)autoHideS * 1000) {
+                    ForceCloseMenu();
+                    return 0;
+                }
+
                 RECT rect;
                 GetWindowRect(hWnd, &rect);
                 int cx = (rect.left + rect.right) / 2;
@@ -253,18 +270,41 @@ bool RegisterRadialMenuClass(HINSTANCE hInstance) {
 }
 
 HWND CreateRadialMenu(HWND hParentWnd) {
-    POINT pt;
-    GetCursorPos(&pt);
-
     int width = 400;
     int height = 400;
 
-    std::string sz = g_configStore.GetGlobal().radial_size;
-    if (sz == "small") {
-        width = height = 300;
-    } else if (sz == "large") {
-        width = height = 500;
+
+
+    std::string spawnLoc = g_configStore.GetGlobal().menu_spawn_location;
+    POINT pt;
+    GetCursorPos(&pt); // Default to cursor
+
+    if (spawnLoc != "cursor") {
+        HMONITOR hMonitor = MonitorFromPoint(pt, MONITOR_DEFAULTTONEAREST);
+        MONITORINFO mi = { sizeof(mi) };
+        if (GetMonitorInfoW(hMonitor, &mi)) {
+            int monW = mi.rcWork.right - mi.rcWork.left;
+            int monH = mi.rcWork.bottom - mi.rcWork.top;
+            if (spawnLoc == "center") {
+                pt.x = mi.rcWork.left + monW / 2;
+                pt.y = mi.rcWork.top + monH / 2;
+            } else if (spawnLoc == "top_left") {
+                pt.x = mi.rcWork.left + width / 2;
+                pt.y = mi.rcWork.top + height / 2;
+            } else if (spawnLoc == "top_right") {
+                pt.x = mi.rcWork.right - width / 2;
+                pt.y = mi.rcWork.top + height / 2;
+            } else if (spawnLoc == "bottom_left") {
+                pt.x = mi.rcWork.left + width / 2;
+                pt.y = mi.rcWork.bottom - height / 2;
+            } else if (spawnLoc == "bottom_right") {
+                pt.x = mi.rcWork.right - width / 2;
+                pt.y = mi.rcWork.bottom - height / 2;
+            }
+        }
     }
+
+
 
     int x = pt.x - width / 2;
     int y = pt.y - height / 2;

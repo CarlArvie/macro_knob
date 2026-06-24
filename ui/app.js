@@ -13,6 +13,8 @@ const DOM = {
     rotaryPrev: document.getElementById('rotary_prev'),
     holdThreshold: document.getElementById('hold_threshold_ms'),
     radialSize: document.getElementById('radial_size'),
+      menuSpawnLocation: document.getElementById('menu_spawn_location'),
+      autoHideTimerS: document.getElementById('auto_hide_timer_s'),
     showTrayIcon: document.getElementById('show_tray_icon'),
     debugLog: document.getElementById('debug_log'),
     
@@ -99,6 +101,8 @@ function populateGlobalSettings() {
     DOM.rotaryPrev.value = g.rotary_prev || "";
     DOM.holdThreshold.value = g.hold_threshold_ms || 150;
     DOM.radialSize.value = g.radial_size || "medium";
+      DOM.menuSpawnLocation.value = g.menu_spawn_location || "cursor";
+      DOM.autoHideTimerS.value = g.auto_hide_timer_s !== undefined ? g.auto_hide_timer_s : 10;
     DOM.showTrayIcon.checked = g.show_tray_icon ?? true;
     DOM.debugLog.checked = g.debug_log ?? false;
 }
@@ -345,6 +349,8 @@ async function saveConfig() {
     configData.global.rotary_prev = DOM.rotaryPrev.value;
     configData.global.hold_threshold_ms = parseInt(DOM.holdThreshold.value) || 150;
     configData.global.radial_size = DOM.radialSize.value;
+    configData.global.menu_spawn_location = DOM.menuSpawnLocation.value;
+    configData.global.auto_hide_timer_s = parseInt(DOM.autoHideTimerS.value, 10);
     configData.global.show_tray_icon = DOM.showTrayIcon.checked;
     configData.global.debug_log = DOM.debugLog.checked;
     

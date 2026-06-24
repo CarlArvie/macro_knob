@@ -1876,3 +1876,181 @@
 [2026-06-23 23:12:37] [PID:6764] SetMenuVisible: 0
 [2026-06-23 23:12:37] [PID:6764] RegisterRawInputDevices toggled: swallow=0
 [2026-06-23 23:12:40] [PID:6764] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-23 23:14:09] [PID:6764] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 14:36:13] [PID:1488] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 14:36:15] [PID:840] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 14:36:21] [PID:840] SetMenuVisible: 1
+[2026-06-24 14:36:21] [PID:840] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 14:36:24] [PID:840] SetMenuVisible: 0
+[2026-06-24 14:36:24] [PID:840] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 14:36:29] [PID:840] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-24 14:36:30] [PID:840] SetMenuVisible: 1
+[2026-06-24 14:36:30] [PID:840] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 14:36:34] [PID:840] SetMenuVisible: 0
+[2026-06-24 14:36:34] [PID:840] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 14:36:38] [PID:840] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-24 14:51:29] [PID:840] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 14:51:30] [PID:1488] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 14:51:58] [PID:4144] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 14:52:19] [PID:4144] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 14:52:19] [PID:16372] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 14:52:21] [PID:16372] SetMenuVisible: 1
+[2026-06-24 14:52:21] [PID:16372] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 14:52:28] [PID:16372] SetMenuVisible: 0
+[2026-06-24 14:52:28] [PID:16372] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 14:52:34] [PID:16372] SetMenuVisible: 1
+[2026-06-24 14:52:34] [PID:16372] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 14:52:42] [PID:16372] SetMenuVisible: 0
+[2026-06-24 14:52:42] [PID:16372] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 14:52:42] [PID:16372] Opening URL: https://google.com
+[2026-06-24 14:53:11] [PID:16372] SetMenuVisible: 1
+[2026-06-24 14:53:11] [PID:16372] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 14:53:14] [PID:16372] SetMenuVisible: 0
+[2026-06-24 14:53:14] [PID:16372] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 14:53:15] [PID:16372] SetMenuVisible: 1
+[2026-06-24 14:53:15] [PID:16372] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 14:53:18] [PID:16372] SetMenuVisible: 0
+[2026-06-24 14:53:18] [PID:16372] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 14:53:19] [PID:16372] SetMenuVisible: 1
+[2026-06-24 14:53:19] [PID:16372] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 14:53:21] [PID:16372] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 14:53:29] [PID:16372] SetMenuVisible: 0
+[2026-06-24 14:53:29] [PID:16372] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 14:54:46] [PID:16372] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-24 14:54:47] [PID:16372] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-24 14:54:47] [PID:16372] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-24 14:58:32] [PID:16372] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 14:58:32] [PID:10792] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 14:58:35] [PID:10792] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 14:58:36] [PID:10792] SetMenuVisible: 1
+[2026-06-24 14:58:36] [PID:10792] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 14:58:37] [PID:10792] SetMenuVisible: 0
+[2026-06-24 14:58:37] [PID:10792] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 14:58:41] [PID:10792] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-24 15:01:50] [PID:10792] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:02:41] [PID:15020] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:05:01] [PID:4516] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:05:12] [PID:4516] SetMenuVisible: 1
+[2026-06-24 15:05:12] [PID:4516] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:05:13] [PID:4516] SetMenuVisible: 0
+[2026-06-24 15:05:13] [PID:4516] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:05:18] [PID:4516] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-24 15:05:43] [PID:4516] SetMenuVisible: 1
+[2026-06-24 15:05:43] [PID:4516] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:05:45] [PID:4516] SetMenuVisible: 0
+[2026-06-24 15:05:45] [PID:4516] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:05:49] [PID:4516] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-24 15:07:14] [PID:4516] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:08:53] [PID:9556] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:09:20] [PID:12740] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:09:31] [PID:11108] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:14:25] [PID:10224] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:14:26] [PID:10224] SetMenuVisible: 1
+[2026-06-24 15:14:26] [PID:10224] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:14:27] [PID:10224] SetMenuVisible: 0
+[2026-06-24 15:14:27] [PID:10224] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:14:29] [PID:10224] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-24 15:14:35] [PID:10224] SetMenuVisible: 1
+[2026-06-24 15:14:35] [PID:10224] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:14:53] [PID:10224] SetMenuVisible: 0
+[2026-06-24 15:14:53] [PID:10224] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:21:57] [PID:10224] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:21:58] [PID:14968] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:21:58] [PID:14968] SetMenuVisible: 1
+[2026-06-24 15:21:58] [PID:14968] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:22:08] [PID:14968] SetMenuVisible: 0
+[2026-06-24 15:22:08] [PID:14968] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:22:13] [PID:14968] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:22:13] [PID:12796] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:22:32] [PID:12796] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:22:32] [PID:6088] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:22:35] [PID:6088] SetMenuVisible: 1
+[2026-06-24 15:22:35] [PID:6088] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:22:36] [PID:6088] SetMenuVisible: 0
+[2026-06-24 15:22:36] [PID:6088] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:22:36] [PID:6088] RunProgram: Path is a directory, redirecting to ShellExecuteW natively.
+[2026-06-24 15:22:49] [PID:6088] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:22:49] [PID:12368] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:22:50] [PID:12368] SetMenuVisible: 1
+[2026-06-24 15:22:50] [PID:12368] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:22:52] [PID:12368] SetMenuVisible: 0
+[2026-06-24 15:22:52] [PID:12368] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:22:52] [PID:12368] Opening URL: https://google.com
+[2026-06-24 15:22:56] [PID:12368] SetMenuVisible: 1
+[2026-06-24 15:22:56] [PID:12368] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:23:06] [PID:12368] SetMenuVisible: 0
+[2026-06-24 15:23:06] [PID:12368] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:23:12] [PID:12368] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:23:12] [PID:9260] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:23:14] [PID:9260] SetMenuVisible: 1
+[2026-06-24 15:23:14] [PID:9260] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:23:26] [PID:9260] SetMenuVisible: 0
+[2026-06-24 15:23:26] [PID:9260] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:23:45] [PID:9260] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:23:45] [PID:17988] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:23:46] [PID:17988] SetMenuVisible: 1
+[2026-06-24 15:23:46] [PID:17988] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:23:56] [PID:17988] SetMenuVisible: 0
+[2026-06-24 15:23:56] [PID:17988] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:24:06] [PID:17988] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:24:10] [PID:404] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:24:28] [PID:404] SetMenuVisible: 1
+[2026-06-24 15:24:28] [PID:404] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:24:38] [PID:404] SetMenuVisible: 0
+[2026-06-24 15:24:38] [PID:404] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:27:58] [PID:404] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:30:17] [PID:19772] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:30:21] [PID:19772] SetMenuVisible: 1
+[2026-06-24 15:30:21] [PID:19772] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:30:31] [PID:19772] SetMenuVisible: 0
+[2026-06-24 15:30:31] [PID:19772] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:30:37] [PID:19772] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:30:37] [PID:2816] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:30:47] [PID:2816] SetMenuVisible: 1
+[2026-06-24 15:30:47] [PID:2816] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:30:57] [PID:2816] SetMenuVisible: 0
+[2026-06-24 15:30:57] [PID:2816] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:31:05] [PID:2816] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:31:06] [PID:2816] SetMenuVisible: 1
+[2026-06-24 15:31:06] [PID:2816] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:31:16] [PID:2816] SetMenuVisible: 0
+[2026-06-24 15:31:16] [PID:2816] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:31:24] [PID:2816] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:35:34] [PID:4792] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:35:37] [PID:4792] SetMenuVisible: 1
+[2026-06-24 15:35:37] [PID:4792] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:35:39] [PID:4792] SetMenuVisible: 0
+[2026-06-24 15:35:39] [PID:4792] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:35:41] [PID:4792] SetMenuVisible: 1
+[2026-06-24 15:35:41] [PID:4792] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:35:43] [PID:4792] SetMenuVisible: 0
+[2026-06-24 15:35:43] [PID:4792] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:35:49] [PID:4792] SetMenuVisible: 1
+[2026-06-24 15:35:49] [PID:4792] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:35:53] [PID:4792] SetMenuVisible: 0
+[2026-06-24 15:35:53] [PID:4792] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:35:59] [PID:4792] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:35:59] [PID:15208] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:36:00] [PID:15208] SetMenuVisible: 1
+[2026-06-24 15:36:00] [PID:15208] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:36:01] [PID:15208] SetMenuVisible: 0
+[2026-06-24 15:36:01] [PID:15208] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:36:02] [PID:15208] SetMenuVisible: 1
+[2026-06-24 15:36:02] [PID:15208] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:36:05] [PID:15208] SetMenuVisible: 0
+[2026-06-24 15:36:05] [PID:15208] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:36:05] [PID:15208] SetMenuVisible: 1
+[2026-06-24 15:36:05] [PID:15208] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:36:06] [PID:15208] SetMenuVisible: 0
+[2026-06-24 15:36:06] [PID:15208] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:36:07] [PID:15208] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-24 15:36:08] [PID:15208] SetMenuVisible: 1
+[2026-06-24 15:36:08] [PID:15208] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:36:09] [PID:15208] SetMenuVisible: 0
+[2026-06-24 15:36:09] [PID:15208] RegisterRawInputDevices toggled: swallow=0
+[2026-06-24 15:36:11] [PID:15208] Process C:\Program Files\VideoLAN\VLC\vlc.exe exited with code 0
+[2026-06-24 15:41:19] [PID:15208] SetMenuVisible: 1
+[2026-06-24 15:41:19] [PID:15208] RegisterRawInputDevices toggled: swallow=1
+[2026-06-24 15:41:21] [PID:15208] UpdateHookConfig: interactionMode=rotary debugLog=1 targetVk=33 prevVk=174 nextVk=175
+[2026-06-24 15:41:21] [PID:15208] SetMenuVisible: 0
+[2026-06-24 15:41:21] [PID:15208] RegisterRawInputDevices toggled: swallow=0

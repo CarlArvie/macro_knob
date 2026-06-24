@@ -139,6 +139,32 @@ static std::wstring FindAutoHotkeyExe() {
     return L"bin\\AutoHotkey64.exe";
 }
 
+static void ForceForegroundRights() {
+    // Simulate a dummy ALT keystroke. ALT is explicitly handled by Windows to release the foreground lock.
+    INPUT inputs[2] = {};
+    inputs[0].type = INPUT_KEYBOARD;
+    inputs[0].ki.wVk = VK_MENU;
+    inputs[1].type = INPUT_KEYBOARD;
+    inputs[1].ki.wVk = VK_MENU;
+    inputs[1].ki.dwFlags = KEYEVENTF_KEYUP;
+    SendInput(2, inputs, sizeof(INPUT));
+
+    HWND hForeground = GetForegroundWindow();
+    if (hForeground) {
+        DWORD fgThread = GetWindowThreadProcessId(hForeground, NULL);
+        DWORD myThread = GetCurrentThreadId();
+        if (fgThread != myThread) {
+            AttachThreadInput(myThread, fgThread, TRUE);
+            AllowSetForegroundWindow(ASFW_ANY);
+            AttachThreadInput(myThread, fgThread, FALSE);
+        } else {
+            AllowSetForegroundWindow(ASFW_ANY);
+        }
+    } else {
+        AllowSetForegroundWindow(ASFW_ANY);
+    }
+}
+
 static void MonitorProcess(HANDLE hProcess, const std::string& processName) {
     std::thread t([hProcess, processName]() {
         WaitForSingleObject(hProcess, INFINITE);
@@ -160,10 +186,12 @@ bool RunProgram(const std::string& path, const std::string& args, bool runAsAdmi
     DWORD dwAttrib = GetFileAttributesW(wpath.c_str());
     if (dwAttrib != INVALID_FILE_ATTRIBUTES && (dwAttrib & FILE_ATTRIBUTE_DIRECTORY)) {
         LogMessage("RunProgram: Path is a directory, redirecting to ShellExecuteW natively.");
+        ForceForegroundRights();
         HINSTANCE hInst = ShellExecuteW(NULL, L"open", wpath.c_str(), NULL, NULL, SW_SHOWNORMAL);
         return ((intptr_t)hInst > 32);
     }
 
+    ForceForegroundRights();
     if (runAsAdmin) {
         SHELLEXECUTEINFOW sei = {};
         sei.cbSize = sizeof(sei);
@@ -228,6 +256,7 @@ bool RunProgram(const std::string& path, const std::string& args, bool runAsAdmi
 bool OpenURL(const std::string& url) {
     LogMessage("Opening URL: " + url);
     std::wstring wurl = Utf8ToUtf16(url);
+    ForceForegroundRights();
     HINSTANCE hInst = ShellExecuteW(NULL, L"open", wurl.c_str(), NULL, NULL, SW_SHOWNORMAL);
     if ((intptr_t)hInst > 32) {
         return true;

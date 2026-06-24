@@ -8,6 +8,8 @@
 struct GlobalConfig {
     int hold_threshold_ms = 150;
     std::string radial_size = "medium";
+    std::string menu_spawn_location = "cursor";
+    int auto_hide_timer_s = 10;
     std::string hotkey_override = "F13";
     bool show_tray_icon = true;
     bool debug_log = false;

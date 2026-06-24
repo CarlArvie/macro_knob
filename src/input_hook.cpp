@@ -301,7 +301,10 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
                         DeleteTimerQueueTimer(NULL, g_hRotaryTimer, NULL);
                         g_hRotaryTimer = NULL;
                     }
-                    CreateTimerQueueTimer(&g_hRotaryTimer, NULL, RotaryTimerCallback, NULL, 10000, 0, WT_EXECUTEONLYONCE);
+                    int autoHideMs = g_configStore.GetGlobal().auto_hide_timer_s * 1000;
+                        if (autoHideMs > 0) {
+                            CreateTimerQueueTimer(&g_hRotaryTimer, NULL, RotaryTimerCallback, NULL, autoHideMs, 0, WT_EXECUTEONLYONCE);
+                        }
                 }
                 return 1;
             } else if (pKeyInfo->vkCode == g_targetVk) {
@@ -313,7 +316,10 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
                         UpdateSlotEnabledCache();
                         RadialMenuSetHovered(g_hRadialMenuWnd, g_rotaryHovered);
                         if (g_hRotaryTimer) { DeleteTimerQueueTimer(NULL, g_hRotaryTimer, NULL); g_hRotaryTimer = NULL; }
-                        CreateTimerQueueTimer(&g_hRotaryTimer, NULL, RotaryTimerCallback, NULL, 10000, 0, WT_EXECUTEONLYONCE);
+                        int autoHideMs = g_configStore.GetGlobal().auto_hide_timer_s * 1000;
+                        if (autoHideMs > 0) {
+                            CreateTimerQueueTimer(&g_hRotaryTimer, NULL, RotaryTimerCallback, NULL, autoHideMs, 0, WT_EXECUTEONLYONCE);
+                        }
                         g_swallowTargetUp = true;
                         return 1;
                     } else if (slot.type == "back") {
@@ -322,7 +328,10 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
                         UpdateSlotEnabledCache();
                         RadialMenuSetHovered(g_hRadialMenuWnd, g_rotaryHovered);
                         if (g_hRotaryTimer) { DeleteTimerQueueTimer(NULL, g_hRotaryTimer, NULL); g_hRotaryTimer = NULL; }
-                        CreateTimerQueueTimer(&g_hRotaryTimer, NULL, RotaryTimerCallback, NULL, 10000, 0, WT_EXECUTEONLYONCE);
+                        int autoHideMs = g_configStore.GetGlobal().auto_hide_timer_s * 1000;
+                        if (autoHideMs > 0) {
+                            CreateTimerQueueTimer(&g_hRotaryTimer, NULL, RotaryTimerCallback, NULL, autoHideMs, 0, WT_EXECUTEONLYONCE);
+                        }
                         g_swallowTargetUp = true;
                         return 1;
                     }
@@ -432,6 +441,14 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
         }
     }
     return CallNextHookEx(g_hHook, nCode, wParam, lParam);
+}
+
+void ForceCloseMenu() {
+    if (g_hRadialMenuWnd) {
+        DestroyWindow(g_hRadialMenuWnd);
+        g_hRadialMenuWnd = NULL;
+        SetMenuVisible(false);
+    }
 }
 
 bool StartInputHook(HWND hDaemonWnd) {

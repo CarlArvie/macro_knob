@@ -1,11 +1,13 @@
 {
     "global": {
+        "auto_hide_timer_s": 1,
         "debug_log": true,
         "enable_haptic_sound": true,
         "hold_threshold_ms": 1000,
         "hotkey_override": "PgUp",
         "interaction_mode": "rotary",
-        "is_enabled": true,
+        "is_enabled": false,
+        "menu_spawn_location": "center",
         "radial_size": "large",
         "rotary_next": "Volume_Up",
         "rotary_prev": "Volume_Down",
@@ -32,7 +34,7 @@
             "enabled": true,
             "icon": "",
             "index": 1,
-            "label": "Slot 6",
+            "label": "Slot 7",
             "type": "open_url"
         },
         {
@@ -41,21 +43,10 @@
                 "url": "https://google.com"
             },
             "enabled": true,
-            "icon": "",
-            "index": 2,
-            "label": "Slot 7",
-            "type": "open_url"
-        },
-        {
-            "color": "0xFF777777",
-            "config": {
-                "path": ""
-            },
-            "enabled": true,
             "icon": "resources/icons/default.png",
-            "index": 3,
+            "index": 2,
             "label": "Slot 5",
-            "type": "run_program"
+            "type": "open_url"
         },
         {
             "color": "0xFF777777",
@@ -64,7 +55,7 @@
             },
             "enabled": true,
             "icon": "resources/icons/default.png",
-            "index": 4,
+            "index": 3,
             "label": "Slot 6",
             "type": "run_program"
         }

@@ -57,6 +57,8 @@ static void LoadFromJson(const nlohmann::json& j, GlobalConfig& g, std::vector<S
     g.is_enabled = gj.value("is_enabled", true);
     g.toggle_hotkey = gj.value("toggle_hotkey", "F14");
     g.enable_haptic_sound = gj.value("enable_haptic_sound", true);
+    g.menu_spawn_location = gj.value("menu_spawn_location", "cursor");
+    g.auto_hide_timer_s = gj.value("auto_hide_timer_s", 10);
 
     if (j.contains("slots")) {
         sVec = ParseSlotsFromJson(j["slots"], 0);
@@ -78,6 +80,8 @@ static nlohmann::json SaveToJson(const GlobalConfig& g, const std::vector<SlotCo
     j["global"]["is_enabled"] = g.is_enabled;
     j["global"]["toggle_hotkey"] = g.toggle_hotkey;
     j["global"]["enable_haptic_sound"] = g.enable_haptic_sound;
+    j["global"]["menu_spawn_location"] = g.menu_spawn_location;
+    j["global"]["auto_hide_timer_s"] = g.auto_hide_timer_s;
 
     j["slots"] = SerializeSlotsToJson(sVec);
     return j;
